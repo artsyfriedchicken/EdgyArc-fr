@@ -2,14 +2,15 @@
 
 Because Arc and Edge look pretty af but FOSS FTW
 
+![EdgyArc-fr, default dark theme with adaptive colour addon enabled](screenshots/01.png)
 
 ## Prerequisites
 
 To use EdgyArc-fr to its fullest potential, ensure you have the following prerequisites:
 
 - [EdgeFrFox UserChrome Theme](https://github.com/bmFtZQ/edge-frfox/) - A sleek user interface theme for Firefox.
+- [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) - Enhanced sidebar manager for Firefox.
 - Recommended Addons:
-  - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) - Enhanced sidebar manager for Firefox.
   - [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) - Toggle the userChrome.css and userContent.css files.
   - [Adaptive Tab Bar Color](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/) - Adaptive color for the Firefox tab bar.
 
@@ -46,8 +47,20 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 
 ## Screenshots
 
-To be added
+![EdgyArc-fr, default dark theme with adaptive colour addon enabled](screenshots/01.png)
+Default dark theme with adaptive colour addon enabled and sidebar collapsed
 
+![EdgyArc-fr, default dark theme](screenshots/02.png)
+default dark theme with adaptive colour addon enabled and autohide sidebar hovered
+
+![EdgyArc-fr, default dark theme](screenshots/03.png)
+default dark theme with adaptive colour addon enabled and always expanded sidebar
+
+![Light theme, colours being pulled from the dribbble website](screenshots/04.png)
+Light theme, colours being pulled from the dribbble website
+
+![EdgyArc-fr, supports dark reader](screenshots/05.png)
+Supports Dark Reader addon
 
 ## Issues and Contributions
 
