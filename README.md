@@ -7,11 +7,11 @@ Because Arc and Edge look pretty af but FOSS FTW
 
 To use EdgyArc-fr to its fullest potential, ensure you have the following prerequisites:
 
-- [EdgeFrFox UserChrome Theme](https://github.com/edgefrfox/EdgeFrFox) - A sleek user interface theme for Firefox.
+- [EdgeFrFox UserChrome Theme](https://github.com/bmFtZQ/edge-frfox/) - A sleek user interface theme for Firefox.
 - Recommended Addons:
   - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) - Enhanced sidebar manager for Firefox.
   - [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) - Toggle the userChrome.css and userContent.css files.
-  - [Adaptive Tab Bar Color](https://addons.mozilla.org/firefox/addon/adaptive-tab-bar-color/) - Adaptive color for the Firefox tab bar.
+  - [Adaptive Tab Bar Color](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/) - Adaptive color for the Firefox tab bar.
 
 ## About
 
