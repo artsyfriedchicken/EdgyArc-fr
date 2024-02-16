@@ -1,4 +1,3 @@
-
 /*
   Styles by PritCee (@pritceeart)
   Twitter: https://twitter.com/pritceeart
@@ -11,11 +10,34 @@
 
   Remember to respect the original authors' work and adhere to their licenses.
 */
-
-
-
 /* Import external styles */
 @import url("autohide-sidebar-modified.css");
+/**/@import url("translucent-window.css") (-moz-bool-pref: "uc.tweak.translucent-window");/**/
+
+
+
+:root[titlepreface="᠎"] {
+  #sidebar-box {
+    opacity:0.75 !important;
+  }
+  
+  #sidebar-box:hover {
+  opacity:1 !important;
+  
+  }
+  
+}
+
+
+:root:-moz-window-inactive #nav-bar {
+opacity:0.6 !important;
+}
+
+#fxa-toolbar-menu-button {
+transform:scale(0.8) !important;
+}
+
+
 
 /* Fixes for Firefox to enable autohide */
 #sidebar-box {
@@ -32,84 +54,16 @@
     }
 }
 
-/* Styles for the navigation bar */
-#nav-bar {
-    margin-top: 1px !important;
-}
 
-/* Styles for sidebar header */
-#sidebar-header {
-    display: none;
-    overflow: hidden;
-    color: var(--chrome-color, inherit) !important;
-    padding-inline: 0 !important;
-}
+#navigator-toolbox{border-bottom:enone !important;}
 
-/* Opacity and transition for address bar and toolbar buttons */
-#navigator-toolbox:not(:hover) #urlbar-input-container,
-#navigator-toolbox:not(:hover) .toolbarbutton-1,
-#navigator-toolbox:not(:hover) .toolbarbutton-1 .toolbarbutton-icon {
-    opacity: 0.6;
-    transition: opacity 300ms linear !important;
-}
-
-#navigator-toolbox:hover #urlbar-input-container,
-#navigator-toolbox:hover .toolbarbutton-1,
-#navigator-toolbox:hover .toolbarbutton-1 .toolbarbutton-icon {
-    opacity: 1;
-    transition: opacity 300ms linear !important;
-}
-
-.panel-no-padding {
-    padding: 2px !important;
-}
-
-/* Ensure the opacity of the rounded rectangle around the urlbar remains unchanged */
-#navigator-toolbox:not(:hover) #urlbar-container {
-    opacity: 1 !important;
-}
-
-/* Ensure the opacity of navigation toolbox remains unchanged */
-#navigator-toolbox:not(:hover) #navigator-toolbox,
-#navigator-toolbox:hover #navigator-toolbox {
-    opacity: 1 !important;
-}
-
-/* Greyscale addon buttons when not hovered with transition */
-#navigator-toolbox:not(:hover) .toolbarbutton-1:not(:hover) .toolbarbutton-icon,
-#navigator-toolbox:not(:hover) .toolbarbutton-1:hover .toolbarbutton-icon {
-    filter: grayscale(100%);
-    transition: filter 300ms linear !important;
-}
-
-/* Make sure extended urlbar is always opaque */
-#urlbar-container > #urlbar[breakout][breakout-extend] {
-    opacity: 1 !important;
-}
-
-#urlbar[breakout][breakout-extend] {
-    margin-top: 5px !important;
-    margin-bottom: 4px !important;
-}
-
-/* Greyscale and transform for FxA toolbar menu button */
-#navbar-customization-target:not(:hover) #fxa-toolbar-menu-button .toolbarbutton-icon {
-    filter: grayscale(100%);
-    transform: scale(0.4);
-    transform-origin: top left;
-}
-
-#fxa-toolbar-menu-button:hover .toolbarbutton-icon {
-    filter: grayscale(0%);
-    transform: scale(1.3);
-}
 
 /* Common styles for #sidebar and #sidebar-box */
 #sidebar,
 #sidebar-box {
     border-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    background-color: var(--toolbar-field-background-color) !important;
 }
+
 
 /* Styles specific to #sidebar */
 #sidebar {
@@ -120,7 +74,6 @@
 }
 
 #sidebar-box {
-    opacity: 1 !important;
     background-color: transparent !important;
 }
 
@@ -137,3 +90,86 @@
     background-color: var(--urlbar-box-active-bgcolor) !important;
     transition: background-color 200ms ease-in-out;
 }
+
+
+
+
+
+/* Styles for the navigation bar */
+#nav-bar {
+    margin-top: 1px !important;
+}
+
+/* Styles for sidebar header */
+#sidebar-header {
+    display: none;
+    overflow: hidden;
+    color: var(--chrome-color, inherit) !important;
+    padding-inline: 0 !important;
+}
+
+.panel-no-padding {
+    padding: 2px !important;
+}
+
+
+
+#userchrome-toggle_joolee_nl-BAP.unified-extensions-item-action-button {
+list-style-image: url("../icons/sidebars.svg") !important;
+}
+
+
+#urlbar[breakout][breakout-extend] #urlbar-background {
+opacity:1 !important;
+margin-top:4px !important;
+}
+
+
+/* Opacity and transition for address bar and toolbar buttons 
+#navigator-toolbox:not(:hover) #urlbar-input-container, */
+#navigator-toolbox:not(:hover) .toolbarbutton-1,
+#navigator-toolbox:not(:hover) .toolbarbutton-1 .toolbarbutton-icon {
+    opacity: 0.8;
+    transition: opacity 300ms linear !important;
+}
+
+/* #navigator-toolbox:hover #urlbar-input-container, */
+#navigator-toolbox:hover .toolbarbutton-1,
+#navigator-toolbox:hover .toolbarbutton-1 .toolbarbutton-icon {
+    opacity: 0.8;
+    transition: opacity 300ms linear !important;
+}
+
+#identity-box,
+#tracking-protection-icon-container,
+#page-action-buttons {
+  opacity:0.5 !important;
+  transition: opacity 300ms ease-in-out;
+}
+
+#urlbar:hover #identity-box,
+#urlbar:hover #tracking-protection-icon-container,
+#urlbar:hover #page-action-buttons {
+  opacity:0.8 !important;
+}
+
+
+.urlbar-input-box{margin-top:-2px !important;}
+
+
+:root {
+--uc-titlebar-drag-space: 10px;
+}
+
+  /* macOS specific positioning */
+  @media (-moz-platform: macos) {
+    /* Offset navbar contents to make space for the window controls */
+    &[tabsintitlebar] #nav-bar:not([inFullscreen]) {
+      padding-left: calc(40px + var(--uc-titlebar-drag-space)) !important;
+
+      /* Remove the padding from the side of the navbar */
+      & #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child {
+        padding-inline-start: 0 !important;
+      }
+    }
+    
