@@ -65,15 +65,11 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 
 ![ ](screenshots/01.png)
 
-
 ![ ](screenshots/02.png)
-
 
 ![ ](screenshots/03.png)
 
-
 ![ ](screenshots/04.png)
-
 
 ![ ](screenshots/05.png)
 
@@ -81,13 +77,13 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 
 ## Changelog
 
--v1.0.0-b2 
-	- added translucency support on macos 
-	- changed hover opacities and transitions on navigator-toolbox 
-	- fixed search bar placement in sidebery css 
-	- fixed 1px bug in sidebery css
+- v1.0.0-b2
+  - added translucency support on macos
+  - changed hover opacities and transitions on navigator-toolbox
+  - fixed search bar placement in sidebery css
+  - fixed 1px bug in sidebery css
 - v1.0.0-b1
-	- initial release
+- initial release
 
 ## Issues and Contributions
 
