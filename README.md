@@ -8,11 +8,11 @@ Because Arc and Edge look pretty af but FOSS FTW
 
 To use EdgyArc-fr to its fullest potential, ensure you have the following prerequisites:
 
-- [EdgeFrFox UserChrome Theme](https://github.com/bmFtZQ/edge-frfox/) - A sleek user interface theme for Firefox.
-- [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) - Enhanced sidebar manager for Firefox.
+- [EdgeFrFox UserChrome Theme](https://github.com/bmFtZQ/edge-frfox/) 
+- [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) 
 - Recommended Addons:
-  - [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) - Toggle the userChrome.css and userContent.css files.
-  - [Adaptive Tab Bar Color](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/) - Adaptive color for the Firefox tab bar.
+  - [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) 
+  - [Adaptive Tab Bar Color](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/) - Not supported when translucency is enabled 
 
 ## About
 
@@ -76,7 +76,10 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ![ ](screenshots/06.png)
 
 ## Changelog
-
+- v1.0.0-b3
+  - restyled horizontal navigation bar to make it look less crappy
+  - coloured tabs only show colour behind favicon, and not the whole row
+  - expand tab group icon now more visible
 - v1.0.0-b2
   - added translucency support on macos
   - changed hover opacities and transitions on navigator-toolbox
