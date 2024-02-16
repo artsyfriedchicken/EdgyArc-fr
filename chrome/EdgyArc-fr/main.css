@@ -15,6 +15,9 @@
 /**/@import url("translucent-window.css") (-moz-bool-pref: "uc.tweak.translucent-window");/**/
 
 
+:root {
+  --urlbar-icon-border-radius: 8px !important;
+}
 
 :root[titlepreface="᠎"] {
   #sidebar-box {
@@ -29,13 +32,10 @@
 }
 
 
-:root:-moz-window-inactive #nav-bar {
+:root:-moz-window-inactive #nav-bar-customization-target {
 opacity:0.6 !important;
 }
 
-#fxa-toolbar-menu-button {
-transform:scale(0.8) !important;
-}
 
 
 
@@ -119,6 +119,12 @@ list-style-image: url("../icons/sidebars.svg") !important;
 }
 
 
+#fxa-toolbar-menu-button {
+transform:scale(0.8) !important;
+}
+
+
+
 #urlbar[breakout][breakout-extend] #urlbar-background {
 opacity:1 !important;
 margin-top:4px !important;
@@ -158,14 +164,14 @@ margin-top:4px !important;
 
 
 :root {
---uc-titlebar-drag-space: 10px;
+--uc-titlebar-drag-space: 10px !important;
 }
 
   /* macOS specific positioning */
   @media (-moz-platform: macos) {
     /* Offset navbar contents to make space for the window controls */
     &[tabsintitlebar] #nav-bar:not([inFullscreen]) {
-      padding-left: calc(40px + var(--uc-titlebar-drag-space)) !important;
+      padding-left: calc(20px + var(--uc-titlebar-drag-space)) !important;
 
       /* Remove the padding from the side of the navbar */
       & #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child {
