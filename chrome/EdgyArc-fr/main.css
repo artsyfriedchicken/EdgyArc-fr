@@ -19,6 +19,7 @@
   --urlbar-icon-border-radius: 8px !important;
 }
 
+/* fix sidebar opacity when auto collapse enabled **/ 
 :root[titlepreface="᠎"] {
   #sidebar-box {
     opacity:0.75 !important;
@@ -161,6 +162,16 @@ margin-top:4px !important;
 
 
 .urlbar-input-box{margin-top:-2px !important;}
+
+
+.browserContainer > findbar {
+  &:-moz-lwtheme {
+    :root:not([lwtheme-image]) &:-moz-window-inactive {
+      background-color: red !important;
+    }
+  }
+}
+
 
 
 :root {

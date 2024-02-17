@@ -1,8 +1,26 @@
 
 :root{
   --ts-toolbar-bgcolor: light-dark(#fff, #222) !important;
-
 }
+
+
+
+body {
+}
+/***** 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--lwt-accent-color); 
+  pointer-events: none; 
+  z-index: -1; 
+  opacity:0.25;
+}
+*/
 
 #sidebar,
 #sidebar-box {
@@ -20,10 +38,12 @@
 /* Firefox Translucent Tabbar for macOS */
 /* ------------------------------------ */
 
-
+:root {
+background-color:light-dark(rgba(255,255,255,0.3), rgba(50,50,50,0.3));
+}
 
 :root#main-window {
-background-color:light-dark(rgba(245,245,245,0.5),rgba(50,50,50,0.5)) !important;
+background-color:color-mix(in srgb, var(--toolbar-bgcolor) 55%, transparent) !important; 
    transition:background-color 300ms ease-in !important;
 }
 
@@ -35,6 +55,7 @@ background-color:light-dark(rgba(245,245,245,0.5),rgba(50,50,50,0.5)) !important
 :root:not(:-moz-window-inactive) #navigator-toolbox {
   background-color: transparent !important; 
 }
+
 
 /* make tabs toolbar translucent */
 /* FF 121 removed support for -moz-mac-source-list - using menupopup instead */
@@ -108,18 +129,18 @@ background-color:light-dark(rgba(245,245,245,0.5),rgba(50,50,50,0.5)) !important
 #sidebar-box, #sidebar-box:hover {opacity:0.75 !important;}
 
 
-
 #urlbar-background, #searchbar {
-border:1px solid light-dark(rgba(255,255,255,0), rgba(0,0,0,0.3)) !important;
-background-color: var(--ts-toolbar-bgcolor) !important;
-opacity:0.7 !important;
+border:1px solid light-dark(rgba(255,255,255,0), rgba(0,0,0,0.1)) !important;
+    background-color: color-mix(var(--toolbar-field-background-color) 60% light-dark(white, black));
+opacity:0.8 !important;
 min-height:28px !important;
 padding-top:4px;
 }
 
 
 
+
 #urlbar[breakout][breakout-extend] #urlbar-background {
 opacity:1 !important;
-background-color:light-dark(rgba(240,240,240,1), rgba(50,50,50,1)) !important;
+    background-color: (var(--toolbar-field-background-color) !important;
 }
