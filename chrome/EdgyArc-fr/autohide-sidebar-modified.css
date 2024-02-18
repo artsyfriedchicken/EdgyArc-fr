@@ -14,7 +14,7 @@ See the above repository for updates as well as full license text. */
     --uc-sidebar-width: 48px;
     --uc-sidebar-hover-width: 260px;
     --uc-autohide-sidebar-delay: 0ms; /* Wait 0.6s before hiding sidebar */
-    --uc-autohide-transition-duration: 0ms;
+    --uc-autohide-transition-duration: 150ms;
     --uc-autohide-transition-type: ease-in-out;
     position: relative;
     min-width: var(--uc-sidebar-width) !important;

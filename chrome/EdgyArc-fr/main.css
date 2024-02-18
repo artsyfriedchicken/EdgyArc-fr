@@ -172,7 +172,8 @@ margin-top:4px !important;
   }
 }
 
-
+#tabbrowser-tabpanels {
+  background-color: transparent !important;
 
 :root {
 --uc-titlebar-drag-space: 10px !important;
