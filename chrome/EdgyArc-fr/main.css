@@ -32,6 +32,9 @@
   
 }
 
+#webextpanels-window {
+  background-color: transparent !important;
+  }
 
 :root:-moz-window-inactive #nav-bar-customization-target {
 opacity:0.6 !important;
@@ -174,7 +177,7 @@ margin-top:4px !important;
 
 #tabbrowser-tabpanels {
   background-color: transparent !important;
-
+}
 :root {
 --uc-titlebar-drag-space: 10px !important;
 }
@@ -190,4 +193,5 @@ margin-top:4px !important;
         padding-inline-start: 0 !important;
       }
     }
-    
+  }
+  

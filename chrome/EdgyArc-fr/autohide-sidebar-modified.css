@@ -46,7 +46,7 @@ See the above repository for updates as well as full license text. */
     min-width: var(--uc-sidebar-hover-width) !important;
     max-width: var(--uc-sidebar-hover-width) !important;
     box-shadow: 0 0px 1px rgba(255, 255, 255, 0.7), 0 0px 2px rgba(0, 0, 0, 0.7);
-    transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) 0s, box-shadow var(--uc-autohide-transition-duration) ease-in-out 0s !important;
+    transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) 0s, box-shadow var(--uc-autohide-transition-duration) ease-in-out 300ms !important;
   }
 
   #sidebar-box > #sidebar-header,
