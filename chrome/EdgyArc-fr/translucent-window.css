@@ -1,5 +1,4 @@
-
-:root{
+:root {
   --ts-toolbar-bgcolor: light-dark(#fff, #222) !important;
 }
 
@@ -9,9 +8,9 @@
 
 #sidebar,
 #sidebar-box {
-    background-color: var(--ts-toolbar-bgcolor) !important;
-    background-color: rgba(20, 20, 20, 0.4);
-   
+  background-color: var(--ts-toolbar-bgcolor) !important;
+  background-color: rgba(20, 20, 20, 0.4);
+
 }
 
 
@@ -24,24 +23,24 @@
 /* ------------------------------------ */
 
 
-  :root {
-    background-color: light-dark(rgba(255, 255, 255, 0), rgba(50, 50, 50, 0.3));
-  }
+:root {
+  background-color: light-dark(rgba(255, 255, 255, 0), rgba(50, 50, 50, 0.3));
+}
 
-  :root#main-window {
-    background-color: color-mix(in srgb, var(--toolbar-bgcolor) 55%, transparent) !important;
-    transition: background-color 300ms ease-in !important;
-  }
+:root#main-window {
+  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 55%, transparent) !important;
+  transition: background-color 300ms ease-in !important;
+}
 
-  :root#main-window,
-  :root:not(:-moz-window-inactive)#maiin-window {
-    box-shadow: inset 0 0 0.4px 1px light-dark(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.25)) !important;
-    border-radius: 10px !important;
-  }
+:root#main-window,
+:root:not(:-moz-window-inactive)#maiin-window {
+  box-shadow: inset 0 0 0.4px 1px light-dark(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.25)) !important;
+  border-radius: 10px !important;
+}
 
-  :root:not(:-moz-window-inactive) #navigator-toolbox {
-    background-color: transparent !important;
-  }
+:root:not(:-moz-window-inactive) #navigator-toolbox {
+  background-color: transparent !important;
+}
 
 
 
@@ -52,14 +51,15 @@
 :root #tabbrowser-tabs,
 :root #nav-bar,
 :root:not(:-moz-window-inactive) #browser {
-   -moz-default-appearance: menupopup !important;
-   appearance: auto !important;
-   background-color: transparent !important;
+  -moz-default-appearance: menupopup !important;
+  appearance: auto !important;
+  background-color: transparent !important;
 }
 
-:root:-moz-window-inactive #browser, 
-:root:-moz-window-inactive #navigator-toolbox
-{background-color: var(--lwt-accent-color-inactive, var(--lwt-accent-color)) !important;}
+:root:-moz-window-inactive #browser,
+:root:-moz-window-inactive #navigator-toolbox {
+  background-color: var(--lwt-accent-color-inactive, var(--lwt-accent-color)) !important;
+}
 
 /* De-emphasize tab icons and names when window is unfocused */
 :root:-moz-window-inactive .tab-content {
@@ -68,38 +68,41 @@
 
 /* recolor toolbar button hover/active bg colors to semi-transparent */
 :root {
-   --toolbarbutton-hover-background: color-mix(in srgb, currentColor 11%, transparent) !important;
-   --toolbarbutton-active-background: color-mix(in srgb, currentColor 21%, transparent) !important;
+  --toolbarbutton-hover-background: color-mix(in srgb, currentColor 11%, transparent) !important;
+  --toolbarbutton-active-background: color-mix(in srgb, currentColor 21%, transparent) !important;
 }
 
 /* improve border visiblity for selected tabs */
 .tab-background:is([selected], [multiselected]):-moz-lwtheme {
-   border:  none !important;
+  border: none !important;
 }
+
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
-   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.1) !important;
+  box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .1), 0 1px 5px rgba(0, 0, 0, .1) !important;
 }
+
 :root:-moz-window-inactive #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
-   box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0,0,0,.05) !important;
+  box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .05) !important;
 }
 
 @media (-moz-content-prefers-color-scheme: dark) {
   :root #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
-     box-shadow: 
-     0 0 0 var(--tabs-navbar-shadow-size) hsla(280,6%,60%,0.5) inset, 
-     0 0 0 var(--tabs-navbar-shadow-size) rgba(0,0,0,.6), 
-     0 1px 5px rgba(0,0,0,.1) !important;
+    box-shadow:
+      0 0 0 var(--tabs-navbar-shadow-size) hsla(280, 6%, 60%, 0.5) inset,
+      0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .6),
+      0 1px 5px rgba(0, 0, 0, .1) !important;
   }
+
   :root:-moz-window-inactive #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
-     box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0,0,0,.4) !important;
+    box-shadow: 0 0 0 var(--tabs-navbar-shadow-size) rgba(0, 0, 0, .4) !important;
   }
 }
 
 
-  #appcontent .browserStack {
-  overflow:hidden !important;
-  
-  }
+#appcontent .browserStack {
+  overflow: hidden !important;
+
+}
 
 /*end translucent ff*/
 
@@ -114,22 +117,26 @@
 
 
 
-#sidebar-box, #sidebar-box:hover {opacity:0.75 !important;}
+#sidebar-box,
+#sidebar-box:hover {
+  opacity: 0.75 !important;
+}
 
 
-#urlbar-background, #searchbar {
-border:1px solid light-dark(rgba(255,255,255,0), rgba(0,0,0,0.1)) !important;
-    
-opacity:0.6 !important;
-min-height:28px !important;
-padding-top:4px;
+#urlbar-background,
+#searchbar {
+  border: 1px solid light-dark(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1)) !important;
+
+  opacity: 0.6 !important;
+  min-height: 28px !important;
+  padding-top: 4px;
 }
 
 
 #urlbar[breakout][breakout-extend] #urlbar-background {
-  opacity:1 !important;
-  }
+  opacity: 1 !important;
+}
 
 #urlbar[breakout][breakout-extend] #urlbar-background {
-  background-color: color-mix(var(--toolbar-field-background-color) 10% light-dark(white, black));
+  background-color: color-mix(var(--toolbar-field-background-color) 40% light-dark(white, black));
 }
