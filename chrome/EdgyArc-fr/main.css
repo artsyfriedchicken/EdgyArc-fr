@@ -179,14 +179,14 @@ margin-top:4px !important;
   background-color: transparent !important;
 }
 :root {
---uc-titlebar-drag-space: 10px !important;
+--uc-titlebar-drag-space: 0px !important;
 }
 
   /* macOS specific positioning */
   @media (-moz-platform: macos) {
     /* Offset navbar contents to make space for the window controls */
     &[tabsintitlebar] #nav-bar:not([inFullscreen]) {
-      padding-left: calc(20px + var(--uc-titlebar-drag-space)) !important;
+      padding-left: calc(0px + var(--uc-titlebar-drag-space)) !important;
 
       /* Remove the padding from the side of the navbar */
       & #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child {
@@ -194,4 +194,41 @@ margin-top:4px !important;
       }
     }
   }
-  
+
+/*stick stop-reload button into right corner of addressbar like in safari*/
+/* if stop-reload-button is on the IMMEDIATE RIGHT of the addressbar, stick it into the addressbar*/
+#urlbar-container:has(+ #stop-reload-button) #urlbar {
+  padding-right: 28px;
+}
+#urlbar-container + #stop-reload-button {
+  background-color:transparent !important;
+  --toolbarbutton-border-radius: 10px !important;
+  --toolbarbutton-inner-padding: 6px !important;
+  --uc-toolbarbutton-inner-inline-padding: 8px !important;
+  --toolbarbutton-outer-padding: 2px;
+  margin-left: -44px;
+  margin-right: 10px;
+}
+#urlbar-container + #stop-reload-button:hover {
+opacity:1 !important;
+} 
+
+#urlbar-container + #stop-reload-button .toolbarbutton-icon {
+transform:scale(0.9) !important;
+
+}
+
+
+/*only show urlbar buttons on hover*/
+#star-button, #page-action-buttons {
+  display:none !important;
+}
+
+#urlbar:hover #star-button, #urlbar:hover #page-action-buttons {
+   display:flex !important;
+}
+
+
+
+#urlbar:not([focused]) .urlbar-input{ text-align: center !important; }
+
