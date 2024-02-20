@@ -61,6 +61,10 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 6. [Optional] Turn on translucent windows by setting `uc.tweak.translucent-window` to `true`
 7. Import `sidebery-settings.json` and `sidebery-styles.json` into Sidebery (`Sideberry Settings` > `Help` > `Import Addon Data`)
 
+### Optimum settings for Adaptive Tab Bar Color
+![ ](screenshots/ATBC-settings.png)
+
+
 ## Screenshots
 
 ![ ](screenshots/01.png)
