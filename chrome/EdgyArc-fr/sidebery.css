@@ -15,9 +15,42 @@
     --nav-btn-width: 28px;
     --nav-btn-height: 28px;
     --nav-btn-len-margin: -1px;
+    --ntb-padding: 0px !important;
     --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.3));
     --ntb-btn-height: 28px;
     --tabs-lvl-opacity: 0.4;
+}
+
+#root.root {
+
+    @media (min-width: 150px) {
+        --pinned-tabs-col: 3;
+    }
+
+    @media (min-width: 250px) {
+        --pinned-tabs-col: 4;
+    }
+
+    @media (min-width: 350px) {
+        --pinned-tabs-col: 6;
+    }
+
+    --tabs-pinned-width: calc(((95vw) - (var(--tabs-margin) * var(--pinned-tabs-col))) / var(--pinned-tabs-col));
+}
+
+#root.root::before {
+
+    box-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.3));
+    border-radius: 10px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 200;
 }
 
 /* === Fix Padding Top and Bottom === */
@@ -27,7 +60,10 @@
     padding-top: 8px !important;
 }
 
+/*---------- hidden panels-------*/
 
+
+/*--------- end hidden panels ----------*/
 /*  ============ set scrollbox shadows to lighter when in light mode ============ */
 @media (prefers-color-scheme: light) {
     .ScrollBox>.top-shadow {
@@ -151,8 +187,10 @@
 
     /* Set background color and margin for pinned tabs */
     border-bottom: 1px solid white, 2px solid black;
-    min-height: 60px !important;
+
 }
+
+
 
 /* ==================== Tabs ====================== */
 .scrollable .Tab:first-child {
@@ -211,6 +249,7 @@
 .new-tab-btns {
     background: transparent !important;
     padding: 0 auto;
+    margin-top: 8px;
     margin-bottom: 0px !important;
     /* Adjust padding and margin for new tab buttons */
 }
@@ -236,9 +275,8 @@
     max-height: 80px;
     padding-bottom: 8px !important;
     /* Set padding bottom for top horizontal box */
-}
 
-#root.root .top-hozirontal-box {}
+}
 
 /* === Tab Panel Box justify center === */
 #root.root .top-horizontal-box .main-items {
