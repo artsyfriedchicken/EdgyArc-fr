@@ -13,6 +13,7 @@
 /* Import external styles */
 @import url("autohide-sidebar-modified.css");
 /**/@import url("translucent-window.css") (-moz-bool-pref: "uc.tweak.translucent-window");/**/
+/**/@import url("translucent-arcy.css") (-moz-bool-pref: "uc.tweak.ts-more-arcy");/**/
 
 
 :root {
@@ -65,7 +66,7 @@ opacity:0.6 !important;
 /* Common styles for #sidebar and #sidebar-box */
 #sidebar,
 #sidebar-box {
-    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+    border-radius: var(--uc-tweak-rounded-corners-radius) ;
 }
 
 
@@ -78,7 +79,7 @@ opacity:0.6 !important;
 }
 
 #sidebar-box {
-    background-color: transparent !important;
+    background-color: transparent ;
 }
 
 /* Styles for .sidebar-splitter */
@@ -232,3 +233,7 @@ transform:scale(0.9) !important;
 
 #urlbar:not([focused]) .urlbar-input{ text-align: center !important; }
 
+
+.appcontent {
+  border:5px solid rgba(255,0,0,1) !important;
+}

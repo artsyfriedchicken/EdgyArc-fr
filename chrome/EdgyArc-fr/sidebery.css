@@ -1,4 +1,12 @@
+
+#root.root .Tab {    --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.3));}
+#root.root {--tabs-normal-fg: light-dark(rgba(0,0,0,1), rgba(255,255,255,0.8));}
+#root.root .Tab {--tabs-activated-fg: light-dark(black, white);}
 /* ============ Define all variable ============ */
+
+
+
+
 #root.root {
 
     --tabs-indent: 18px;
@@ -16,13 +24,20 @@
     --nav-btn-height: 28px;
     --nav-btn-len-margin: -1px;
     --ntb-padding: 0px !important;
-    --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.3));
+
     --ntb-btn-height: 28px;
     --tabs-lvl-opacity: 0.4;
+--tweak-general-padding:4px;
 }
 
 #root.root {
+padding:var(--tweak-general-padding);
+    --general-margin: 3px;
 
+@media (max-width: 80px) {
+        --pinned-tabs-col: 2;
+--tweak-general-padding:4.5px;
+    }
     @media (min-width: 150px) {
         --pinned-tabs-col: 3;
     }
@@ -35,33 +50,38 @@
         --pinned-tabs-col: 6;
     }
 
-    --tabs-pinned-width: calc(((95vw) - (var(--tabs-margin) * var(--pinned-tabs-col))) / var(--pinned-tabs-col));
+
+--tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
 }
 
-#root.root::before {
-
-    box-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.1),
-            rgba(0, 0, 0, 0.3));
-    border-radius: 10px;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 200;
-}
 
 /* === Fix Padding Top and Bottom === */
 #root.root .PinnedTabsBar,
 #root.root .ScrollBox .scrollable,
 #root.root .top-horizontal-box {
-    padding-top: 8px !important;
+    padding-top: 4px !important;
 }
 
 /*---------- hidden panels-------*/
 
+/* Settings related to Hidden Panels icon and popup layer, adapting to the flipped navbar orientation. */
+#hidden_panels_btn.nav-item .icon {
+  transform: scaleY(-1);
+}
+.hidden-panels-popup-layer {
+  transform: scaleY(-1);  
+  margin-top: -15%;
+background:red !important;
+z-index:300;
+border-radius:8px !important;
+}
+
+.hidden-panels-popup-layer *{
+border-radius:8px;
+}
+.NavigationBar .hidden-panels-popup-content {
+  transform: scaleY(-1);
+}
 
 /*--------- end hidden panels ----------*/
 /*  ============ set scrollbox shadows to lighter when in light mode ============ */
@@ -94,6 +114,8 @@
         overflow: hidden;
         white-space: nowrap;
     }
+#root.root .PinnedTabsBar .Tab {
+margin-right:3px !important;}
 
     /*---------Tabs---------*/
     .scrollable .Tab[data-colorized="true"] .color-layer {
@@ -249,7 +271,7 @@
 .new-tab-btns {
     background: transparent !important;
     padding: 0 auto;
-    margin-top: 8px;
+    margin-top: 0px;
     margin-bottom: 0px !important;
     /* Adjust padding and margin for new tab buttons */
 }

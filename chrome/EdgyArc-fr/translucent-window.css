@@ -1,51 +1,31 @@
+/*------------------Translucency in main window----------------*/
+
+/*---------create window tint----------*/
 :root {
-  --ts-toolbar-bgcolor: light-dark(#fff, #222) !important;
+  background-color: light-dark(rgba(255, 255, 255, 0), rgba(50, 50, 50, 0));
 }
 
-
-
-
-
-#sidebar,
-#sidebar-box {
-  background-color: var(--ts-toolbar-bgcolor) !important;
-  background-color: rgba(20, 20, 20, 0.4);
-
-}
-
-
-
-/*TRANSLUCENT FF*/
-
-
-/* ------------------------------------ */
-/* Firefox Translucent Tabbar for macOS */
-/* ------------------------------------ */
-
-
-:root {
-  background-color: light-dark(rgba(255, 255, 255, 0), rgba(50, 50, 50, 0.3));
-}
-
+/*------------ tint with accent colour---------*/
 :root#main-window {
-  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 55%, transparent) !important;
+  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 10%, transparent) !important;
   transition: background-color 300ms ease-in !important;
 }
-
-:root#main-window,
-:root:not(:-moz-window-inactive)#maiin-window {
+/*----------white border for macos----------*/
+#main-window {
   box-shadow: inset 0 0 0.4px 1px light-dark(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.25)) !important;
   border-radius: 10px !important;
 }
 
-:root:not(:-moz-window-inactive) #navigator-toolbox {
-  background-color: transparent !important;
+#main-window:-moz-window-inactive {
+  box-shadow: inset 0 0 1px 3px light-dark(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)) !important;
+  border-radius: 10px !important;
 }
 
 
-
-/* make tabs toolbar translucent */
-/* FF 121 removed support for -moz-mac-source-list - using menupopup instead */
+/*-------create translucency------------*/
+:root:not(:-moz-window-inactive) #navigator-toolbox {
+  background-color: transparent !important;
+}
 :root #TabsToolbar,
 :root #titlebar,
 :root #tabbrowser-tabs,
@@ -56,23 +36,21 @@
   background-color: transparent !important;
 }
 
-:root:-moz-window-inactive #browser,
-:root:-moz-window-inactive #navigator-toolbox {
+/*----------inactive state-----------*/
+#browser:-moz-window-inactive ,
+#navigator-toolbox:-moz-window-inactive  {
   background-color: var(--lwt-accent-color-inactive, var(--lwt-accent-color)) !important;
 }
 
-/* De-emphasize tab icons and names when window is unfocused */
 :root:-moz-window-inactive .tab-content {
   opacity: 0.6;
 }
 
-/* recolor toolbar button hover/active bg colors to semi-transparent */
 :root {
   --toolbarbutton-hover-background: color-mix(in srgb, currentColor 11%, transparent) !important;
   --toolbarbutton-active-background: color-mix(in srgb, currentColor 21%, transparent) !important;
 }
 
-/* improve border visiblity for selected tabs */
 .tab-background:is([selected], [multiselected]):-moz-lwtheme {
   border: none !important;
 }
@@ -98,24 +76,9 @@
   }
 }
 
-
 #appcontent .browserStack {
   overflow: hidden !important;
-
 }
-
-/*end translucent ff*/
-
-
-/*coloured translucency*/
-
-/*soon*/
-
-
-
-/*translucent ff related tweaks*/
-
-
 
 #sidebar-box,
 #sidebar-box:hover {
@@ -123,15 +86,16 @@
 }
 
 
+
+/*----------- URL Bar -------------*/
+
 #urlbar-background,
 #searchbar {
   border: 1px solid light-dark(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1)) !important;
-
   opacity: 0.6 !important;
   min-height: 28px !important;
   padding-top: 4px;
 }
-
 
 #urlbar[breakout][breakout-extend] #urlbar-background {
   opacity: 1 !important;
