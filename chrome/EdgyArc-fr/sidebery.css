@@ -219,6 +219,9 @@ margin-right:3px !important;}
     margin-top: 10px !important;
 }
 
+.Tab[data-discarded="true"] {
+opacity:0.9 !important;
+}
 /* === Tab colors ==== */
 .scrollable .Tab .color-layer {
     width: 32px !important;
