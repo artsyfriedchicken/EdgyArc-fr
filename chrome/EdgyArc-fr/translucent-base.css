@@ -1,0 +1,150 @@
+/*Implement translucent ui */
+
+:root[windowtype="navigator:browser"],
+:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    --uc-accent-opacity: 67%; /*USER CHANGABLE VALUE*/
+    background-color: transparent !important;
+    --uc-window-bg: color-mix(in srgb, var(--lwt-accent-color) var(--uc-accent-opacity), transparent);
+    
+    @media (prefers-color-scheme:light) {
+        --uc-accent-opacity: 57%; /*USER CHANGABLE VALUE*/
+    }
+}
+
+:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    --lwt-accent-color: light-dark(rgb(255, 255, 255), rgb(30, 30, 30)) !important;
+    & #navigator-toolbox {
+        --toolbar-bg: transparent !important;
+        --toolbar-bgcolor: transparent !important;
+    }
+}
+
+:root[windowtype="navigator:browser"]#main-window {
+    background-color: transparent !important;
+    border-radius: 10px !important;
+}
+
+:root #navigator-toolbox {
+    background-color: var(--uc-window-bg) !important;
+}
+
+
+:root #TabsToolbar,
+:root #titlebar,
+:root #tabbrowser-tabs,
+:root #nav-bar,
+:root:not(:-moz-window-inactive) #browser {
+    -moz-default-appearance: menupopup !important;
+    appearance: auto !important;
+    background-color: transparent !important;
+}
+
+#browser:-moz-window-inactive,
+#navigator-toolbox:-moz-window-inactive,
+#navigator-toolbox:not(:-moz-lwtheme) {
+    &:-moz-window-inactive {
+        background-color: var(--lwt-accent-color) !important;
+    }
+}
+
+/*inactive windows colour*/
+#browser:-moz-window-inactive,
+#navigator-toolbox:-moz-window-inactive,
+#navigator-toolbox:not(:-moz-lwtheme) {
+  &:-moz-window-inactive { background-color: var(--lwt-accent-color) !important; }
+}
+
+
+/*sidebar*/
+#sidebar-box {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    z-index: 3;
+
+&::before {
+    background-color: var(--uc-window-bg) !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    bottom: -8px;
+    left: -8px;
+    pointer-events: none;
+}
+}
+
+#sidebar {
+    z-index: 3 !important;
+}
+
+#sidebar-splitter {
+    z-index: 21;
+}
+
+:root:not([titlepreface="᠎"]) {
+
+    #sidebar,
+    #sidebar-box:hover>#sidebar {
+        opacity: var(--uc-accent-opacity) !important;
+    }
+}
+
+:root[titlepreface="᠎"] {
+    #sidebar-box {
+        border-radius: 0px !important;
+        box-shadow: none !important;
+        z-index: 3;
+
+    }
+
+    #sidebar {
+        z-index: 3 !important;
+
+    }
+
+    #sidebar-box:not(:hover),
+    #sidebar-box:hover {
+        opacity: 1 !important;
+    }
+
+    #sidebar-box:not(:hover)>#sidebar {
+        opacity: var(--uc-accent-opacity) !important;
+    }
+
+    #sidebar-box::before {
+        background-color: var(--uc-window-bg) !important;
+        z-index: 0;
+    }
+}
+
+
+
+#appcontent .browserStack {
+    overflow: hidden !important;
+}
+
+#appcontent {
+    background-color: var(--uc-window-bg) !important;
+}
+
+
+
+#urlbar-background,
+#searchbar {
+    border: 1px solid light-dark(rgba(200, 200, 200, 0.2), rgba(80, 80, 80, 0.8)) !important;
+    opacity: 0.6 !important;
+    min-height: 28px !important;
+    padding-top: 4px;
+}
+
+#urlbar[breakout][breakout-extend] #urlbar-background {
+    opacity: 1 !important;
+    background-color: rgba(0, 0, 0, .4);
+}
