@@ -1,4 +1,3 @@
-
 #root.root .Tab {    --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.3));}
 #root.root {--tabs-normal-fg: light-dark(rgba(0,0,0,1), rgba(255,255,255,0.8));}
 #root.root .Tab {--tabs-activated-fg: light-dark(black, white);}
@@ -30,29 +29,6 @@
 --tweak-general-padding:4px;
 }
 
-#root.root {
-padding:var(--tweak-general-padding);
-    --general-margin: 3px;
-
-@media (max-width: 80px) {
-        --pinned-tabs-col: 2;
---tweak-general-padding:4.5px;
-    }
-    @media (min-width: 150px) {
-        --pinned-tabs-col: 3;
-    }
-
-    @media (min-width: 250px) {
-        --pinned-tabs-col: 4;
-    }
-
-    @media (min-width: 350px) {
-        --pinned-tabs-col: 6;
-    }
-
-
---tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
-}
 
 
 /* === Fix Padding Top and Bottom === */
@@ -99,82 +75,7 @@ border-radius:8px;
     }
 }
 
-/* ============ Media Query for Autohide ============ */
 
-@media (max-width: 48px) {
-    #root.root {
-        /*define changed variables*/
-        --tabs-pinned-height: 12px;
-        --tabs-pinned-width: 12px;
-        --tabs-indent: 0;
-        --tabs-lvl-opacity: 0;
-        /*other stuff*/
-        width: 48px;
-        max-width: 48px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-#root.root .PinnedTabsBar .Tab {
-margin-right:3px !important;}
-
-    /*---------Tabs---------*/
-    .scrollable .Tab[data-colorized="true"] .color-layer {
-        opacity: 0.2;
-        transition: opacity 100ms linear !important;
-    }
-
-    /*------------Pinned tabs----------*/
-
-    /*remove bg*/
-    #root.root .PinnedTabsBar,
-    #root.root .PinnedTabsBar .Tab {
-        background-color: transparent !important;
-    }
-
-    .PinnedTabsBar .Tab {
-        opacity: 0.7 !important;
-
-        &[data-pin="true"] {
-            opacity: 1 !important;
-            max-width: 32px !important;
-            max-height: 32px !important;
-        }
-    }
-
-    #root.root .PinnedTabsBar {
-        max-height: 500px;
-    }
-
-    /*hide stuff*/
-    .left-vertical-box,
-    /*vertical nav box*/
-    #root.root #search_bar,
-    /*search bar(if opened)*/
-    #root.root .new-tab-btns,
-    /*new tab button*/
-    .Tab .t-box,
-    /*tab labels*/
-    .PinnedTabsBar .color-layer,
-    /*pinned tabs coloured layer*/
-    #root.root .top-horizontal-box .nav-item:not([data-class="panel"]),
-    /*all nav items that are not panels*/
-    #root.root .nav-item[data-active="false"]
-
-    /*all nav panels that are not currently active*/
-        {
-        display: none !important;
-    }
-
-    /*---- transition animations--------*/
-    #root.root .PinnedTabsBar,
-    #root.root .PinnedTabsBar .Tab,
-    #root.root .top-horizontal-box .main-items {
-        transition: height0ms ease-in-out 0ms,
-            width 0ms ease-in-out 0ms !important;
-    }
-}
-
-/* ============ End Media query for autohide  ============ */
 
 
 
@@ -196,8 +97,8 @@ margin-right:3px !important;}
 #root.root .PinnedTabsBar .Tab {
 
     /*transitions*/
-    transition: height 100ms ease-in-out 100ms,
-        width 100ms ease-in-out 100ms;
+    transition: height 300ms ease-in-out 150ms,
+        width 300ms ease-in-out 150ms;
 }
 
 #root.root .PinnedTabsBar .Tab {
@@ -297,8 +198,9 @@ opacity:0.9 !important;
     margin: 0 auto -2px auto !important;
     padding-top: 10px;
     /* Adjust padding and margin for top horizontal box */
-    max-height: 80px;
+    max-height: 140px;
     padding-bottom: 8px !important;
+overflow:hidden !important;
     /* Set padding bottom for top horizontal box */
 
 }
@@ -335,8 +237,8 @@ opacity:0.9 !important;
 
 /*panel items height and width transition*/
 #root.root .top-horizontal-box .main-items {
-    transition: height 100ms ease-in-out 100ms,
-        width 100ms ease-in-out 100ms;
+    transition: height 300ms ease-in-out 100ms,
+        width 300ms ease-in-out 100ms;
 }
 
 /* === Convert Space element in navigation panel to line break === */
@@ -346,4 +248,105 @@ opacity:0.9 !important;
     min-width: 100% !important;
     height: 2px !important;
     /* Set specific styling for space nav item */
+}
+
+
+
+
+#root.root {
+    padding:var(--tweak-general-padding);
+        --general-margin: 3px;
+    
+    @media (max-width: 80px) {
+            --pinned-tabs-col: 2;
+    --tweak-general-padding:4.5px;
+        }
+        @media (min-width: 150px) {
+            --pinned-tabs-col: 3;
+        }
+    
+        @media (min-width: 250px) {
+            --pinned-tabs-col: 4;
+        }
+    
+        @media (min-width: 350px) {
+            --pinned-tabs-col: 6;
+        }
+    
+    
+    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
+    }
+
+
+@media (max-width: 48px) {
+    #root.root {
+        /*define changed variables*/
+        --tabs-pinned-height: 12px;
+        --tabs-pinned-width: 12px;
+        --tabs-indent: 0;
+        --tabs-lvl-opacity: 0;
+        /*other stuff*/
+        width: 48px;
+        max-width: 48px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+#root.root .PinnedTabsBar .Tab {
+margin-right:3px !important;}
+
+    /*---------Tabs---------*/
+    .scrollable .Tab[data-colorized="true"] .color-layer {
+        opacity: 0.2;
+        transition: opacity 100ms linear !important;
+    }
+
+
+/*------------Pinned tabs----------*/
+
+    /*remove bg*/
+    #root.root .PinnedTabsBar,
+    #root.root .PinnedTabsBar .Tab {
+        background-color: transparent !important;
+    }
+
+    .PinnedTabsBar .Tab {
+        opacity: 0.7 !important;
+
+        &[data-pin="true"] {
+            opacity: 1 !important;
+            max-width: 32px !important;
+            max-height: 32px !important;
+        }
+    }
+
+    #root.root .PinnedTabsBar {
+        max-height: 500px;
+    }
+
+    /*hide stuff*/
+    .left-vertical-box,
+    /*vertical nav box*/
+    #root.root #search_bar,
+    /*search bar(if opened)*/
+    #root.root .new-tab-btns,
+    /*new tab button*/
+    .Tab .t-box,
+    /*tab labels*/
+    .PinnedTabsBar .color-layer,
+    /*pinned tabs coloured layer*/
+    #root.root .top-horizontal-box .nav-item:not([data-class="panel"]),
+    /*all nav items that are not panels*/
+    #root.root .nav-item[data-active="false"]
+
+    /*all nav panels that are not currently active*/
+        {
+        display: none !important;
+    }
+    /*---- transition animations--------*/
+    #root.root .PinnedTabsBar,
+    #root.root .PinnedTabsBar .Tab,
+    #root.root .top-horizontal-box .main-items {
+        transition: height 0ms ease-in-out 0ms,
+            width 0ms ease-in-out 0ms !important;
+    }
 }
