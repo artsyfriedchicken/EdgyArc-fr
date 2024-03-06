@@ -1,0 +1,56 @@
+@media (-moz-bool-pref: "uc.tweak.rounded-corners") {
+
+    /* Variables used for rounded corners */
+    :root[titlepreface="᠎"] {
+        --uc-tweak-rounded-corners-padding: 10px !important;
+        --uc-tweak-rounded-corners-radius: 10px !important;
+    }
+}
+
+
+:root[titlepreface="᠎"] {
+    --uc-tweak-rounded-corners-padding: 10px !important;
+    --uc-tweak-rounded-corners-radius: 10px !important;
+
+    #sidebar-box {
+        --uc-sidebar-width: 10px !important;
+        margin: 0px 0 0 0 !important;
+        padding: 0 0 0 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 9px !important;
+    }
+
+    #sidebar-box:not(:hover) #sidebar {
+        width: 0px !important;
+    }
+
+    #sidebar-box::before,
+    #sidebar-box:hover::before {
+        opacity: 1 !important;
+    }
+
+
+    #appcontent .browserStack {
+        overflow: hidden !important;
+        margin-left: 0 !important;
+    }
+
+}
+
+
+:root[titlepreface="᠎"] {
+    #sidebar-box:hover>#sidebar {
+        margin-left: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    #sidebar-box:not(:hover)>#sidebar {
+        border-radius: 0 !important
+    }
+
+
+    #sidebar-box:not(:hover)::before {
+        opacity: 1 !important
+    }
+}
