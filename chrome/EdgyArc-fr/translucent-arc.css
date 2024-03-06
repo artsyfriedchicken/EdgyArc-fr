@@ -1,0 +1,46 @@
+
+#sidebar-box {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+#appcontent .browserStack {
+    overflow: hidden !important;
+    margin-left: 0 !important;
+}
+
+:root[titlepreface="᠎"] {
+    #sidebar-box:hover>#sidebar {
+        margin-left: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    #sidebar-box:not(:hover)>#sidebar {
+        border-radius: 0 !important
+    }
+
+
+    #sidebar-box:not(:hover)::before {
+        opacity: 0 !important
+    }
+}
+
+:root:not([titlepreface="᠎"]) {
+
+    #sidebar,
+    #sidebar:hover {
+        opacity: var(--uc-accent-opacity) !important;
+    }
+
+    #sidebar-box,
+    #sidebar,
+    #sidebar:hover,
+    #sidebar-box:hover {
+        border-radius: 0 !important;
+    }
+
+    #sidebar-box::before {
+        opacity: 0 !important;
+        ;
+    }
+}
