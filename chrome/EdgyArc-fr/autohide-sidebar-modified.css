@@ -13,9 +13,9 @@ See the above repository for updates as well as full license text. */
   #sidebar-box {
     --uc-sidebar-width: 48px;
     --uc-sidebar-hover-width: 260px;
-    --uc-autohide-sidebar-delay: 0ms; /* Wait 0.6s before hiding sidebar */
-    --uc-autohide-transition-duration: 150ms;
-    --uc-autohide-transition-type: ease-in-out;
+    --uc-autohide-sidebar-delay: 0ms !important; 
+    --uc-autohide-transition-duration: 100ms;
+    --uc-autohide-transition-type: linear;
     position: relative;
     min-width: var(--uc-sidebar-width) !important;
     width: var(--uc-sidebar-width) !important;
@@ -45,13 +45,11 @@ See the above repository for updates as well as full license text. */
   #sidebar-box:hover > #sidebar {
     min-width: var(--uc-sidebar-hover-width) !important;
     max-width: var(--uc-sidebar-hover-width) !important;
-    box-shadow: 0 0px 1px rgba(255, 255, 255, 0.7), 0 0px 2px rgba(0, 0, 0, 0.7);
-    transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) 0s, box-shadow var(--uc-autohide-transition-duration) ease-in-out 300ms !important;
+    transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) var(--uc-autohide-sidebar-delay), box-shadow var(--uc-autohide-transition-duration) ease-in-out var(--uc-autohide-sidebar-delay) !important;
   }
 
   #sidebar-box > #sidebar-header,
   #sidebar-box > #sidebar {
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0);
   }
 
   .sidebar-panel {
