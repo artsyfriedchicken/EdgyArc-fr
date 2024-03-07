@@ -60,6 +60,7 @@
     border-radius: 0px !important;
     box-shadow: none !important;
     z-index: 3;
+    background-color:transparent !important;
 
 &::before {
     background-color: var(--uc-window-bg) !important;
