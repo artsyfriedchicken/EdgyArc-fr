@@ -22,11 +22,10 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 
 ### Minor Tweaks to EdgeFrFox Theme
 
-- Autofades the navigation URL bar when not on hover.
-- Makes navigation toolbar buttons and add on buttons grayscale when not hovered.
 - MOAR rounded corners, larger padding, and a bit more room to breathe.
 - Adjusts sidebar styling to complement Sidebery.
 - Optional auto collapsing sidebar.
+- Optional fully hide sidebar when not hovered (like Arc browser)
 
 ### UserChrome Toggle Integration
 
@@ -58,10 +57,19 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
    - `uc.tweak.disable-drag-space` to `true`
    - `uc.tweak.hide-forward-button` to `true`
    - `uc.tweak.rounded-corners` to `true` 
-6. [Optional] Turn on translucent windows by setting `uc.tweak.translucent-window` to `true`
+6. [optional] set up style variants
 7. Import `sidebery-settings.json` and `sidebery-styles.json` into Sidebery (`Sideberry Settings` > `Help` > `Import Addon Data`)
 
-### Optimum settings for Adaptive Tab Bar Color
+## Style variants
+### Fully Hide collapsed sidebar
+`uc.tweak.af.hidden-sidebar` > `true`
+### Translucency [MACOS ONLY]
+`uc.tweak.af.translucent-enable` > `true`
+### Translucency + minimal (arc-like) sidebar 
+`uc.tweak.af.translucent-enable` > `true`
+`uc.tweak.af.translucent-arc` > `true`
+
+## Optimum settings for Adaptive Tab Bar Color
 ![ ](screenshots/ATBC-settings.png)
 
 
