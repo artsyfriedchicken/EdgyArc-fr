@@ -1,5 +1,6 @@
 /*Implement translucent ui */
 
+/*variables*/
 :root[windowtype="navigator:browser"],
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
     --uc-accent-opacity: 67%; /*USER CHANGABLE VALUE*/
@@ -11,6 +12,7 @@
     }
 }
 
+/*make shit transparent*/
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
     --lwt-accent-color: light-dark(rgb(255, 255, 255), rgb(30, 30, 30)) !important;
     & #navigator-toolbox {
@@ -23,12 +25,7 @@
     background-color: transparent !important;
     border-radius: 10px !important;
 }
-
-:root #navigator-toolbox {
-    background-color: var(--uc-window-bg) !important;
-}
-
-
+/*apply blur*/
 :root #TabsToolbar,
 :root #titlebar,
 :root #tabbrowser-tabs,
@@ -38,6 +35,12 @@
     appearance: auto !important;
     background-color: transparent !important;
 }
+
+/*tint stuff*/
+:root #navigator-toolbox {
+    background-color: var(--uc-window-bg) !important;
+}
+
 
 #browser:-moz-window-inactive,
 #navigator-toolbox:-moz-window-inactive,
@@ -123,8 +126,16 @@
         background-color: var(--uc-window-bg) !important;
         z-index: 0;
     }
-}
-
+    
+    #sidebar-box:hover > #sidebar {
+      @media (prefers-color-scheme:dark) {   filter:brightness(0.7) !important;}
+      @media (prefers-color-scheme:light) {   filter:brightness(0.95) !important;}   
+      background-color:var(--lwt-accent-color) !important;
+   
+  }
+  
+  
+  }
 
 
 #appcontent .browserStack {
