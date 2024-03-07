@@ -60,16 +60,16 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 6. [optional] set up style variants
 7. Import `sidebery-settings.json` and `sidebery-styles.json` into Sidebery (`Sideberry Settings` > `Help` > `Import Addon Data`)
 
-### Style variants
-#### Fully Hide collapsed sidebar
+## Style variants
+### Fully Hide collapsed sidebar
 `uc.tweak.af.hidden-sidebar` > `true`
-#### Translucency [MACOS ONLY]
+### Translucency [MACOS ONLY]
 `uc.tweak.af.translucent-enable` > `true`
-#### Translucency + minimal (arc-like) sidebar 
+### Translucency + minimal (arc-like) sidebar 
 `uc.tweak.af.translucent-enable` > `true`
 `uc.tweak.af.translucent-arc` > `true`
 
-### Optimum settings for Adaptive Tab Bar Color
+## Optimum settings for Adaptive Tab Bar Color
 ![ ](screenshots/ATBC-settings.png)
 
 
