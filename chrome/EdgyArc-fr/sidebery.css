@@ -65,7 +65,9 @@
     border-bottom: 1px solid white, 2px solid black;
 
     & .Tab {
+ --tabs-color-layer-opacity: 0.4;
         margin-bottom: 4px !important;
+&:hover{ --tabs-color-layer-opacity: 0.8}
     }
 }
 
@@ -96,7 +98,7 @@
 .scrollable .Tab[data-active="true"] .color-layer,
 .scrollable .Tab:hover .color-layer {
     border-radius: 4px 0px 0px 4px !important;
-    --tabs-color-layer-opacity: 0.7 !important;
+    --tabs-color-layer-opacity:0.8 !important;
 }
 
 .scrollable {
@@ -107,6 +109,7 @@
     & .Tab[data-colorized="true"] .t-box {
         padding: 0 6px !important;
     }
+
 }
 
 /* Grouped tabs */
@@ -118,10 +121,12 @@
     opacity: 1 !important;
 }
 
-#root.root:not(:hover) .Tab .audio {
-    margin-left: -11px;
-    margin-top: -7px;
+#root.root .Tab[data-folded="true"] .fav {
+  opacity: 0.8 !important;
 }
+#root.root .Tab[data-colorized="true"] .fav .img {
+        width:50px  !important;
+    }
 
 #root.root:not(:hover) .Tab .audio-icon {
     height: 12px !important;
@@ -162,7 +167,7 @@
     background-color: transparent !important;
 }
 
-#root.root:not(:hover) .top-horizontal-box {
+#root.root .top-horizontal-box {
     opacity: 1;
 }
 
@@ -227,6 +232,10 @@
         margin-right: 3px !important;
     }
 
+#root.root .Tab .audio {
+    margin-left: -11px;
+    margin-top: -7px;
+}
     .scrollable .Tab[data-colorized="true"] .color-layer {
         opacity: 0.3;
         transition: opacity 100ms linear !important;

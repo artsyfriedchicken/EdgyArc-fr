@@ -137,10 +137,44 @@ opacity:0.6 !important;
 
 
 /* Styles for the navigation bar */
-#nav-bar {
-    padding-top: 1px !important;
+/*sidebery*/
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
+/* Tree Style Tab */
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
+/* Tab Center Reborn */
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
+  /* Height of navbar, used for determining height and position of window controls */
+  --uc-navbar-height: 38px;
+  /* Drag space next to the window controls, allows you to move the window more easily */
+  --uc-titlebar-drag-space: 40px;
+
+  /* Hide the tabs */
+  & #TabsToolbar {
+    visibility: collapse !important;
+  }
+
+  /* Fix issue with missing window controls. */
+  &[tabsintitlebar] #titlebar {
+    will-change: auto !important;
+  }
+
+  /* Add some padding to the top of the navbar */
+  &[tabsintitlebar] #nav-bar {
+    --uc-tab-top-margin:0;
+    padding-top: var(--uc-tab-top-margin, 0) !important;
+    margin-top:0px !important;
+  }
+  
 }
 
+:root [tabsintitlebar] #nav-bar {
+  padding-top:10px;
+}
+
+
+:root[tabsintitlebar] #nav-bar {
+  padding-top: 0 !important;
+  }
 /* Styles for sidebar header */
 #sidebar-header {
     display: none;

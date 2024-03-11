@@ -1,61 +1,85 @@
 
-    @media(-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
+@media(-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
 
-        :root[titlepreface="᠎"][windowtype="navigator:browser"],
-        :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-        --uc-accent-opacity: 35% !important; /*USER CHANGABLE VALUE*/
-        @media (prefers-color-scheme:light) {
-            --uc-accent-opacity: 25% !important; /*USER CHANGABLE VALUE*/
-        }
+    :root[titlepreface="᠎"][windowtype="navigator:browser"],
+    :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    --uc-accent-opacity: 35% !important; /*USER CHANGABLE VALUE*/
+    @media (prefers-color-scheme:light) {
+        --uc-accent-opacity: 25% !important; /*USER CHANGABLE VALUE*/
+    }
 }
+}
+
+:root[titlepreface="᠎"][windowtype="navigator:browser"],
+    :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
+    @media (prefers-color-scheme:light) {
+        --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
+    }
+}
+
+
+
+:root[titlepreface="᠎"][windowtype="navigator:browser"],
+    :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
+    @media (prefers-color-scheme:light) {
+        --uc-accent-opacity: 65% !important; /*USER CHANGABLE VALUE*/
+    }
 }
 
 
 
 #sidebar-box {
-    margin: 0px !important;
-    padding: 0px !important;
+margin: 0px !important;
+padding: 0px !important;
 }
-
-#appcontent .browserStack {
-    overflow: hidden !important;
-    margin-left: 0 !important;
+/*sidebery*/
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
+/* Tree Style Tab */
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
+/* Tab Center Reborn */
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
+& #appcontent .browserStack {
+overflow: hidden !important;
+margin-left: 0 !important;
+}
 }
 
 :root[titlepreface="᠎"] {
 
-    #sidebar-box:hover>#sidebar {
-        margin-left: 8px !important;
-        margin-bottom: 8px !important;
-    }
+#sidebar-box:hover>#sidebar {
+    margin-left: 8px !important;
+    margin-bottom: 8px !important;
+}
 
-    #sidebar-box:not(:hover)>#sidebar {
-        border-radius: 0 !important
-    }
+#sidebar-box:not(:hover)>#sidebar {
+    border-radius: 0 !important
+}
 
 
-    #sidebar-box:not(:hover)::before {
-        opacity: 0 !important
-    }
+#sidebar-box:not(:hover)::before {
+    opacity: 0 !important
+}
 }
 
 :root:not([titlepreface="᠎"]) {
 
-    #sidebar,
-    #sidebar:hover {
-        
-        opacity: var(--uc-accent-opacity) !important;
-    }
+#sidebar,
+#sidebar:hover {
+    
+    opacity: var(--uc-accent-opacity) !important;
+}
 
-    #sidebar-box,
-    #sidebar,
-    #sidebar:hover,
-    #sidebar-box:hover {
-        border-radius: 0 !important;
-    }
+#sidebar-box,
+#sidebar,
+#sidebar:hover,
+#sidebar-box:hover {
+    border-radius: 0 !important;
+}
 
-    #sidebar-box::before {
-        opacity: 0 !important;
-        ;
-    }
+#sidebar-box::before {
+    opacity: 0 !important;
+    ;
+}
 }
