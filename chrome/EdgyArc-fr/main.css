@@ -22,11 +22,30 @@
 
 :root {
   --urlbar-icon-border-radius: 8px !important;
+  /**/
+  --toolbarbutton-border-radius: 4px !important;
+  --toolbarbutton-inner-padding: 8px !important;
+  --uc-toolbarbutton-inner-inline-padding: 8px !important;
+  --toolbarbutton-outer-padding: 2px !important;
+  --tabs-navbar-shadow-size: 0px !important;
 }
 
 :root {
   transition: background-color 300ms ease-in !important;
 }
+
+/*variables*/
+:root[windowtype="navigator:browser"],
+:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    background-color: color-mix(in srgb, var(--lwt-accent-color) 60%, light-dark(rgb(240,240,240), rgb(50,50,50))) !important;
+}
+
+/*make shit transparent*/
+:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    --lwt-accent-color: light-dark(rgb(255, 255, 255), rgb(30, 30, 30)) !important;
+}
+
+
 
 #main-window{
   position:relative;
@@ -90,10 +109,11 @@ opacity:0.6 !important;
 @media (-moz-bool-pref: "uc.tweak.rounded-corners") {
     /* Variables used for rounded corners */
     :root {
-        --uc-tweak-rounded-corners-padding: 8px !important;
+        --uc-tweak-rounded-corners-padding: 6px !important;
         --uc-tweak-rounded-corners-radius: 10px !important;
     }
 }
+
 
 
 #navigator-toolbox{border-bottom:enone !important;}
@@ -242,7 +262,7 @@ margin-top:4px !important;
   background-color: transparent !important;
 }
 :root {
---uc-titlebar-drag-space: 0px !important;
+--uc-titlebar-drag-space: 8px !important;
 }
 
   /* macOS specific positioning */
