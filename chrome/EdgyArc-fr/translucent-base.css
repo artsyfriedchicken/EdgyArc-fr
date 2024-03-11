@@ -90,6 +90,8 @@
     #sidebar-box:hover>#sidebar {
         opacity: var(--uc-accent-opacity) !important;
     }
+   &:-moz-window-inactive #sidebar {
+    opacity:0.4 !important; }
 }
 
 :root[titlepreface="᠎"] {
