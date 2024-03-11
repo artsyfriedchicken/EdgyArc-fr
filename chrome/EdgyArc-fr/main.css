@@ -109,8 +109,8 @@ opacity:0.6 !important;
 @media (-moz-bool-pref: "uc.tweak.rounded-corners") {
     /* Variables used for rounded corners */
     :root {
-        --uc-tweak-rounded-corners-padding: 6px !important;
-        --uc-tweak-rounded-corners-radius: 10px !important;
+        --uc-tweak-rounded-corners-padding: 8px !important;
+        --uc-tweak-rounded-corners-radius: 8px !important;
     }
 }
 
