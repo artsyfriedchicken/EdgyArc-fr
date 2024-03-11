@@ -1,16 +1,4 @@
-
-#root.root .Tab {   --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.3));}
-#root.root {--tabs-normal-fg: light-dark(rgba(0,0,0,1), rgba(255,255,255,0.8));
-
-}
-#root.root .Tab {--tabs-activated-fg: light-dark(black, white);}
-/* ============ Define all variable ============ */
-
-
-
-
 #root.root {
-
     --tabs-indent: 18px;
     --tabs-inner-gap: 6px;
     --tabs-pinned-height: 42px;
@@ -26,141 +14,110 @@
     --nav-btn-height: 28px;
     --nav-btn-len-margin: -1px;
     --ntb-padding: 0px !important;
-
     --ntb-btn-height: 28px;
     --tabs-lvl-opacity: 0.4;
---tweak-general-padding:4px;
+    --tweak-general-padding: 4px;
+    --active-el-bg: light-dark(rgb(100, 100, 100, 30%),
+            rgb(180, 180, 180, 30%));
+    --tabs-audio-btn-width: 16px;
+    --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.7));
+    --tabs-normal-fg: light-dark(rgba(0, 0, 0, 1),
+            rgba(255, 255, 255, 1));
+    --tabs-activated-bg: light-dark(rgb(180, 180, 180, 0.4),
+            rgb(255, 255, 255, 0.9)) !important;
+    --tabs-activated-fg: light-dark(black, black) !important;
 }
 
-
-
-/* === Fix Padding Top and Bottom === */
+/* Padding adjustments */
 #root.root .PinnedTabsBar,
 #root.root .ScrollBox .scrollable,
 #root.root .top-horizontal-box {
     padding-top: 4px !important;
 }
 
-/*---------- hidden panels-------*/
-
-/* Settings related to Hidden Panels icon and popup layer, adapting to the flipped navbar orientation. */
-#hidden_panels_btn.nav-item .icon {
-  transform: scaleY(-1);
-}
-.hidden-panels-popup-layer {
-  transform: scaleY(-1);  
-  margin-top: -15%;
-background:red !important;
-z-index:300;
-border-radius:8px !important;
-}
-
-.hidden-panels-popup-layer *{
-border-radius:8px;
-}
+/* Hidden panels */
+#hidden_panels_btn.nav-item .icon,
+.hidden-panels-popup-layer,
 .NavigationBar .hidden-panels-popup-content {
-  transform: scaleY(-1);
+    transform: scaleY(-1);
 }
 
-/*--------- end hidden panels ----------*/
-/*  ============ set scrollbox shadows to lighter when in light mode ============ */
-@media (prefers-color-scheme: light) {
-    .ScrollBox>.top-shadow {
-        top: -12px;
-        left: 0;
-        box-shadow: 0 1px 0 0 rgba(0, 0, 0, .051), 0 1px 12px 0 rgba(0, 0, 0, .208);
-    }
-
-    .ScrollBox>.bottom-shadow {
-        left: 0;
-        bottom: -12px;
-        box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .051), 0 -1px 12px 0 rgba(0, 0, 0, .208);
-    }
+.hidden-panels-popup-layer {
+    margin-top: -15%;
+    background: red !important;
+    z-index: 900;
+    border-radius: 8px !important;
 }
 
-
-
-
-
-
-/* ============ Main box ============ */
-/* === Main Box hover opacity === */
+.hidden-panels-popup-layer * {
+    border-radius: 8px;
+}
+/* Main box */
 #root.root .main-box {
-    transition: opacity 100ms ease-in-out;
+    transition: opacity 100ms ease;
     padding: 0;
-}
-
-#root.root:not(:hover) .main-box {
     opacity: 1;
 }
 
-/*----------- Pinned Tabs --------------*/
-/*Pinned Tabs Height and Width transition*/
-#root.root .PinnedTabsBar,
-#root.root .PinnedTabsBar .Tab {
+/* Pinned Tabs */
 
-    /*transitions*/
-    transition: height 100ms ease-in-out 150ms,
-        width 300ms ease-in-out 0ms;
-}
-
-#root.root .PinnedTabsBar .Tab {
-    margin-bottom: 4px !important;
-}
-
-/* === Pinned Tabbar box background === */
 #root.root .PinnedTabsBar {
-
-    /* Set background color and margin for pinned tabs */
     border-bottom: 1px solid white, 2px solid black;
 
+    & .Tab {
+        margin-bottom: 4px !important;
+    }
 }
 
-
-
-/* ==================== Tabs ====================== */
+/* Tabs */
 .scrollable .Tab:first-child {
     margin-top: 10px !important;
 }
 
-.Tab[data-discarded="true"] {
-opacity:0.9 !important;
-}
-/* === Tab colors ==== */
-.scrollable .Tab .color-layer {
-    width: 32px !important;
+.Tab[data-discarded="true"] .t-box {
+    opacity: 0.7 !important;
 }
 
-/*--- Border radius for active or hovered tabs with coloured bg----*/
+.Tab:hover[data-discarded="true"] .t-box {
+    opacity: 1 !important;
+}
+
+/* Tab colors */
+.scrollable .Tab .color-layer {
+    width: 32px !important;
+    --tabs-color-layer-opacity: 0.5;
+}
+
+.scrollable .Tab[data-discarded="true"] .color-layer {
+    width: 32px !important;
+    --tabs-color-layer-opacity: 0.2 !important;
+}
+
 .scrollable .Tab[data-active="true"] .color-layer,
 .scrollable .Tab:hover .color-layer {
     border-radius: 4px 0px 0px 4px !important;
+    --tabs-color-layer-opacity: 0.7 !important;
 }
 
-/*Modify padding for tabs with coloured backgrounds assigned*/
+.scrollable {
+    & .t-box {
+        padding: 0 3px !important;
+    }
 
-/*tab padding*/
-.scrollable .t-box {
-    padding: 0 3px;
+    & .Tab[data-colorized="true"] .t-box {
+        padding: 0 6px !important;
+    }
 }
 
-.scrollable .Tab[data-colorized="true"] .t-box {
-    padding: 0 6px !important;
-}
-
-
-/*------- grouped tabs ------------*/
-/*Tab group expand icon */
+/* Grouped tabs */
 .Tab .exp-icon {
     opacity: 1 !important;
 }
 
-/* === Make sure child count for collapsed tab groups is visible === */
 #root.root .Tab .child-count {
     opacity: 1 !important;
 }
 
-/* === Reposition Active Audio Indicator when not hovered === */
 #root.root:not(:hover) .Tab .audio {
     margin-left: -11px;
     margin-top: -7px;
@@ -168,145 +125,113 @@ opacity:0.9 !important;
 
 #root.root:not(:hover) .Tab .audio-icon {
     height: 12px !important;
-    /* Set height for audio icon when not hovered */
 }
 
-
-
-/* ============ New Tab button ============ */
-/*make tab panel buttons transparent*/
+/* New Tab button */
 .new-tab-btns {
     background: transparent !important;
     padding: 0 auto;
     margin-top: 0px;
     margin-bottom: 0px !important;
-    /* Adjust padding and margin for new tab buttons */
 }
 
-/* ================== Search Bar ===================== */
+/* Search Bar */
 #root.root #search_bar {
     order: 2;
     padding-left: 0px;
     padding-right: 6px;
 }
 
-/* ============ Navigation box ============ */
-/* ============ Top horizontal ============ */
-
-/*------transparent bgs--------*/
-
+/* Navigation box */
 #root.root .top-horizontal-box {
     display: flex;
     order: 3 !important;
     margin: 0 auto -2px auto !important;
     padding-top: 10px;
-    /* Adjust padding and margin for top horizontal box */
     max-height: 140px;
     padding-bottom: 8px !important;
-overflow:hidden !important;
-    /* Set padding bottom for top horizontal box */
-
-}
-
-/* === Tab Panel Box justify center === */
-#root.root .top-horizontal-box .main-items {
-    justify-content: center;
-    align-items: center;
     overflow: hidden !important;
-
+    & .main-items {
+        justify-content: center;
+        align-items: center;
+        overflow: hidden !important;
+    }
 }
 
 .top-horizontal-box #nav_bar {
     background-color: transparent !important;
-    /* Transparent background for nav bar */
 }
 
 #root.root:not(:hover) .top-horizontal-box {
     opacity: 1;
-    /* Reduced opacity when not hovered */
 }
 
-/* ============ Left Vertical ============ */
 .left-vertical-box #nav_bar {
     background-color: transparent !important;
     padding: 12px 6px;
 }
 
-/* ============ Misc ============ */
-/*make tab panel buttons transparent*/
+/* Misc */
 .TabsPanel .bottom-space {
     background: transparent !important;
 }
 
-/*panel items height and width transition*/
 #root.root .top-horizontal-box .main-items {
-    transition: height 100ms ease-in-out 0ms,
-        width 100ms ease-in-out 0ms;
+    transition: height 100ms ease-in-out 0ms, width 100ms ease-in-out 0ms;
+    overflow: hidden !important;
 }
-
-/* === Convert Space element in navigation panel to line break === */
 
 #root.root .top-horizontal-box .nav-item[data-class="space"] {
     display: block !important;
     min-width: 100% !important;
     height: 2px !important;
-    /* Set specific styling for space nav item */
 }
 
-
-
-
 #root.root {
-    padding:var(--tweak-general-padding);
-        --general-margin: 3px;
-    
+    padding: var(--tweak-general-padding);
+    --general-margin: 3px;
+
     @media (max-width: 80px) {
-            --pinned-tabs-col: 2;
-    --tweak-general-padding:4.5px;
-        }
-        @media (min-width: 150px) {
-            --pinned-tabs-col: 3;
-        }
-    
-        @media (min-width: 250px) {
-            --pinned-tabs-col: 4;
-        }
-    
-        @media (min-width: 350px) {
-            --pinned-tabs-col: 6;
-        }
-    
-    
-    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
+        --pinned-tabs-col: 2;
+        --tweak-general-padding: 4.5px;
     }
 
+    @media (min-width: 150px) {
+        --pinned-tabs-col: 3;
+    }
 
-@media (max-width: 48px) {
+    @media (min-width: 250px) {
+        --pinned-tabs-col: 4;
+    }
+
+    @media (min-width: 350px) {
+        --pinned-tabs-col: 6;
+    }
+
+    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
+}
+
+@media (max-width: 160px) {
     #root.root {
-        /*define changed variables*/
         --tabs-pinned-height: 12px;
         --tabs-pinned-width: 12px;
         --tabs-indent: 0;
         --tabs-lvl-opacity: 0;
-        /*other stuff*/
-        width: 48px;
-        max-width: 48px;
+        width: 100vw;
+        max-width: 280px;
         overflow: hidden;
         white-space: nowrap;
     }
-#root.root .PinnedTabsBar .Tab {
-margin-right:3px !important;}
 
-    /*---------Tabs---------*/
+    #root.root .PinnedTabsBar .Tab {
+        margin-right: 3px !important;
+    }
+
     .scrollable .Tab[data-colorized="true"] .color-layer {
-        opacity: 0.2;
+        opacity: 0.3;
         transition: opacity 100ms linear !important;
     }
 
-
-/*------------Pinned tabs----------*/
-
-    /*remove bg*/
     #root.root .PinnedTabsBar,
     #root.root .PinnedTabsBar .Tab {
         background-color: transparent !important;
@@ -326,30 +251,19 @@ margin-right:3px !important;}
         max-height: 500px;
     }
 
-    /*hide stuff*/
     .left-vertical-box,
-    /*vertical nav box*/
     #root.root #search_bar,
-    /*search bar(if opened)*/
     #root.root .new-tab-btns,
-    /*new tab button*/
     .Tab .t-box,
-    /*tab labels*/
     .PinnedTabsBar .color-layer,
-    /*pinned tabs coloured layer*/
     #root.root .top-horizontal-box .nav-item:not([data-class="panel"]),
-    /*all nav items that are not panels*/
-    #root.root .nav-item[data-active="false"]
-
-    /*all nav panels that are not currently active*/
-        {
+    #root.root .nav-item[data-active="false"] {
         display: none !important;
     }
-    /*---- transition animations--------*/
+
     #root.root .PinnedTabsBar,
     #root.root .PinnedTabsBar .Tab,
     #root.root .top-horizontal-box .main-items {
-        transition: height 0ms ease-in-out 0ms,
-            width 0ms ease-in-out 0ms !important;
+        /* transition: height 0ms ease-in-out 0ms, width 0ms ease-in-out 0ms !important; */
     }
 }
