@@ -5,7 +5,8 @@
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
     --uc-accent-opacity: 67%; /*USER CHANGABLE VALUE*/
     background-color: transparent !important;
-    --uc-window-bg: color-mix(in srgb, var(--lwt-accent-color) var(--uc-accent-opacity), transparent);
+    --uc-window-bg-color:var(--lwt-accent-color);
+    --uc-window-bg: color-mix(in srgb, var(--uc-window-bg-color) var(--uc-accent-opacity), transparent);
     
     @media (prefers-color-scheme:light) {
         --uc-accent-opacity: 57%; /*USER CHANGABLE VALUE*/
@@ -42,19 +43,11 @@
 }
 
 
-#browser:-moz-window-inactive,
-#navigator-toolbox:-moz-window-inactive,
-#navigator-toolbox:not(:-moz-lwtheme) {
-    &:-moz-window-inactive {
-        background-color: var(--lwt-accent-color) !important;
-    }
-}
-
 /*inactive windows colour*/
 #browser:-moz-window-inactive,
 #navigator-toolbox:-moz-window-inactive,
 #navigator-toolbox:not(:-moz-lwtheme) {
-  &:-moz-window-inactive { background-color: var(--lwt-accent-color) !important; }
+  &:-moz-window-inactive { background-color: var(--uc-window-bg-color) !important; }
 }
 
 
@@ -64,24 +57,23 @@
     box-shadow: none !important;
     z-index: 3;
     background-color:transparent !important;
-
-&::before {
-    background-color: var(--uc-window-bg) !important;
-    opacity: 1 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    bottom: -8px;
-    left: -8px;
-    pointer-events: none;
-}
+    &::before {
+        background-color: var(--uc-window-bg) !important;
+        opacity: 1 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        bottom: -8px;
+        left: -8px;
+        pointer-events: none;
+    }
 }
 
 #sidebar {
@@ -130,7 +122,7 @@
     #sidebar-box:hover > #sidebar {
       @media (prefers-color-scheme:dark) {   filter:brightness(0.7) !important;}
       @media (prefers-color-scheme:light) {   filter:brightness(0.95) !important;}   
-      background-color:var(--lwt-accent-color) !important;
+      background-color:var(--uc-window-bg-color) !important;
    
   }
   
@@ -150,13 +142,14 @@
 
 #urlbar-background,
 #searchbar {
-    border: 1px solid light-dark(rgba(200, 200, 200, 0.2), rgba(80, 80, 80, 0.8)) !important;
+    border: 1px solid light-dark(rgba(200, 200, 200, 0.9), rgba(80, 80, 80, 1)) !important;
     opacity: 0.6 !important;
     min-height: 28px !important;
     padding-top: 4px;
+   background-color: color-mix(in srgb, var(--uc-window-bg-color) 20%, light-dark(white, rgba(0,0,0,0.5))) !important; 
 }
 
 #urlbar[breakout][breakout-extend] #urlbar-background {
     opacity: 1 !important;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: var(--uc-window-bg-color) !important;
 }
