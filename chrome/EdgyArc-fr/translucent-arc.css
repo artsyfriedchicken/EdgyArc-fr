@@ -1,4 +1,17 @@
 
+    @media(-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
+
+        :root[titlepreface="᠎"][windowtype="navigator:browser"],
+        :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+        --uc-accent-opacity: 35% !important; /*USER CHANGABLE VALUE*/
+        @media (prefers-color-scheme:light) {
+            --uc-accent-opacity: 25% !important; /*USER CHANGABLE VALUE*/
+        }
+}
+}
+
+
+
 #sidebar-box {
     margin: 0px !important;
     padding: 0px !important;
@@ -10,6 +23,7 @@
 }
 
 :root[titlepreface="᠎"] {
+
     #sidebar-box:hover>#sidebar {
         margin-left: 8px !important;
         margin-bottom: 8px !important;
@@ -29,6 +43,7 @@
 
     #sidebar,
     #sidebar:hover {
+        
         opacity: var(--uc-accent-opacity) !important;
     }
 
