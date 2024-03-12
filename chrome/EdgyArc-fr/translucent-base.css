@@ -36,7 +36,7 @@
 :root #tabbrowser-tabs,
 :root #nav-bar,
 :root #PersonalToolbar,
-:root:not(:-moz-window-inactive) #browser {
+:root:not(:-moz-window-inactive):not([inFullscreen]) #browser {
     -moz-default-appearance: menupopup !important;
     appearance: auto !important;
     background-color: transparent !important;
@@ -49,9 +49,14 @@
     background-color: var(--uc-window-bg) !important;
 }
 
-:root[sizemode="fullscreen"][inFullscreen] {
-    background-color:var(--lwt-accent-color) !important;
+:root[sizemode="fullscreen"] {
+    #navigator-toolbox,
+    #browser,
+    #appcontent
+     {
+    background-color:var(--uc-window-bg-color) !important;
 } 
+}
 
 /*inactive windows colour*/
 #browser:-moz-window-inactive,
@@ -59,6 +64,8 @@
 #navigator-toolbox:not(:-moz-lwtheme) {
   &:-moz-window-inactive { background-color: var(--uc-window-bg-color) !important; }
 }
+
+
 
 
 /*sidebar*/

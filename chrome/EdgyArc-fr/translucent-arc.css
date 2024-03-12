@@ -1,6 +1,6 @@
 
 @media(-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
-/*accent color when sidebar is fully hidden and collapsed*/
+/*accent color when sidebar is hidden*/
     :root[titlepreface="᠎"][windowtype="navigator:browser"],
     :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
     --uc-accent-opacity: 25% !important; /*USER CHANGABLE VALUE*/
@@ -8,19 +8,34 @@
         --uc-accent-opacity: 20% !important; /*USER CHANGABLE VALUE*/
     }
 }
+:root:not([titlepreface="᠎"]),
+:root:not([titlepreface="᠎"]):not(:-moz-lwtheme) {
+--uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
+@media (prefers-color-scheme:light) {
+    --uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
+}
+}
 }
 
 @media not (-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
-/*accent color when sidebar is simply collapsed*/
-:root[titlepreface="᠎"][windowtype="navigator:browser"],
-    :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-    --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
-    @media (prefers-color-scheme:light) {
-        --uc-accent-opacity: 65% !important; /*USER CHANGABLE VALUE*/
+    /*accent color when sidebar is collapsed*/
+    :root[titlepreface="᠎"][windowtype="navigator:browser"],
+        :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+        --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
+        @media (prefers-color-scheme:light) {
+            --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
+        }
     }
-}
-}
-
+        /*accent color when sidebar is expanded*/
+    :root:not([titlepreface="᠎"]),
+        :root:not([titlepreface="᠎"]):not(:-moz-lwtheme) {
+        --uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
+        @media (prefers-color-scheme:light) {
+            --uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
+        }
+    }
+        
+    }
 
 
 #sidebar-box {

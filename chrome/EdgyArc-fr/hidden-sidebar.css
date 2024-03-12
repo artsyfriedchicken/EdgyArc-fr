@@ -9,8 +9,8 @@
 
 
 :root[titlepreface="᠎"] {
-    --uc-tweak-rounded-corners-padding: 10px !important;
-    --uc-tweak-rounded-corners-radius: 10px !important;
+    --uc-tweak-rounded-corners-padding: 12px !important;
+    --uc-tweak-rounded-corners-radius: 8px !important;
 
     #sidebar-box {
         --uc-sidebar-width: 10px !important;
