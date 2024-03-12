@@ -51,7 +51,7 @@
   position:relative;
 }
 
-#main-window::before {
+:root#main-window::before {
   content: '';
   display: block;
   position: absolute;
@@ -64,6 +64,10 @@
   z-index: 20;
   pointer-events: none;
 }
+
+:root[inFullscreen]#main-window::before {
+  opacity:0 !important;
+} 
 
 
 

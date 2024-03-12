@@ -3,7 +3,7 @@
 /*variables*/
 :root[windowtype="navigator:browser"],
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-    --uc-accent-opacity: 70%; /*USER CHANGABLE VALUE*/
+    --uc-accent-opacity: 60%; /*USER CHANGABLE VALUE*/
     background-color: transparent !important;
     --uc-window-bg-color:var(--lwt-accent-color);
     --uc-window-bg: color-mix(in srgb, var(--uc-window-bg-color) var(--uc-accent-opacity), transparent);
@@ -22,6 +22,7 @@
     }
 }
 
+
 :root[windowtype="navigator:browser"]#main-window {
     background-color: transparent !important;
     border-radius: 10px !important;
@@ -38,10 +39,15 @@
 }
 
 /*tint stuff*/
-:root #navigator-toolbox {
+
+:root[sizemode="normal"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox, 
+:root[sizemode="maximized"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox  {
     background-color: var(--uc-window-bg) !important;
 }
 
+:root[sizemode="fullscreen"][inFullscreen] {
+    background-color:var(--lwt-accent-color) !important;
+} 
 
 /*inactive windows colour*/
 #browser:-moz-window-inactive,
@@ -134,6 +140,7 @@
 
 #appcontent .browserStack {
     overflow: hidden !important;
+    border:1px solid light-dark(rgba(0,0,0,0.06),rgba(220,220,220,0.06)) !important;
 }
 
 #appcontent {

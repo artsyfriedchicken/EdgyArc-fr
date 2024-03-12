@@ -1,31 +1,24 @@
 
 @media(-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
-
+/*accent color when sidebar is fully hidden and collapsed*/
     :root[titlepreface="᠎"][windowtype="navigator:browser"],
     :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-    --uc-accent-opacity: 35% !important; /*USER CHANGABLE VALUE*/
+    --uc-accent-opacity: 25% !important; /*USER CHANGABLE VALUE*/
     @media (prefers-color-scheme:light) {
-        --uc-accent-opacity: 25% !important; /*USER CHANGABLE VALUE*/
+        --uc-accent-opacity: 20% !important; /*USER CHANGABLE VALUE*/
     }
 }
 }
 
-:root[titlepreface="᠎"][windowtype="navigator:browser"],
-    :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-    --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
-    @media (prefers-color-scheme:light) {
-        --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
-    }
-}
-
-
-
+@media not (-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
+/*accent color when sidebar is simply collapsed*/
 :root[titlepreface="᠎"][windowtype="navigator:browser"],
     :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
     --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
     @media (prefers-color-scheme:light) {
         --uc-accent-opacity: 65% !important; /*USER CHANGABLE VALUE*/
     }
+}
 }
 
 

@@ -287,6 +287,24 @@
         max-height: 500px;
     }
 
+/* Tab colors */
+.scrollable .Tab .color-layer {
+    width: 34px !important;
+    --tabs-color-layer-opacity: 0.5;
+}
+
+.scrollable .Tab[data-discarded="true"] .color-layer {
+    width: 32px !important;
+    --tabs-color-layer-opacity: 0.2 !important;
+}
+
+.scrollable .Tab[data-active="true"] .color-layer,
+.scrollable .Tab:hover .color-layer {
+    border-radius: 4px 4px 4px 4px !important;
+    --tabs-color-layer-opacity:0.8 !important;
+}
+
+
     .left-vertical-box,
     #root.root #search_bar,
     #root.root .new-tab-btns,
