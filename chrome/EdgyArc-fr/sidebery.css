@@ -1,3 +1,4 @@
+
 #root.root {
     --tabs-indent: 18px;
     --tabs-inner-gap: 6px;
@@ -26,6 +27,11 @@
     --tabs-activated-bg: light-dark(rgb(180, 180, 180, 0.4),
             rgb(255, 255, 255, 0.9)) !important;
     --tabs-activated-fg: light-dark(black, black) !important;
+    --ctx-menu-fg: light-dark(black, white);
+--ctx-menu-icon-opt-height: 30px;
+--ctx-menu-text-opt-inner-gap: 6px;
+--ctx-menu-padding: 4px;
+--ctx-menu-shadow: 0 0 0 1px light-dark(rgb(0,0,0),rgb(240, 240, 240)), 0 1px 16px 0 rgba(0,0,0,0.282);
 }
 
 /* Padding adjustments */
@@ -196,17 +202,29 @@
     padding: var(--tweak-general-padding);
     --general-margin: 3px;
 
-    @media (max-width: 80px) {
+    @media (min-width: 80px) and (max-width:149px) {
         --pinned-tabs-col: 2;
         --tweak-general-padding: 4.5px;
     }
 
-    @media (min-width: 150px) {
+    @media (min-width: 150px) and (max-width: 239px) {
         --pinned-tabs-col: 3;
+
+/* when one tab in bottom row */
+.PinnedTabsBar .tab-wrapper:nth-child(3n-2):last-child {
+    --tabs-pinned-width: calc((100vw) - (14px)) !important; 
+}
     }
 
-    @media (min-width: 250px) {
+    @media (min-width: 240px) and (max-width: 349px) {
         --pinned-tabs-col: 4;
+/* when one tab in bottom row */
+.PinnedTabsBar .tab-wrapper:nth-child(4n-3):last-child {
+    --tabs-pinned-width: calc((100vw) - (14px)) !important; 
+}
+
+/* when one tab in bottom row */
+
     }
 
     @media (min-width: 350px) {
@@ -214,7 +232,16 @@
     }
 
     --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
+
 }
+
+
+
+
+
+
+
+
 
 @media (max-width: 160px) {
     #root.root {
