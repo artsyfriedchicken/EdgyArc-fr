@@ -56,17 +56,17 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
    - `uc.tweak.hide-tabs-bar` to `true`
    - `uc.tweak.disable-drag-space` to `true`
    - `uc.tweak.hide-forward-button` to `true`
-   - `uc.tweak.rounded-corners` to `true` 
+   - `uc.tweak.rounded-corners` to `true`
+   - `uc.tweak.floating-tabs` to `true`
 6. [optional] set up style variants
 7. Import `sidebery-settings.json` and `sidebery-styles.json` into Sidebery (`Sideberry Settings` > `Help` > `Import Addon Data`)
 
 ## Style variants
-### Fully Hide collapsed sidebar
+### Fully Hide collapsed sidebar (like in Arc)
 `uc.tweak.af.hidden-sidebar` > `true`
-### Translucency [MACOS ONLY]
+### Translucency *[MACOS ONLY]*  
 `uc.tweak.af.translucent-enable` > `true`
-### Translucency + minimal (arc-like) sidebar 
-`uc.tweak.af.translucent-enable` > `true`
+### Minimal (arc-like) sidebar 
 `uc.tweak.af.translucent-arc` > `true`
 
 ## Optimum settings for Adaptive Tab Bar Color
@@ -87,7 +87,24 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 
 ![ ](screenshots/06.png)
 
+![ ](screenshots/07.png)
+
+![ ](screenshots/08.png)
+
 ## Changelog
+- v1.0.0-b6
+  - cleaned up code
+  - bugfixes
+  - updated sidebery styles
+- v1.0.0-b5
+  - Rewritten most of the code for translucency in macos
+  - Added new preference uc.tweak.af.hidden-sidebar to fully hide sidebar when autohde is turned on in Userchrome Toggle
+  - Added new preferenceuc.tweak.af.translucent-enable to control translucency [mac only]
+  - Added new preference uc.tweak.af.translucent-enable to enable arc-like translucent sidebar
+  - Tweaked sidebery css
+
+- v1.0.0-b4
+  - Supports Adaptive Tab Bar Color in translucent windows enabled! 
 - v1.0.0-b3
   - restyled horizontal navigation bar to make it look less crappy
   - coloured tabs only show colour behind favicon, and not the whole row
