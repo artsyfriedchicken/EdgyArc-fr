@@ -22,6 +22,9 @@
     }
 }
 
+#personal-bookmarks {
+    opacity:var(--uc-accent-opacity) !important;
+}
 
 :root[windowtype="navigator:browser"]#main-window {
     background-color: transparent !important;
@@ -32,6 +35,7 @@
 :root #titlebar,
 :root #tabbrowser-tabs,
 :root #nav-bar,
+:root #PersonalToolbar,
 :root:not(:-moz-window-inactive) #browser {
     -moz-default-appearance: menupopup !important;
     appearance: auto !important;
