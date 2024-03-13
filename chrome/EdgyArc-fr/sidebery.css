@@ -109,6 +109,12 @@ border:1px solid light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)) !important;
     }
 }
 
+#root.root .PinnedTabsBar .Tab .fav, #root.root .PinnedTabsBar .Tab .fav-icon {
+width:22px !important;
+height:22px !important;
+
+}
+
 /* Tabs */
 .scrollable .Tab {
 --tabs-margin: 5px !important;
@@ -358,11 +364,17 @@ padding-left:5px !important;
     flex-basis: 40%;
 
 }}
+
+#root.root .PinnedTabsBar .Tab .fav, 
+#root.root .PinnedTabsBar .Tab .fav-icon {
+width:14px !important;
+height:14px !important;
+}
     .PinnedTabsBar .Tab {
         opacity: 0.7 !important;
 margin-top:2px !important;
 margin-bottom:4px !important;
-        &[data-pin="true"] {
+        &[data-active="true"] {
             opacity: 1 !important;
             max-width: 32px !important;
             max-height: 32px !important;
