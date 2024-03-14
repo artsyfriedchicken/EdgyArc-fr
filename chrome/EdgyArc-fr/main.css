@@ -195,9 +195,9 @@
 
   /* Add some padding to the top of the navbar */
   &[tabsintitlebar] #nav-bar {
-    --uc-tab-top-margin: 0;
+    --uc-tab-top-margin: 1px;
     padding-top: var(--uc-tab-top-margin, 0) !important;
-    margin-top: 0px !important;
+    margin-top: 1px !important;
   }
 
 }
