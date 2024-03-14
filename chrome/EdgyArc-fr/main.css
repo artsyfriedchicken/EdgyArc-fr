@@ -344,12 +344,12 @@
 
 
 
-#back-button {
+:root[windowtype="navigator:browser"] #back-button {
   list-style-image: url("icons/arrow.svg") !important;
   transform: rotate(180deg);
 }
 
-#forward-button {
+:root[windowtype="navigator:browser"] #forward-button {
   list-style-image: url("icons/arrow.svg") !important;
 
 }
