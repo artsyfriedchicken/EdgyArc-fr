@@ -18,8 +18,6 @@
 /**/
 /**/
 @import url("translucent-base.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
-/**/
-/**/
 @import url("translucent-arc.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
 /**/
 /*/@import url("translucent-orion.css") (-moz-bool-pref: "uc.tweak.af.translucent-orion");/**/
@@ -27,6 +25,7 @@
 /**/
 @import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
 /**/
+@import url("hidden-navbar.css") (-moz-bool-pref: "uc.tweak.af.hidden-navbar-beta");
 
 :root {
   --urlbar-icon-border-radius: 8px !important;
@@ -277,7 +276,8 @@ padding:0px !important;
   margin-inline: 3px !important;
 }
 
-
+#navigator-toolbox #nav-bar-customization-target .toolbarbutton-badge {
+  margin-top: 8px !important;}
 /* Opacity and transition for address bar and toolbar buttons 
 #navigator-toolbox:not(:hover) #urlbar-input-container, */
 #navigator-toolbox:not(:hover) .toolbarbutton-1,
@@ -347,6 +347,7 @@ padding:0px !important;
   --toolbarbutton-inner-padding: 5px !important;
   --uc-toolbarbutton-inner-inline-padding: 6px !important;
   --toolbarbutton-outer-padding: 2px;
+    --toolbarbutton-hover-background: var(--urlbar-box-hover-bgcolor) !important;
   margin-left: -38px;
   margin-right: 10px;
   z-index:9999 !important;
