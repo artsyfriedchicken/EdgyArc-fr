@@ -327,15 +327,23 @@
 /*only show urlbar buttons on hover*/
 #star-button,
 #page-action-buttons {
-  display: none !important;
+  display: flex !important;
 }
 
 #urlbar:hover #star-button,
 #urlbar:hover #page-action-buttons {
   display: flex !important;
+  opacity:1 !important;
+  
 }
 
+#urlbar:not(:hover) #star-button:not([open]),
+#urlbar:not(:hover) #page-action-buttons .urlbar-page-action:not([open]) {
+  display:none !important;
+  opacity:0 !important;
+  width:0.1px !important;
 
+}
 
 #urlbar:not([focused]) .urlbar-input:not([focused]) {
   text-align: center !important;
