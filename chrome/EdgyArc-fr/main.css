@@ -31,7 +31,7 @@
 :root {
   --urlbar-icon-border-radius: 8px !important;
   /**/
-  --toolbarbutton-border-radius: 4px !important;
+  --toolbarbutton-border-radius: 8px !important;
   --toolbarbutton-inner-padding: 8px !important;
   --uc-toolbarbutton-inner-inline-padding: 8px !important;
   --toolbarbutton-outer-padding: 2px !important;
@@ -347,7 +347,7 @@ padding:0px !important;
   --toolbarbutton-inner-padding: 5px !important;
   --uc-toolbarbutton-inner-inline-padding: 6px !important;
   --toolbarbutton-outer-padding: 2px;
-  margin-left: -39px;
+  margin-left: -38px;
   margin-right: 10px;
   z-index:9999 !important;
 }
@@ -360,7 +360,8 @@ padding:0px !important;
 }
 
 #urlbar-container+#stop-reload-button .toolbarbutton-icon {
-  transform: scale(0.9) !important;
+width:26px !important;
+  height:24px !important;
 
 }
 
@@ -374,7 +375,7 @@ padding:0px !important;
 #urlbar:hover #star-button,
 #urlbar:hover #page-action-buttons {
   display: flex !important;
-  opacity:1 !important;
+  opacity:0.8 !important;
   
 }
 
