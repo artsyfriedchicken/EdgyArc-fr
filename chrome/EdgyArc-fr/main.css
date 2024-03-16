@@ -20,12 +20,8 @@
 @import url("translucent-base.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
 @import url("translucent-arc.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
 /**/
-/*/@import url("translucent-orion.css") (-moz-bool-pref: "uc.tweak.af.translucent-orion");/**/
-/*/@import url("translucent-ui-testing.css") (-moz-bool-pref: "uc.tweak.translucent-ui-testing");/**/
-/**/
 @import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
-/**/
-@import url("hidden-navbar.css") (-moz-bool-pref: "uc.tweak.af.hidden-navbar-beta");
+
 
 :root {
   --urlbar-icon-border-radius: 8px !important;

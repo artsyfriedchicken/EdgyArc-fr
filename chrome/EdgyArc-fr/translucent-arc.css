@@ -1,6 +1,5 @@
-
+/*colour tint when sidebar is fully hidden*/
 @media(-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
-/*accent color when sidebar is hidden*/
     :root[titlepreface="᠎"][windowtype="navigator:browser"],
     :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
     --uc-accent-opacity: 25% !important; /*USER CHANGABLE VALUE*/
@@ -8,6 +7,7 @@
         --uc-accent-opacity: 20% !important; /*USER CHANGABLE VALUE*/
     }
 }
+/*colour tint when sidebar is expanded by default*/
 :root:not([titlepreface="᠎"]),
 :root:not([titlepreface="᠎"]):not(:-moz-lwtheme) {
 --uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
@@ -17,8 +17,9 @@
 }
 }
 
+/*colour tint when sidebar is NOT fully hidden*/
 @media not (-moz-bool-pref: "uc.tweak.af.hidden-sidebar") { 
-    /*accent color when sidebar is collapsed*/
+    /*colour tint when sidebar is collapsed*/
     :root[titlepreface="᠎"][windowtype="navigator:browser"],
         :root[titlepreface="᠎"][windowtype="navigator:browser"]:not(:-moz-lwtheme) {
         --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
@@ -26,7 +27,7 @@
             --uc-accent-opacity: 50% !important; /*USER CHANGABLE VALUE*/
         }
     }
-        /*accent color when sidebar is expanded*/
+        /*colour tint when sidebar is expanded*/
     :root:not([titlepreface="᠎"]),
         :root:not([titlepreface="᠎"]):not(:-moz-lwtheme) {
         --uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
@@ -42,6 +43,8 @@
 margin: 0px !important;
 padding: 0px !important;
 }
+
+/*browserStack margins when sidebar contains sidebery, TSS or TCR*/
 /*sidebery*/
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
 /* Tree Style Tab */
@@ -54,6 +57,7 @@ margin-left: 0 !important;
 }
 }
 
+/*misc fixes when sidebar is set to auto collapse*/
 :root[titlepreface="᠎"] {
 
 #sidebar-box:hover>#sidebar {
@@ -65,17 +69,16 @@ margin-left: 0 !important;
     border-radius: 0 !important
 }
 
-
 #sidebar-box:not(:hover)::before {
     opacity: 0 !important
 }
 }
 
+/*misc fixes when sidebar is NOT set to auto collapse*/
 :root:not([titlepreface="᠎"]) {
 
 #sidebar,
 #sidebar:hover {
-    
     opacity: var(--uc-accent-opacity) !important;
 }
 

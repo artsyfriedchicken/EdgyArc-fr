@@ -1,21 +1,25 @@
 /*Implement translucent ui */
 
-/*variables*/
+/*create colour accent variable --uc-window-bg */
 :root[windowtype="navigator:browser"],
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-    --uc-accent-opacity: 60%; /*USER CHANGABLE VALUE*/
+    --uc-accent-opacity: 60%;
+    /*USER CHANGABLE VALUE*/
     background-color: transparent !important;
-    --uc-window-bg-color:var(--lwt-accent-color);
+    --uc-window-bg-color: var(--lwt-accent-color);
     --uc-window-bg: color-mix(in srgb, var(--uc-window-bg-color) var(--uc-accent-opacity), transparent);
-    
+
     @media (prefers-color-scheme:light) {
-        --uc-accent-opacity: 60%; /*USER CHANGABLE VALUE*/
+        --uc-accent-opacity: 60%;
+        /*USER CHANGABLE VALUE*/
     }
 }
 
 /*make shit transparent*/
+
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
     --lwt-accent-color: light-dark(rgb(255, 255, 255), rgb(30, 30, 30)) !important;
+
     & #navigator-toolbox {
         --toolbar-bg: transparent !important;
         --toolbar-bgcolor: transparent !important;
@@ -23,14 +27,25 @@
 }
 
 #personal-bookmarks {
-    opacity:var(--uc-accent-opacity) !important;
+    opacity: var(--uc-accent-opacity) !important;
 }
 
 :root[windowtype="navigator:browser"]#main-window {
     background-color: transparent !important;
     border-radius: 10px !important;
 }
-/*apply blur*/
+
+/*remove transparency in fullscreen */
+:root[sizemode="fullscreen"] {
+
+    #navigator-toolbox,
+    #browser,
+    #appcontent {
+        background-color: var(--uc-window-bg-color) !important;
+    }
+}
+
+/*apply blur by making window into menupopup - macos only - may not work in the future lol*/
 :root #TabsToolbar,
 :root #titlebar,
 :root #tabbrowser-tabs,
@@ -42,38 +57,34 @@
     background-color: transparent !important;
 }
 
-/*tint stuff*/
+/*tint stuff with colour accent --uc-window-bg */
 
-:root[sizemode="normal"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox, 
-:root[sizemode="maximized"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox  {
+:root[sizemode="normal"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox,
+:root[sizemode="maximized"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox {
     background-color: var(--uc-window-bg) !important;
 }
 
-:root[sizemode="fullscreen"] {
-    #navigator-toolbox,
-    #browser,
-    #appcontent
-     {
-    background-color:var(--uc-window-bg-color) !important;
-} 
+#appcontent {
+    background-color: var(--uc-window-bg) !important;
 }
 
 /*inactive windows colour*/
 #browser:-moz-window-inactive,
 #navigator-toolbox:-moz-window-inactive,
 #navigator-toolbox:not(:-moz-lwtheme) {
-  &:-moz-window-inactive { background-color: var(--uc-window-bg-color) !important; }
+    &:-moz-window-inactive {
+        background-color: var(--uc-window-bg-color) !important;
+    }
 }
 
-
-
-
-/*sidebar*/
+/*sidebar crapppp*/
 #sidebar-box {
     border-radius: 0px !important;
     box-shadow: none !important;
     z-index: 3;
-    background-color:transparent !important;
+    background-color: transparent !important;
+
+    /*use a pseudo element to mimic backround colour for when expand on hover is enabled*/
     &::before {
         background-color: var(--uc-window-bg) !important;
         opacity: 1 !important;
@@ -93,6 +104,7 @@
     }
 }
 
+/*z-index crap to make sure everything shows up right*/
 #sidebar {
     z-index: 3 !important;
 }
@@ -101,27 +113,31 @@
     z-index: 21;
 }
 
+/*custom opacities when sidebery is expanded*/
 :root:not([titlepreface="᠎"]) {
 
     #sidebar,
     #sidebar-box:hover>#sidebar {
         opacity: var(--uc-accent-opacity) !important;
     }
-   &:-moz-window-inactive #sidebar {
-    opacity:0.4 !important; }
+
+    &:-moz-window-inactive #sidebar {
+        opacity: 0.4 !important;
+    }
 }
 
+/*custom properties for when sidebery is set to auto collapse*/
 :root[titlepreface="᠎"] {
+
     #sidebar-box {
         border-radius: 0px !important;
         box-shadow: none !important;
         z-index: 3;
-
     }
 
     #sidebar {
         z-index: 3 !important;
-
+        /*reenforcing this*/
     }
 
     #sidebar-box:not(:hover),
@@ -133,43 +149,44 @@
         opacity: var(--uc-accent-opacity) !important;
     }
 
+    /*using the pseudo element to cover empty spacke behind expanded sidebar*/
     #sidebar-box::before {
         background-color: var(--uc-window-bg) !important;
         z-index: 0;
     }
-    
-    #sidebar-box:hover > #sidebar {
-      @media (prefers-color-scheme:dark) {   filter:brightness(0.7) !important;}
-      @media (prefers-color-scheme:light) {   filter:brightness(0.95) !important;}   
-      background-color:var(--uc-window-bg-color) !important;
-   
-  }
-  
-  
-  }
 
+    #sidebar-box:hover>#sidebar {
+        /*brightness fix - dont @ me, if you know you know*/
+        @media (prefers-color-scheme:dark) {
+            filter: brightness(0.7) !important;
+        }
 
+        @media (prefers-color-scheme:light) {
+            filter: brightness(0.95) !important;
+        }
+
+        background-color:var(--uc-window-bg-color) !important;
+    }
+}
+
+/*draw 1px border around browser content for clarity - anything inside this is not part of the browser ui*/
 #appcontent .browserStack {
     overflow: hidden !important;
-    border:1px solid light-dark(rgba(0,0,0,0.06),rgba(220,220,220,0.06)) !important;
+    border: 1px solid light-dark(rgba(0, 0, 0, 0.06), rgba(220, 220, 220, 0.06)) !important;
 }
 
-#appcontent {
-    background-color: var(--uc-window-bg) !important;
-}
-
-
-
+/*customise urlbar background*/
 #urlbar-background,
 #searchbar {
     border: 1px solid light-dark(rgba(200, 200, 200, 0.9), rgba(80, 80, 80, 1)) !important;
     opacity: 0.6 !important;
     min-height: 28px !important;
     padding-top: 4px;
-   background-color: color-mix(in srgb, var(--uc-window-bg-color) 20%, light-dark(white, rgba(0,0,0,0.5))) !important; 
+    background-color: color-mix(in srgb, var(--uc-window-bg-color) 20%, light-dark(white, rgba(0, 0, 0, 0.5))) !important;
 }
 
 #urlbar[breakout][breakout-extend] #urlbar-background {
     opacity: 1 !important;
     background-color: var(--uc-window-bg-color) !important;
+    /*todo - add blurring behind expanded urlbar-background - idfk how to*/
 }
