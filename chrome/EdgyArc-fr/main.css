@@ -41,6 +41,34 @@
   transition: background-color 300ms ease-in !important;
 }
 
+
+
+/* indicator for private browsing mode with tabs hidden */
+
+:root[privatebrowsingmode="temporary"] {
+  #private-browsing-indicator-with-label {
+    display:none !important;
+  }
+#nav-bar{
+  padding-right:70px !important;
+}
+    #nav-bar::after {
+      content: var(--uc-string-private);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px; /* Adjust width as needed */
+      height: 20px; /* Adjust height as needed */
+      background-color: purple; /* Change background color as desired */
+      color: white; /* Change text color as desired */
+      opacity:0.6;
+      position: absolute;
+      top: calc(50% - 10px); /* Centers vertically */
+      right: 8px; /* Places at the rightmost end */
+      border-radius: 4px; /* Creates rounded corners */
+  }
+}
+
 /*variables*/
 :root[windowtype="navigator:browser"],
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
