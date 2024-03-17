@@ -1,0 +1,117 @@
+/* Greyscale extension buttons */
+#navigator-toolbox:not(:hover) .toolbarbutton-icon {
+    filter: grayscale(100%);
+    transition: filter 300ms ease !important;
+}
+
+/* Restore color on hover */
+#navigator-toolbox:hover .toolbarbutton-icon {
+    filter: grayscale(0%);
+}
+
+
+/*stick stop-reload button into right corner of addressbar like in safari*/
+/* if stop-reload-button is on the IMMEDIATE RIGHT of the addressbar, stick it into the addressbar*/
+#urlbar-container:has(+ #stop-reload-button) #urlbar {
+    padding-right: 28px;
+  }
+  
+  #urlbar-container+#stop-reload-button {
+    background-color: transparent !important;
+    --toolbarbutton-inner-padding: 5px !important;
+    --uc-toolbarbutton-inner-inline-padding: 6px !important;
+    --toolbarbutton-outer-padding: 2px;
+      --toolbarbutton-hover-background: var(--urlbar-box-hover-bgcolor) !important;
+    margin-left: -38px;
+    margin-right: cacl(var(--toolbarbutton-inner-padding)*2);
+    z-index:9999 !important;
+  }
+  
+  #urlbar-container+#stop-reload-button:hover {
+    opacity: 1 !important;
+    & .toolbarbutton-icon{
+      opacity:1 !important;
+    }
+  }
+  
+  #urlbar-container+#stop-reload-button .toolbarbutton-icon {
+  width:26px !important;
+    height:24px !important;
+  
+  }
+  
+  
+  /*only show urlbar buttons on hover*/
+  #star-button,
+  #page-action-buttons {
+    display: flex !important;
+  }
+  
+  #urlbar:hover #star-button,
+  #urlbar:hover #page-action-buttons {
+    display: flex !important;
+    opacity:0.8 !important;
+    
+  }
+  
+  #urlbar:not(:hover) #star-button:not([open]),
+  #urlbar:not(:hover) #page-action-buttons .urlbar-page-action:not([open]) {
+    display:none !important;
+    opacity:0 !important;
+    width:0.1px !important;
+  
+  }
+  
+  #urlbar:not([focused]) .urlbar-input:not([focused]) {
+    text-align: center !important;
+  }
+  
+  
+  
+  
+  :root[windowtype="navigator:browser"] #back-button {
+    list-style-image: url("icons/arrow.svg") !important;
+    transform: rotate(180deg);
+  }
+  
+  :root[windowtype="navigator:browser"] #forward-button {
+    list-style-image: url("icons/arrow.svg") !important;
+  
+  }
+  
+  
+  #fxa-toolbar-menu-button {
+    transform: scale(0.8) !important;
+  }
+  
+  
+  /* Userchrome Toggle => sidebar icon */
+  :is(.webextension-browser-action,
+    .eom-addon-button):is([data-extensionid="userchrome-toggle-extended@n2ezr.ru"],
+    [data-extensionid="userchrome-toggle@joolee.nl"]) .toolbarbutton-icon {
+    list-style-image: url("chrome://browser/skin/sidebars.svg");
+  }
+  
+  /* uBlock Origin => custom svg icon */
+  :is(.webextension-browser-action,
+    .eom-addon-button)[data-extensionid="uBlock0@raymondhill.net"] .toolbarbutton-icon {
+    list-style-image: url("icons/ublock.svg");
+  }
+  
+  /* Bitwarden => custom svg icon */
+  :is(.webextension-browser-action,
+    .eom-addon-button)[data-extensionid="{446900e4-71c2-419f-a6a7-df9c091e268b}"] .toolbarbutton-icon {
+    list-style-image: url("icons/bitwarden.svg");
+  }
+  
+  /* Privacy Badger => it's own monochrome icon */
+  :is(.webextension-browser-action,
+    .eom-addon-button)[data-extensionid="jid1-MnnxcxisBPnSXQ@jetpack"] .toolbarbutton-icon {
+    list-style-image: image-set(url("moz-extension://51ac6f66-1bb5-4473-93a0-41ead025ec8f/icons/badger-19-disabled.png"), url("moz-extension://51ac6f66-1bb5-4473-93a0-41ead025ec8f/icons/badger-38-disabled.png"));
+  }
+  
+  /* Dark Reader => custom svg icon (moon) */
+  :is(.webextension-browser-action,
+    .eom-addon-button)[data-extensionid="addon@darkreader.org"] .toolbarbutton-icon {
+    list-style-image: url("icons/dr.svg");
+  }
