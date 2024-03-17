@@ -52,7 +52,8 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 2. Install recommended addons: [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/), [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/), [Adaptive Tab Bar Colour](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/).
 3. Clone or download the EdgyArc-fr repository to your local machine.
 4. Copy the contents of the `chrome` folder into your Firefox profile's `chrome` folder.
-5. Enable the following settings in `about:config` to enable features in EdgeFrFox
+5. Enable/Add the following settings in `about:config` to enable features in EdgeFrFox
+   Make sure to initialise all of these as Bools
    - `uc.tweak.hide-tabs-bar` to `true`
    - `uc.tweak.disable-drag-space` to `true`
    - `uc.tweak.hide-forward-button` to `true`
@@ -64,8 +65,8 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
    - `layout.css.color-mix.enabled`
    - `layout.css.light-dark.enabled`
    - `layout.css.has-selector.enabled`
-6. [optional] set up style variants
-7. Import `sidebery-settings.json` and `sidebery-styles.json` into Sidebery (`Sideberry Settings` > `Help` > `Import Addon Data`)
+7. [optional] set up style variants
+8. Import `sidebery-settings.json` and `sidebery-styles.json` into Sidebery (`Sideberry Settings` > `Help` > `Import Addon Data`)
 
 ## Style variants
 ### Fully Hide collapsed sidebar (like in Arc)
@@ -73,9 +74,11 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ### Translucency *[MACOS ONLY]*  
 `uc.tweak.af.translucent-enable` > `true` (Enabled by default in newer commits)
 ### Minimal (arc-like) sidebar 
-`uc.tweak.af.translucent-arc` > `true`
+`uc.tweak.af.translucent-arc` > `true` **[Recommended]**
+### Show Sidebar Header
+`uc.tweak.af.show-sidebar-header` > `true`
 
-## Optimum settings for Adaptive Tab Bar Color
+## My Settings for Adaptive Tab Bar Color
 ![ ](screenshots/ATBC-settings.png)
 
 
