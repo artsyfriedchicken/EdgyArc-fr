@@ -12,7 +12,7 @@ To use EdgyArc-fr to its fullest potential, ensure you have the following prereq
 - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) 
 - Recommended Addons:
   - [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) 
-  - [Adaptive Tab Bar Color](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/) - Not supported when translucency is enabled 
+  - [Adaptive Tab Bar Color](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/) 
 
 ## About
 
@@ -24,8 +24,8 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 
 - MOAR rounded corners, larger padding, and a bit more room to breathe.
 - Adjusts sidebar styling to complement Sidebery.
-- Optional auto collapsing sidebar.
-- Optional fully hide sidebar when not hovered (like Arc browser)
+- `Optional` auto collapsing sidebar.
+- `Optional` fully hide sidebar when not hovered (like Arc browser)
 
 ### UserChrome Toggle Integration
 
