@@ -48,10 +48,6 @@ See the above repository for updates as well as full license text. */
     transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) var(--uc-autohide-sidebar-delay), box-shadow var(--uc-autohide-transition-duration) ease-in-out var(--uc-autohide-sidebar-delay) !important;
   }
 
-  #sidebar-box > #sidebar-header,
-  #sidebar-box > #sidebar {
-  }
-
   .sidebar-panel {
     background-color: transparent !important;
     color: var(--newtab-text-primary-color) !important;
