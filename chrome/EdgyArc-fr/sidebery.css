@@ -1,5 +1,6 @@
 #root.root {
     --notification-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
+--tabs-margin: 6px !important;
     --search-border-radius: 6px;
     --search-font-size: 0.9rem;
     --search-icon-width: 40px;
@@ -9,9 +10,9 @@
     --ctx-menu-min-width: 160px;
     --popup-shadow: 0 0 5px 5px light-dark(rgba(0,0,0,0.2), rgba(0,0,0,0.3));
 
-    --tabs-indent: 14px;
+    --tabs-indent: 18px;
     --tabs-inner-gap: 6px;
-    --tabs-pinned-height: 42px;
+    --tabs-pinned-height: 38px;
     --tabs-pinned-width: 42px;
     --general-margin: 8px;
     --tabs-height: 32px;
@@ -49,6 +50,7 @@ transition:width none;
 padding:3px 0px 6px 0 !important;
 margin:0px !important;
 }
+
 
 /* Hidden panels */
 
@@ -95,7 +97,6 @@ border:1px solid light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)) !important;
 
 
 
-
 /* Main box */
 #root.root .main-box {
     transition: opacity 100ms ease;
@@ -121,12 +122,12 @@ height:22px !important;
 
 /* Tabs */
 .scrollable .Tab {
---tabs-margin: 5px !important;
+
 
 
 }
 .scrollable .Tab:first-child {
-    margin-top: 10px !important;
+/*    margin-top: 10px !important; */
 }
 
 .Tab[data-discarded="true"] .t-box {
@@ -166,6 +167,7 @@ height:22px !important;
 
 }
 
+
 /* Grouped tabs */
 .Tab .exp-icon {
     opacity: 1 !important;
@@ -192,8 +194,8 @@ opacity: 1 !important;
 .new-tab-btns {
     background: transparent !important;
     padding: 0 auto;
-    margin-top: 0px;
-    margin-bottom: 0px !important;
+margin:5px auto 0 auto !important;
+max-width:90vw;
 }
 
 /* Search Bar */
@@ -202,6 +204,7 @@ opacity: 1 !important;
     padding-left: 0px;
     padding-right: 6px;
 }
+
 
 /* Navigation box */
 
@@ -254,9 +257,10 @@ opacity: 1 !important;
 }
 
 
+
 /*resize pinned tab widths*/
 #root.root {
-    --total-pinned-width: calc(100vw - 5px);
+    --total-pinned-width: calc(100vw - 6px);
 
   
     
@@ -268,8 +272,6 @@ opacity: 1 !important;
 margin:0 0px 0 0px !important;
 --general-padding:0 0 0 0 !important;
 --general-margin:0 0 0 0 !important;
-
---tabs-margin:5px !important;
 & .tab-wrapper {
     --calc-pinned-tab-width: calc((var(--total-pinned-width) - (var(--tabs-margin) * var(--pinned-tabs-col))) / var(--pinned-tabs-col));
     --tabs-pinned-width: var(--calc-pinned-tab-width);
