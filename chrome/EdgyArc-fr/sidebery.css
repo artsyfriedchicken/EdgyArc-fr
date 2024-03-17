@@ -1,10 +1,10 @@
-
 #root.root {
     --notification-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
     --search-border-radius: 6px;
     --search-font-size: 0.9rem;
     --search-icon-width: 40px;
-    --ctx-menu-shadow: var(--popup-shadow);
+    --ctx-menu-shadow: 0 0 0 1px light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)), 
+0 0 5px 5px light-dark(rgba(0,0,0,0.2), rgba(0,0,0,0.3))!important;
     --ctx-menu-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
     --ctx-menu-min-width: 160px;
     --popup-shadow: 0 0 5px 5px light-dark(rgba(0,0,0,0.2), rgba(0,0,0,0.3));
@@ -19,9 +19,7 @@
     --history-item-margin: 5px;
     --history-item-border-radius: 8px;
     --tabs-close-btn-margin: 3px;
-    --nav-btn-margin: 0px 5px;
-    --nav-btn-width: 28px;
-    --nav-btn-height: 28px;
+    --nav-btn-margin: 3px 4px;
     --nav-btn-len-margin: -1px;
     --ntb-padding: 0px !important;
     --ntb-btn-height: 28px;
@@ -47,6 +45,10 @@ transition:width none;
 
 
 /* Padding adjustments */
+#root.root {
+padding:3px 0px 6px 0 !important;
+margin:0px !important;
+}
 
 /* Hidden panels */
 
@@ -89,8 +91,10 @@ background-color:transparent;}
 
 .hidden-panels-popup {
 border:1px solid light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)) !important;
-
 }
+
+
+
 
 /* Main box */
 #root.root .main-box {
@@ -149,7 +153,8 @@ height:22px !important;
     border-radius: 4px 0px 0px 4px !important;
     --tabs-color-layer-opacity:0.8 !important;
 }
-
+.scrollable .Tab[data-active="true"] .color-layer {
+ --tabs-color-layer-opacity:1 !important;}
 .scrollable {
     & .t-box {
         padding: 0 3px !important;
@@ -199,6 +204,11 @@ font-weight:800 !important;
 }
 
 /* Navigation box */
+
+@media (min-width: 150px) and (max-width: 239px) {
+#root.root{
+--nav-btn-width:30px !important;}
+}
 #root.root .top-horizontal-box {
     display: flex;
     order: 3 !important;
@@ -243,17 +253,23 @@ font-weight:800 !important;
     height: 2px !important;
 }
 
+
+/*resize pinned tab widths*/
 #root.root {
     padding: var(--tweak-general-padding);
     --general-margin: 3px;
-    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
+    --tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 5px);
 
-
+    .PinnedTabsBar {
+        margin-left:2px;
+        margin-right:2px;
+    }
+/*--------on collapsed sidebar*/
     @media (min-width: 80px) and (max-width:149px) {
         --pinned-tabs-col: 2;
         --tweak-general-padding: 4.5px;
     }
-
+/*------------on narrow sidebar*/
     @media (min-width: 150px) and (max-width: 239px) {
         --pinned-tabs-col: 3;
 /* 
@@ -261,19 +277,17 @@ when one tab in bottom row
 */
 .PinnedTabsBar .tab-wrapper:nth-child(3n+1):last-child {
 --pinned-tabs-col: 1 !important;
-    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
-}
+--tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 9px);}
 /* 
 when two tab in bottom row 
 */
 .PinnedTabsBar .tab-wrapper:nth-child(3n+2):nth-last-child(1),
 .PinnedTabsBar .tab-wrapper:nth-child(3n+1):nth-last-child(2) {
 --pinned-tabs-col: 2 !important;
-    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
-}
+--tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 5px);}
 
     }
-
+/*--------------on regular sidebar*/
     @media (min-width: 240px) and (max-width: 280px) {
         --pinned-tabs-col: 4;
 /* 
@@ -281,21 +295,20 @@ when one tab in bottom row
 */
 .PinnedTabsBar .tab-wrapper:nth-child(4n-3):last-child {
 --pinned-tabs-col: 1 !important;
-    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
-}
+--tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 9px);}
 /* 
 when two tab in bottom row 
 */
 .PinnedTabsBar .tab-wrapper:nth-child(3n+3):last-child,
 .PinnedTabsBar .tab-wrapper:nth-child(4n-3):nth-last-child(2) {
 --pinned-tabs-col: 2 !important;
-    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
-}
+--tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 5px);}
+/*when 3 tab in bottom row*/
 .PinnedTabsBar .tab-wrapper:nth-child(3):last-child,
 .PinnedTabsBar .tab-wrapper:nth-child(2):nth-last-child(2),
 .PinnedTabsBar .tab-wrapper:nth-child(1):nth-last-child(3) {
 --pinned-tabs-col: 3 !important;
-    --tabs-pinned-width: calc(((100vw) - ((var(--tabs-margin) * var(--pinned-tabs-col)) + var(--general-margin) + (2 * var(--tweak-general-padding)))) / var(--pinned-tabs-col));
+--tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 5px);
 }
 
     }
@@ -338,10 +351,16 @@ when two tab in bottom row
         overflow: hidden;
         white-space: nowrap;
     }
+#root.root {
+padding:3px 0px 0px 0 !important;
+}
 
     #root.root .PinnedTabsBar .Tab {
         margin-right: 3px !important;
     }
+#root.root .scrollable, #root.root .PinnedTabsBar {
+margin-left:4px !important;
+}
 
 #root.root .Tab .audio {
     margin-left: -11px;
@@ -413,9 +432,11 @@ margin-bottom:4px !important;
         display: none !important;
     }
     #root.root .nav-item[data-active="true"]{
-width:34px !important;
-height:34px !important;
+width:32px !important;
+height:32px !important;
 margin-bottom:3px !important;
+margin-left:2px !important;
+border:1px solid light-dark(rgba(0,0,0,0.4), rgba(255,255,255,0.2)) !important;
 opacity:1 !important;
 filter:contrast(130%) !important;
 }

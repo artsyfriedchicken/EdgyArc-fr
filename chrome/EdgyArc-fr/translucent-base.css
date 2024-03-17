@@ -26,6 +26,11 @@
     }
 }
 
+:root #TabsToolbar-customization-target{
+    --tab-selected-bgcolor: light-dark(rgba(255,255,255,0.5),rgba(180,180,180,0.4)) !important;
+    
+}
+
 #personal-bookmarks {
     opacity: var(--uc-accent-opacity) !important;
 }
@@ -124,6 +129,33 @@
     &:-moz-window-inactive #sidebar {
         opacity: 0.4 !important;
     }
+    #sidebar-header {
+   padding-bottom:4px !important;
+    }
+ 
+        @media not (-moz-bool-pref: "uc.tweak.af.translucent-arc")
+    {
+        #sidebar{
+            border:1px solid light-dark(rgba(0,0,0,0.3),rgba(180,180,180,0.4)) !important;
+            box-shadow:0 1px 2px 1px rgba(0,0,0,0.2) !important;
+        }
+        
+        @media (-moz-bool-pref: "uc.tweak.af.show-sidebar-header"){
+        #sidebar{
+            padding-top:38px !important;
+            margin-top:-40px !important;
+        }  
+        }
+        #sidebar-header {
+            border-radius:8px 8px 0px 0px !important;
+            margin-top:2px !important;
+            background:transparent !important;
+
+        }
+        #sidebar-switcher-target {
+            margin-top:5px !important;
+            z-index:600 !important;}
+    }
 }
 
 /*custom properties for when sidebery is set to auto collapse*/
@@ -172,7 +204,7 @@
 /*draw 1px border around browser content for clarity - anything inside this is not part of the browser ui*/
 #appcontent .browserStack {
     overflow: hidden !important;
-    border: 1px solid light-dark(rgba(0, 0, 0, 0.06), rgba(220, 220, 220, 0.06)) !important;
+    border: 1px solid light-dark(rgba(0, 0, 0, 0.2), rgba(220, 220, 220, 0.2)) !important;
 }
 
 /*customise urlbar background*/

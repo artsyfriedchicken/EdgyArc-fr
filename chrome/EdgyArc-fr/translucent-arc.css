@@ -8,6 +8,9 @@
     }
 }
 /*colour tint when sidebar is expanded by default*/
+    :root{
+        --lwt-sidebar-background-color:var(--lwt-accent-color) !important;
+    }
 :root:not([titlepreface="᠎"]),
 :root:not([titlepreface="᠎"]):not(:-moz-lwtheme) {
 --uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
@@ -43,19 +46,23 @@
 margin: 0px !important;
 padding: 0px !important;
 }
-
-/*browserStack margins when sidebar contains sidebery, TSS or TCR*/
-/*sidebery*/
+/*
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
-/* Tree Style Tab */
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
-/* Tab Center Reborn */
-:root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])),
+:root :has(#sidebar-box[sidebarcommand="viewBookmarksSidebar"]:not([hidden])), 
+:root :has(#sidebar-box[sidebarcommand="viewHistorySidebar"]:not([hidden])), 
+:root :has(#sidebar-box[sidebarcommand="viewTabsSidebar"]:not([hidden]))
+*/
+:root :has(#sidebar-box:not([hidden]))
+{
 & #appcontent .browserStack {
 overflow: hidden !important;
 margin-left: 0 !important;
 }
+
 }
+
 
 /*misc fixes when sidebar is set to auto collapse*/
 :root[titlepreface="᠎"] {
@@ -74,8 +81,14 @@ margin-left: 0 !important;
 }
 }
 
+
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
+/* Tree Style Tab */
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
+/* Tab Center Reborn */
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
 /*misc fixes when sidebar is NOT set to auto collapse*/
-:root:not([titlepreface="᠎"]) {
+&:not([titlepreface="᠎"]) {
 
 #sidebar,
 #sidebar:hover {
@@ -93,4 +106,7 @@ margin-left: 0 !important;
     opacity: 0 !important;
     ;
 }
+}
+
+
 }

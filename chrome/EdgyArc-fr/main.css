@@ -14,13 +14,13 @@
 @import url("autohide-sidebar-modified.css");
 
 /**/
-@import url("translucent-base.css") (-moz-bool-pref: "uc.tweak.af.translucent-enable");
+@import url("translucent-base.css") /* (-moz-bool-pref: "uc.tweak.af.translucent-enable")*/; /*remove this line if you wan to fully disable transparency*/
 /**/
 /**/
-@import url("translucent-base.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
 @import url("translucent-arc.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
 /**/
 @import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
+@import url("icons.css");
 
 
 :root {
@@ -31,13 +31,13 @@
   --uc-toolbarbutton-inner-inline-padding: 8px !important;
   --toolbarbutton-outer-padding: 2px !important;
   --tabs-navbar-shadow-size: 0px !important;
+  /**/
+  --uc-titlebar-drag-space: 8px !important;
 }
 
 :root {
   transition: background-color 300ms ease-in !important;
 }
-
-
 
 /* indicator for private browsing mode with tabs hidden */
 
@@ -53,10 +53,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 60px; /* Adjust width as needed */
-      height: 20px; /* Adjust height as needed */
+      width: 60px; 
+      height: 20px; 
       background-color: purple; /* Change background color as desired */
-      color: white; /* Change text color as desired */
+      color: white; 
       opacity:0.6;
       position: absolute;
       top: calc(50% - 10px); /* Centers vertically */
@@ -71,17 +71,9 @@
   background-color: color-mix(in srgb, var(--lwt-accent-color) 60%, light-dark(rgb(240, 240, 240), rgb(50, 50, 50))) !important;
 }
 
-/*make shit transparent*/
-:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-  --lwt-accent-color: light-dark(rgb(255, 255, 255), rgb(30, 30, 30)) !important;
-}
-
-
-
 #main-window {
   position: relative;
 }
-
 :root#main-window::before {
   content: '';
   display: block;
@@ -99,7 +91,6 @@
 :root[inFullscreen]#main-window::before {
   opacity: 0 !important;
 }
-
 
 
 /* fix sidebar opacity when auto collapse enabled **/
@@ -132,12 +123,8 @@
 }
 
 
-
-
-/* Fixes for Firefox to enable autohide */
-#sidebar-box {
-  overflow: visible !important;
-  position: relative !important;
+#navigator-toolbox {
+  border-bottom: enone !important;
 }
 
 /* Make corners more rounded */
@@ -152,10 +139,11 @@
 
 
 
-#navigator-toolbox {
-  border-bottom: enone !important;
+/* Fixes for Firefox to enable autohide */
+#sidebar-box {
+  overflow: visible !important;
+  position: relative !important;
 }
-
 
 /* Common styles for #sidebar and #sidebar-box */
 #sidebar,
@@ -191,9 +179,6 @@
 }
 
 
-
-
-
 /* Styles for the navigation bar */
 /*sidebery*/
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
@@ -204,7 +189,6 @@
   /* Height of navbar, used for determining height and position of window controls */
   --uc-navbar-height: 38px;
   /* Drag space next to the window controls, allows you to move the window more easily */
-  --uc-titlebar-drag-space: 40px;
 
   /* Hide the tabs */
   & #TabsToolbar {
@@ -234,13 +218,67 @@
   padding-top: 0 !important;
 }
 
+#sidebar-header{
+  visibility:collapse;
+}
 /* Styles for sidebar header */
+@media (-moz-bool-pref: "uc.tweak.af.show-sidebar-header") {
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
+/* Tree Style Tab */
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
+/* Tab Center Reborn */
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
+  #sidebar-header {
+    background-color:var(--uc-window-bg) !important;
+  }
+}
+
+:root[titlepreface="᠎"] {
+  #sidebar-header{
+    visibility:collapse !important;
+  }
+}
+:root:not([titlepreface="᠎"]) {
+  #sidebar-header{
+    visibility:visible !important;
+  }
+}
 #sidebar-header {
-  display: none;
+  order:0 !important;
   overflow: hidden;
   color: var(--chrome-color, inherit) !important;
   padding-inline: 0 !important;
+  opacity:1 !important;
+  padding:0 4px !important;
+  border-bottom:0px !important;
+  
+  & #sidebar-close {
+   /* opacity:0 !important; */
+    display:none !important;
+  }
+  #sidebar-throbber, #sidebar-spacer {
+    display:none !important;
+  }
+
 }
+}
+
+#sidebar-title {
+  padding-inline: 10px !important;
+  padding-top: 0px !important;
+
+    font-size:0.88em;
+}
+#sidebar-switcher-target {
+  padding: 5px 4px!important;
+  margin-right:2px !important;
+  margin-left:2px !important;
+    opacity: 0.5 !important;
+  &:hover{
+    border:1px solid light-dark(rgba(30,30,30,0.5), rgba(180,180,180,0.5)) !important; }
+}
+
+
 
 .panel-no-padding {
   padding: 2px !important;
@@ -248,21 +286,8 @@
 
 
 
-#userchrome-toggle_joolee_nl-BAP.unified-extensions-item-action-button {
-  list-style-image: url("../icons/sidebars.svg") !important;
-}
 
-
-#fxa-toolbar-menu-button {
-  transform: scale(0.8) !important;
-}
-
-
-
-#urlbar[breakout][breakout-extend] #urlbar-background {
-  opacity: 1 !important;
-  margin-top: 4px !important;
-}
+/*urlbar stuff*/
 
 /*urlbar buttons height fix*/
 
@@ -324,11 +349,16 @@ padding:0px !important;
   transition: opacity 300ms ease-in-out;
 }
 
-
 #urlbar:hover #identity-box,
 #urlbar:hover #tracking-protection-icon-container,
 #urlbar:hover #page-action-buttons {
   opacity: 0.8 !important;
+}
+
+
+#urlbar[breakout][breakout-extend] #urlbar-background {
+  opacity: 1 !important;
+  margin-top: 4px !important;
 }
 
 
@@ -341,9 +371,7 @@ padding:0px !important;
   background-color: transparent !important;
 }
 
-:root {
-  --uc-titlebar-drag-space: 8px !important;
-}
+
 
 /* macOS specific positioning */
 @media (-moz-platform: macos) {
@@ -357,107 +385,4 @@ padding:0px !important;
       padding-inline-start: 0 !important;
     }
   }
-}
-
-/*stick stop-reload button into right corner of addressbar like in safari*/
-/* if stop-reload-button is on the IMMEDIATE RIGHT of the addressbar, stick it into the addressbar*/
-#urlbar-container:has(+ #stop-reload-button) #urlbar {
-  padding-right: 28px;
-}
-
-#urlbar-container+#stop-reload-button {
-  background-color: transparent !important;
-  --toolbarbutton-border-radius: 8px !important;
-  --toolbarbutton-inner-padding: 5px !important;
-  --uc-toolbarbutton-inner-inline-padding: 6px !important;
-  --toolbarbutton-outer-padding: 2px;
-    --toolbarbutton-hover-background: var(--urlbar-box-hover-bgcolor) !important;
-  margin-left: -38px;
-  margin-right: 10px;
-  z-index:9999 !important;
-}
-
-#urlbar-container+#stop-reload-button:hover {
-  opacity: 1 !important;
-  & .toolbarbutton-icon{
-    opacity:1 !important;
-  }
-}
-
-#urlbar-container+#stop-reload-button .toolbarbutton-icon {
-width:26px !important;
-  height:24px !important;
-
-}
-
-
-/*only show urlbar buttons on hover*/
-#star-button,
-#page-action-buttons {
-  display: flex !important;
-}
-
-#urlbar:hover #star-button,
-#urlbar:hover #page-action-buttons {
-  display: flex !important;
-  opacity:0.8 !important;
-  
-}
-
-#urlbar:not(:hover) #star-button:not([open]),
-#urlbar:not(:hover) #page-action-buttons .urlbar-page-action:not([open]) {
-  display:none !important;
-  opacity:0 !important;
-  width:0.1px !important;
-
-}
-
-#urlbar:not([focused]) .urlbar-input:not([focused]) {
-  text-align: center !important;
-}
-
-
-
-
-:root[windowtype="navigator:browser"] #back-button {
-  list-style-image: url("icons/arrow.svg") !important;
-  transform: rotate(180deg);
-}
-
-:root[windowtype="navigator:browser"] #forward-button {
-  list-style-image: url("icons/arrow.svg") !important;
-
-}
-
-
-
-/* Userchrome Toggle => sidebar icon */
-:is(.webextension-browser-action,
-  .eom-addon-button):is([data-extensionid="userchrome-toggle-extended@n2ezr.ru"],
-  [data-extensionid="userchrome-toggle@joolee.nl"]) .toolbarbutton-icon {
-  list-style-image: url("chrome://browser/skin/sidebars.svg");
-}
-
-/* uBlock Origin => custom svg icon */
-:is(.webextension-browser-action,
-  .eom-addon-button)[data-extensionid="uBlock0@raymondhill.net"] .toolbarbutton-icon {
-  list-style-image: url("icons/ublock.svg");
-}
-
-/* Bitwarden => custom svg icon */
-:is(.webextension-browser-action,
-  .eom-addon-button)[data-extensionid="{446900e4-71c2-419f-a6a7-df9c091e268b}"] .toolbarbutton-icon {
-  list-style-image: url("icons/bitwarden.svg");
-}
-
-/* Privacy Badger => it's own monochrome icon */
-:is(.webextension-browser-action,
-  .eom-addon-button)[data-extensionid="jid1-MnnxcxisBPnSXQ@jetpack"] .toolbarbutton-icon {
-  list-style-image: image-set(url("moz-extension://51ac6f66-1bb5-4473-93a0-41ead025ec8f/icons/badger-19-disabled.png"), url("moz-extension://51ac6f66-1bb5-4473-93a0-41ead025ec8f/icons/badger-38-disabled.png"));
-}
-
-/* Dark Reader => custom svg icon (moon) */
-:is(.webextension-browser-action,
-  .eom-addon-button)[data-extensionid="addon@darkreader.org"] .toolbarbutton-icon {
-  list-style-image: url("icons/dr.svg");
 }
