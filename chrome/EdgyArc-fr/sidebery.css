@@ -53,23 +53,23 @@ margin:0px !important;
 /* Hidden panels */
 
 #hidden_panels_btn.nav-item .icon {
-  transform: scaleY(-1);
+transform: scaleY(-1);
 }
 .hidden-panels-popup-layer {
-  position: fixed !important;
+position: fixed !important;
 top:0 !important;
-  left: 0 !important;
+left: 0 !important;
 margin-top:-40px !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 999 !important;
-  transform: scaleY(-1);
+width: 100vw !important;
+height: 100vh !important;
+z-index: 999 !important;
+transform: scaleY(-1);
 --toolbar-bg:color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20))) !important;
 
 
 }
 .NavigationBar .hidden-panels-popup-content {
-  transform: scaleY(-1);
+transform: scaleY(-1);
 padding:4px 4px 4px 4px !important;
 
 
@@ -108,7 +108,7 @@ border:1px solid light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)) !important;
 
 #root.root .PinnedTabsBar {
     & .Tab {
- --tabs-color-layer-opacity: 0.4;
+--tabs-color-layer-opacity: 0.4;
 &:hover{ --tabs-color-layer-opacity: 0.8}
     }
 }
@@ -154,7 +154,7 @@ height:22px !important;
     --tabs-color-layer-opacity:0.8 !important;
 }
 .scrollable .Tab[data-active="true"] .color-layer {
- --tabs-color-layer-opacity:1 !important;}
+--tabs-color-layer-opacity:1 !important;}
 .scrollable {
     & .t-box {
         padding: 0 3px !important;
@@ -178,7 +178,7 @@ font-weight:800 !important;
 }
 
 #root.root .Tab[data-folded="true"] .fav {
-  opacity: 1 !important;
+opacity: 1 !important;
 }
 #root.root .Tab[data-colorized="true"] .fav .img {
         width:50px  !important;
@@ -256,18 +256,35 @@ font-weight:800 !important;
 
 /*resize pinned tab widths*/
 #root.root {
-    padding: var(--tweak-general-padding);
-    --general-margin: 3px;
-    --tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 5px);
+    --total-pinned-width: calc(100vw - 5px);
 
-    .PinnedTabsBar {
-        margin-left:2px;
-        margin-right:2px;
+  
+    
+
+    
+
+    & .PinnedTabsBar {
+
+margin:0 0px 0 0px !important;
+--general-padding:0 0 0 0 !important;
+--general-margin:0 0 0 0 !important;
+
+--tabs-margin:5px !important;
+& .tab-wrapper {
+    --calc-pinned-tab-width: calc((var(--total-pinned-width) - (var(--tabs-margin) * var(--pinned-tabs-col))) / var(--pinned-tabs-col));
+    --tabs-pinned-width: var(--calc-pinned-tab-width);
+}
     }
 /*--------on collapsed sidebar*/
-    @media (min-width: 80px) and (max-width:149px) {
+    @media (min-width: 40px) and (max-width:149px) {
+.PinnedTabsBar {
+
+
+}
+.PinnedTabsBar .tab-wrapper {
         --pinned-tabs-col: 2;
-        --tweak-general-padding: 4.5px;
+--tabs-pinned-width:11px !important; }
+
     }
 /*------------on narrow sidebar*/
     @media (min-width: 150px) and (max-width: 239px) {
@@ -277,38 +294,43 @@ when one tab in bottom row
 */
 .PinnedTabsBar .tab-wrapper:nth-child(3n+1):last-child {
 --pinned-tabs-col: 1 !important;
---tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 9px);}
+
+}
 /* 
 when two tab in bottom row 
 */
 .PinnedTabsBar .tab-wrapper:nth-child(3n+2):nth-last-child(1),
 .PinnedTabsBar .tab-wrapper:nth-child(3n+1):nth-last-child(2) {
 --pinned-tabs-col: 2 !important;
---tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 5px);}
+
+}
 
     }
 /*--------------on regular sidebar*/
     @media (min-width: 240px) and (max-width: 280px) {
+        
         --pinned-tabs-col: 4;
 /* 
 when one tab in bottom row 
 */
 .PinnedTabsBar .tab-wrapper:nth-child(4n-3):last-child {
 --pinned-tabs-col: 1 !important;
---tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 9px);}
+
+}
 /* 
 when two tab in bottom row 
 */
 .PinnedTabsBar .tab-wrapper:nth-child(3n+3):last-child,
 .PinnedTabsBar .tab-wrapper:nth-child(4n-3):nth-last-child(2) {
 --pinned-tabs-col: 2 !important;
---tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 5px);}
+
+}
 /*when 3 tab in bottom row*/
 .PinnedTabsBar .tab-wrapper:nth-child(3):last-child,
 .PinnedTabsBar .tab-wrapper:nth-child(2):nth-last-child(2),
 .PinnedTabsBar .tab-wrapper:nth-child(1):nth-last-child(3) {
 --pinned-tabs-col: 3 !important;
---tabs-pinned-width: calc((100vw / var(--pinned-tabs-col)) - 5px);
+
 }
 
     }
@@ -316,9 +338,10 @@ when two tab in bottom row
     @media (min-width: 280px) {
         --pinned-tabs-col: 5;
 
+
     }
 
-   
+
 }
 
 
@@ -359,7 +382,7 @@ padding:3px 0px 0px 0 !important;
         margin-right: 3px !important;
     }
 #root.root .scrollable, #root.root .PinnedTabsBar {
-margin-left:4px !important;
+margin-left:3px !important;
 }
 
 #root.root .Tab .audio {
