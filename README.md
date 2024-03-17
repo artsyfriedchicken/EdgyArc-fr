@@ -58,6 +58,12 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
    - `uc.tweak.hide-forward-button` to `true`
    - `uc.tweak.rounded-corners` to `true`
    - `uc.tweak.floating-tabs` to `true`
+   Please make sure you also have the following prequisites enabled
+   - `toolkit.legacyUserProfileCustomizations.stylesheets`
+   - `svg.context-properties.content.enabled`
+   - `layout.css.color-mix.enabled`
+   - `layout.css.light-dark.enabled`
+   - `layout.css.has-selector.enabled`
 6. [optional] set up style variants
 7. Import `sidebery-settings.json` and `sidebery-styles.json` into Sidebery (`Sideberry Settings` > `Help` > `Import Addon Data`)
 
@@ -65,7 +71,7 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ### Fully Hide collapsed sidebar (like in Arc)
 `uc.tweak.af.hidden-sidebar` > `true`
 ### Translucency *[MACOS ONLY]*  
-`uc.tweak.af.translucent-enable` > `true`
+`uc.tweak.af.translucent-enable` > `true` (Enabled by default in newer commits)
 ### Minimal (arc-like) sidebar 
 `uc.tweak.af.translucent-arc` > `true`
 
