@@ -98,10 +98,27 @@
   opacity: 0 !important;
 }
 
-
+/*fade toolbar background image for lwthemes - goes really great with Firefox Color setups!*/
 #navigator-toolbox {
   border-bottom: none !important;
+  &:-moz-lwtheme {
+    &::before{
+       content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mask-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 10%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 65%, rgba(0, 0, 0, 0) 85%);
+    background-image: var(--lwt-additional-images)!important;  
+    background-repeat: var(--lwt-background-tiling);
+    background-position: var(--lwt-background-alignment);
+    }
+    background-image:none !important;
+  }
 } 
+
+
 
 /*remove tab panel bg*/
 #tabbrowser-tabpanels {
