@@ -55,7 +55,6 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 5. Enable/Add the following settings in `about:config` to enable features in EdgeFrFox
    Make sure to initialise all of these as Bools
    - `uc.tweak.hide-tabs-bar` to `true`
-   - `uc.tweak.disable-drag-space` to `true`
    - `uc.tweak.hide-forward-button` to `true`
    - `uc.tweak.rounded-corners` to `true`
    - `uc.tweak.floating-tabs` to `true`
@@ -71,8 +70,6 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ## Style variants
 ### Fully Hide collapsed sidebar (like in Arc)
 `uc.tweak.af.hidden-sidebar` > `true`
-### Translucency *[MACOS ONLY]*  
-`uc.tweak.af.translucent-enable` > `true` (Deprecated in newer commits, part of the main css now)
 ### Minimal (arc-like) sidebar 
 `uc.tweak.af.translucent-arc` > `true` **[Recommended]**
 ### Show Sidebar Header
@@ -103,6 +100,18 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ![ ](screenshots/08.png)
 
 ## Changelog
+- v1.0.0-b7
+  - Cleaned up code
+  - Fixed sidebery css bug - dragging tabs would indicate incorrect drop location
+  - fixed sidebery css bug - pinned tabs misaligned
+  - Added feature - Show a styled sidebar header
+    `uc.tweak.af.show-sidebar-header` > `true`
+  - Added feature - Turn all web extension icons greyscale when not hovered
+    `uc.tweak.af.greyscale-webext-icons` > `true`
+  - Css tweak - Toolbar background images now fade away at the bottom so it doesnt look jarring
+  - Css fix - show custom private window badge when tabbar is hidden
+  - Css fix - fixed margins and paddings of buttons inside the urlbar
+  - bug fix - extension dropdown sheets inside the urlbar now show properly when urlbar is not hovered
 - v1.0.0-b6
   - cleaned up code
   - bugfixes
