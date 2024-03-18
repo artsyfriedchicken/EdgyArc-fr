@@ -1,3 +1,4 @@
+@media (-moz-bool-pref:"uc.tweak.af.greyscale-webext-icons") {
 /* Greyscale extension buttons */
 #navigator-toolbox:not(:hover) .toolbarbutton-icon {
     filter: grayscale(100%);
@@ -8,6 +9,7 @@
 #navigator-toolbox:hover .toolbarbutton-icon {
     filter: grayscale(0%);
     transition: filter 300ms ease !important;
+}
 }
 
 /*move badge to the bottom of toolbar buttons*/
