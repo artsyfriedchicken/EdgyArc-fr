@@ -72,11 +72,13 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ### Fully Hide collapsed sidebar (like in Arc)
 `uc.tweak.af.hidden-sidebar` > `true`
 ### Translucency *[MACOS ONLY]*  
-`uc.tweak.af.translucent-enable` > `true` (Enabled by default in newer commits)
+`uc.tweak.af.translucent-enable` > `true` (Deprecated in newer commits, part of the main css now)
 ### Minimal (arc-like) sidebar 
 `uc.tweak.af.translucent-arc` > `true` **[Recommended]**
 ### Show Sidebar Header
 `uc.tweak.af.show-sidebar-header` > `true`
+### Misc Variants
+`uc.tweak.af.greyscale-webext-icons` > Turn all web extension icons greyscale when not hovered
 
 ## My Settings for Adaptive Tab Bar Color
 ![ ](screenshots/ATBC-settings.png)
