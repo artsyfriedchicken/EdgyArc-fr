@@ -35,6 +35,15 @@
   --uc-titlebar-drag-space: 8px !important;
 }
 
+/* Make corners more rounded */
+@media (-moz-bool-pref: "uc.tweak.rounded-corners") {
+  /* Variables used for rounded corners */
+  :root {
+    --uc-tweak-rounded-corners-padding: 8px !important;
+    --uc-tweak-rounded-corners-radius: 8px !important;
+  }
+}
+
 :root {
   transition: background-color 300ms ease-in !important;
 }
@@ -55,13 +64,13 @@
       justify-content: center;
       width: 60px; 
       height: 20px; 
-      background-color: purple; /* Change background color as desired */
+      background-color: purple; 
       color: white; 
       opacity:0.6;
       position: absolute;
-      top: calc(50% - 10px); /* Centers vertically */
-      right: 8px; /* Places at the rightmost end */
-      border-radius: 4px; /* Creates rounded corners */
+      top: calc(50% - 10px); 
+      right: 8px; 
+      border-radius: 4px; 
   }
 }
 
@@ -71,25 +80,32 @@
   background-color: color-mix(in srgb, var(--lwt-accent-color) 60%, light-dark(rgb(240, 240, 240), rgb(50, 50, 50))) !important;
 }
 
-#main-window {
+:root[windowtype="navigator:browser"]#main-window {
   position: relative;
-}
-:root#main-window::before {
+&::before {
   content: '';
   display: block;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   box-shadow: inset 0 0 0.4px 1px light-dark(rgba(255, 255, 255, 0.9), rgba(220, 220, 220, 0.4)) !important;
   border-radius: 10px !important;
   z-index: 20;
   pointer-events: none;
 }
-
+}
+/*remove 1px window border in fullscreen*/
 :root[inFullscreen]#main-window::before {
   opacity: 0 !important;
+}
+
+
+#navigator-toolbox {
+  border-bottom: none !important;
+} 
+
+/*remove tab panel bg*/
+#tabbrowser-tabpanels {
+  background-color: transparent !important;
 }
 
 
@@ -98,46 +114,20 @@
   #sidebar-box {
     opacity: 0.75 !important;
   }
-
   #sidebar-box:hover {
     opacity: 1 !important;
-
   }
-
+  /*Add shadow to auto-expanded sidebar on hover*/
   #sidebar-box:hover>#sidebar {
     box-shadow: 0px 0px 0px 1px light-dark(rgba(0, 0, 0, 0.40), rgba(200, 200, 200, 0.40)),
       0px 0px 18px 4px light-dark(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.40)) !important;
     z-index: 3 !important;
-
   }
-
-
 }
-
+/*make sure sidebar expand animation looks less jank*/
 #webextpanels-window {
   background-color: transparent !important;
 }
-
-:root:-moz-window-inactive #nav-bar-customization-target {
-  opacity: 0.6 !important;
-}
-
-
-#navigator-toolbox {
-  border-bottom: enone !important;
-}
-
-/* Make corners more rounded */
-@media (-moz-bool-pref: "uc.tweak.rounded-corners") {
-
-  /* Variables used for rounded corners */
-  :root {
-    --uc-tweak-rounded-corners-padding: 8px !important;
-    --uc-tweak-rounded-corners-radius: 8px !important;
-  }
-}
-
-
 
 /* Fixes for Firefox to enable autohide */
 #sidebar-box {
@@ -150,7 +140,6 @@
 #sidebar-box {
   border-radius: var(--uc-tweak-rounded-corners-radius);
 }
-
 
 /* Styles specific to #sidebar */
 #sidebar {
@@ -168,7 +157,6 @@
 .sidebar-splitter {
   border-color: rgba(0, 0, 0, 0) !important;
 }
-
 .sidebar-splitter:hover {
   border-radius: 20px;
   margin-top: 80px;
@@ -180,71 +168,70 @@
 
 
 /* Styles for the navigation bar */
-/*sidebery*/
+
+/*dim nav bar on inactive windows*/
+:root:-moz-window-inactive #nav-bar-customization-target {
+  opacity: 0.6 !important;
+}
+/*add padding to toolbar items*/
+.panel-no-padding {
+  padding: 2px !important;
+}
+/* Opacity for toolbar buttons */
+#navigator-toolbox {
+    .toolbarbutton-1, .toolbarbutton-1 .toolbarbutton-icon {
+     opacity: 0.8;
+     transition: opacity 300ms linear !important;
+    }
+}
+
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
-/* Tree Style Tab */
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
-/* Tab Center Reborn */
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
   /* Height of navbar, used for determining height and position of window controls */
   --uc-navbar-height: 38px;
-  /* Drag space next to the window controls, allows you to move the window more easily */
-
-  /* Hide the tabs */
+  /* Hide tabs when vertical tab extensions are present */
   & #TabsToolbar {
     visibility: collapse !important;
   }
-
   /* Fix issue with missing window controls. */
   &[tabsintitlebar] #titlebar {
     will-change: auto !important;
   }
-
-  /* Add some padding to the top of the navbar */
+  /* Adjust navbar padding */
   &[tabsintitlebar] #nav-bar {
     --uc-tab-top-margin: 1px;
     padding-top: var(--uc-tab-top-margin, 0) !important;
     margin-top: 1px !important;
   }
-
 }
 
-:root [tabsintitlebar] #nav-bar {
-  padding-top: 10px;
-}
-
-
-:root[tabsintitlebar] #nav-bar {
-  padding-top: 0 !important;
-}
-
+/* Styles for sidebar header */
 #sidebar-header{
   visibility:collapse;
 }
-/* Styles for sidebar header */
+/*modded sidebar header background for vertical tabs*/
 @media (-moz-bool-pref: "uc.tweak.af.show-sidebar-header") {
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
-/* Tree Style Tab */
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
-/* Tab Center Reborn */
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
   #sidebar-header {
     background-color:var(--uc-window-bg) !important;
   }
 }
 
-:root[titlepreface="᠎"] {
-  #sidebar-header{
-    visibility:collapse !important;
+/*hide sidebar header when sidebar is auto collapsed*/
+:root {
+  &[titlepreface="᠎"] {
+  #sidebar-header{visibility:collapse !important;}
+  } /*force sidebar header visibility when sidebar is expanded*/
+  &:not([titlepreface="᠎"])  {
+    #sidebar-header{visibility:visible !important;}
   }
 }
-:root:not([titlepreface="᠎"]) {
-  #sidebar-header{
-    visibility:visible !important;
-  }
-}
+
 #sidebar-header {
-  order:0 !important;
+  @media (-moz-bool-pref: "uc.tweak.af.sidebar-header-bottom") {order:3 !important;} /*set sidebar header to bottom of sibebar*/
   overflow: hidden;
   color: var(--chrome-color, inherit) !important;
   padding-inline: 0 !important;
@@ -252,45 +239,34 @@
   padding:0 4px !important;
   border-bottom:0px !important;
   
+  /*remove sidebar elements*/
   & #sidebar-close {
-   /* opacity:0 !important; */
     display:none !important;
   }
   #sidebar-throbber, #sidebar-spacer {
     display:none !important;
   }
-
 }
 }
 
 #sidebar-title {
   padding-inline: 10px !important;
   padding-top: 0px !important;
-
-    font-size:0.88em;
+  font-size:0.88em;
 }
+/*sidebar header rounded container*/
 #sidebar-switcher-target {
-  padding: 5px 4px!important;
-  margin-right:2px !important;
-  margin-left:2px !important;
-    opacity: 0.5 !important;
+  padding: 5px!important;
+margin:auto 2px !important;
+  opacity: 0.5 !important;
   &:hover{
     border:1px solid light-dark(rgba(30,30,30,0.5), rgba(180,180,180,0.5)) !important; }
 }
 
 
-
-.panel-no-padding {
-  padding: 2px !important;
-}
-
-
-
-
 /*urlbar stuff*/
 
-/*urlbar buttons height fix*/
-
+/*----urlbar buttons height fix------*/
 /* Site information and Permissions buttons. */
 #identity-icon-box,
 #identity-permission-box,
@@ -301,6 +277,7 @@
   margin-top:2px !important;
   margin-left:-2px;
 }
+/*page actions*/
 .urlbar-page-action{
   height:24px !important;
   max-height:24px !important;
@@ -308,12 +285,11 @@
   & .urlbar-icon {
     height:15px !important;
     width:15px !important;
-padding:0px !important;
+    padding:0px !important;
     margin:-2px 0 0 0 !important;
     
   }
 }
-
 /* Zoom level and tab container indicators. */
 #userContext-icons,
 #urlbar-zoom-button {
@@ -321,38 +297,29 @@ padding:0px !important;
   max-height: 20px !important;
   height:20px !important;
   padding: 8px !important;
-  margin-block: 3px !important;
   margin-inline: 3px !important;
+    padding: 4px 4px 4px 6px !important;
+  margin-inline: 3px !important;
+  font-size: .8em;
+  border-radius: var(--urlbar-icon-border-radius);
+  background-color: var(--urlbar-box-bgcolor);
+  margin-block: calc((var(--urlbar-min-height) - 20px) / 2 - 1px /* border */ - var(--urlbar-container-padding));
 }
-
-#navigator-toolbox #nav-bar-customization-target .toolbarbutton-badge {
-  margin-top: 8px !important;}
-/* Opacity and transition for address bar and toolbar buttons 
-#navigator-toolbox:not(:hover) #urlbar-input-container, */
-#navigator-toolbox:not(:hover) .toolbarbutton-1,
-#navigator-toolbox:not(:hover) .toolbarbutton-1 .toolbarbutton-icon {
-  opacity: 0.8;
-  transition: opacity 300ms linear !important;
+#urlbar-zoom-button {
+  order:98;
 }
-
-/* #navigator-toolbox:hover #urlbar-input-container, */
-#navigator-toolbox:hover .toolbarbutton-1,
-#navigator-toolbox:hover .toolbarbutton-1 .toolbarbutton-icon {
-  opacity: 0.8;
-  transition: opacity 300ms linear !important;
+#userContext-icons{
+  order:99;
+  & #userContext-indicator {
+    transform: scale(0.75) !important;
+  }
 }
 
 #identity-box,
 #tracking-protection-icon-container,
 #page-action-buttons {
-  opacity: 0.5 !important;
-  transition: opacity 300ms ease-in-out;
-}
-
-#urlbar:hover #identity-box,
-#urlbar:hover #tracking-protection-icon-container,
-#urlbar:hover #page-action-buttons {
   opacity: 0.8 !important;
+  transition: opacity 300ms ease-in-out;
 }
 
 
@@ -361,15 +328,10 @@ padding:0px !important;
   margin-top: 4px !important;
 }
 
-
 .urlbar-input-box {
   margin-top: -2px !important;
 }
 
-
-#tabbrowser-tabpanels {
-  background-color: transparent !important;
-}
 
 
 
