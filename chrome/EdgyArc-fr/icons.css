@@ -7,7 +7,13 @@
 /* Restore color on hover */
 #navigator-toolbox:hover .toolbarbutton-icon {
     filter: grayscale(0%);
+    transition: filter 300ms ease !important;
 }
+
+/*move badge to the bottom of toolbar buttons*/
+#navigator-toolbox #nav-bar-customization-target .toolbarbutton-badge {
+  margin-top: 8px !important;
+border-radius:10px!important;}
 
 
 /*stick stop-reload button into right corner of addressbar like in safari*/
