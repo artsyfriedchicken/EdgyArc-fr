@@ -47,7 +47,7 @@ transition:width none;
 
 /* Padding adjustments */
 #root.root {
-padding:3px 0px 6px 0 !important;
+padding:6px 0 !important;
 margin:0px !important;
 }
 
@@ -122,10 +122,26 @@ height:22px !important;
 
 /* Tabs */
 .scrollable .Tab {
-
-
-
+/**/
 }
+/*tab containers*/
+.Tab[data-pin="false"] {
+&[data-active="true"] .ctx {
+width: 3px !important;
+  height: 100% !important;
+  top: auto !important;
+  border-radius: 0 4px 4px 0 !important;
+}
+&[data-active="false"] .ctx, &:hover .ctx {
+height: 50%;
+width: 3px;
+top:auto;
+border-radius:20px;
+}
+.ctx {
+transition:height 300ms ease, width 300ms ease, top 300ms ease;}
+}
+
 .scrollable .Tab:first-child {
 /*    margin-top: 10px !important; */
 }
@@ -192,10 +208,9 @@ opacity: 1 !important;
 
 /* New Tab button */
 .new-tab-btns {
-    background: transparent !important;
-    padding: 0 auto;
+    padding: 0 10px !important;
 margin:5px auto 0 auto !important;
-max-width:90vw;
+max-width:100vw;
 }
 
 /* Search Bar */
@@ -330,7 +345,10 @@ when two tab in bottom row
 /*when 3 tab in bottom row*/
 .PinnedTabsBar .tab-wrapper:nth-child(3):last-child,
 .PinnedTabsBar .tab-wrapper:nth-child(2):nth-last-child(2),
-.PinnedTabsBar .tab-wrapper:nth-child(1):nth-last-child(3) {
+.PinnedTabsBar .tab-wrapper:nth-child(1):nth-last-child(3),
+ .PinnedTabsBar .tab-wrapper:nth-child(7n):last-child,
+ .PinnedTabsBar .tab-wrapper:nth-child(6n):nth-last-child(2),
+ .PinnedTabsBar .tab-wrapper:nth-child(5n):nth-last-child(3){
 --pinned-tabs-col: 3 !important;
 
 }
