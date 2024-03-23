@@ -1,0 +1,34 @@
+:root[windowtype="navigator:browser"],
+:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
+    background-color: transparent !important;
+    --uc-window-bg-color:var(--lwt-accent-color);
+    --uc-window-bg: var(--uc-window-bg-color);
+    --lwt-sidebar-background-color:var(--lwt-accent-color) !important;
+}
+/*remove blur*/
+:root #TabsToolbar,
+:root #titlebar,
+:root #tabbrowser-tabs,
+:root #nav-bar,
+:root #PersonalToolbar,
+:root:not(:-moz-window-inactive):not([inFullscreen]) #browser {
+    -moz-default-appearance: default !important;
+    appearance: auto !important;
+    background-color: transparent !important;
+    
+}
+
+#sidebar-box {
+
+    background-color: var(--uc-window-bg) !important;
+    -moz-default-appearance: default !important;
+    opacity:1 !important;
+    &:-moz-window-inactive {
+        opacity:0.6 !important;
+    }
+    @media not (-moz-bool-pref:"uc.tweak.af.translucent-arc") {
+    #sidebar{
+        filter:brightness(90%) contrast(110%) !important;
+    }
+}
+}

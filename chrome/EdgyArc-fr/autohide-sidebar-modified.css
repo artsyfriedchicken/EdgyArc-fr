@@ -12,7 +12,6 @@ See the above repository for updates as well as full license text. */
 :root[titlepreface="᠎"] {
   #sidebar-box {
     --uc-sidebar-width: 48px;
-    --uc-sidebar-hover-width: 260px;
     --uc-autohide-sidebar-delay: 0ms !important; 
     --uc-autohide-transition-duration: 100ms;
     --uc-autohide-transition-type: linear;
@@ -21,6 +20,8 @@ See the above repository for updates as well as full license text. */
     width: var(--uc-sidebar-width) !important;
     max-width: var(--uc-sidebar-width) !important;
     z-index: 1;
+    @media not (-moz-bool-pref:"uc.tweak.af.sidebar-width-350") {--uc-sidebar-hover-width: 260px;}
+    @media (-moz-bool-pref:"uc.tweak.af.sidebar-width-350") {--uc-sidebar-hover-width: 350px;}
   }
 
   #sidebar-box[positionend] { direction: rtl }
@@ -64,7 +65,7 @@ See the above repository for updates as well as full license text. */
   #sidebar-header {
     background-color: inherit !important;
     border-inline: 0px;
-    border-inline-width: 0px 1px;
+    border-inline-width: 0px 0px;
   }
 
   #sidebar-box:not([positionend]) > :-moz-locale-dir(rtl),

@@ -47,6 +47,7 @@
     #browser,
     #appcontent {
         background-color: var(--uc-window-bg-color) !important;
+        
     }
 }
 
@@ -142,7 +143,7 @@
         
         @media (-moz-bool-pref: "uc.tweak.af.show-sidebar-header"){
         #sidebar{
-            padding-top:38px !important;
+            padding-top:39px !important;
             margin-top:-40px !important;
         }  
         }

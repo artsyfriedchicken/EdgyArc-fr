@@ -12,19 +12,21 @@
 */
 /* Import external styles */
 @import url("autohide-sidebar-modified.css");
-
-/**/
-@import url("translucent-base.css") /* (-moz-bool-pref: "uc.tweak.af.translucent-enable")*/; /*remove this line if you wan to fully disable transparency*/
+@import url("translucent-base.css");
 /**/
 /**/
 @import url("translucent-arc.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
+@import url("not-translucent.css") (-moz-bool-pref: "uc.tweak.af.not-translucent");
 /**/
+/**/
+/*Other tweaks*/
 @import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
 @import url("icons.css");
 
 
+
 :root {
-  --urlbar-icon-border-radius: 8px !important;
+  --urlbar-icon-border-radius: 5px !important;
   /**/
   --toolbarbutton-border-radius: 8px !important;
   --toolbarbutton-inner-padding: 8px !important;
@@ -33,6 +35,7 @@
   --tabs-navbar-shadow-size: 0px !important;
   /**/
   --uc-titlebar-drag-space: 8px !important;
+ 
 }
 
 /* Make corners more rounded */
@@ -40,7 +43,7 @@
   /* Variables used for rounded corners */
   :root {
     --uc-tweak-rounded-corners-padding: 8px !important;
-    --uc-tweak-rounded-corners-radius: 8px !important;
+    --uc-tweak-rounded-corners-radius: 7px !important;
   }
 }
 
