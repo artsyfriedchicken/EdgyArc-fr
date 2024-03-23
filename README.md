@@ -77,8 +77,8 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ### Show Sidebar Header
 `uc.tweak.af.show-sidebar-header` > `true`
 ### Misc Variants
-`uc.tweak.af.greyscale-webext-icons` > Turn all web extension icons greyscale when not hovered
-`uc.tweak.af.sidebar-width-350` > wider 350px sidebar when autohide is enabled (the default width is 260px)
+- `uc.tweak.af.greyscale-webext-icons` > Turn all web extension icons greyscale when not hovered
+- `uc.tweak.af.sidebar-width-350` > wider 350px sidebar when autohide is enabled (the default width is 260px)
 
 ## My Settings for Adaptive Tab Bar Color
 ![ ](screenshots/ATBC-settings.png)
