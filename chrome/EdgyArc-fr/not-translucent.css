@@ -10,6 +10,7 @@
 :root #titlebar,
 :root #tabbrowser-tabs,
 :root #nav-bar,
+:root #tab-notification-deck,
 :root #PersonalToolbar,
 :root:not(:-moz-window-inactive):not([inFullscreen]) #browser {
     -moz-default-appearance: default !important;

@@ -57,6 +57,7 @@
 :root #tabbrowser-tabs,
 :root #nav-bar,
 :root #PersonalToolbar,
+:root #tab-notification-deck,
 :root:not(:-moz-window-inactive):not([inFullscreen]) #browser {
     -moz-default-appearance: menupopup !important;
     appearance: auto !important;
@@ -72,6 +73,13 @@
 
 #appcontent {
     background-color: var(--uc-window-bg) !important;
+}
+
+.browserContainer > findbar {
+    &:-moz-lwtheme{
+    background-image:none !important;
+    background-color:none !important;
+}
 }
 
 /*inactive windows colour*/

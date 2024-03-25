@@ -19,9 +19,11 @@
 @import url("not-translucent.css") (-moz-bool-pref: "uc.tweak.af.not-translucent");
 /**/
 /**/
+/**/
 /*Other tweaks*/
 @import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
 @import url("icons.css");
+
 
 
 
@@ -106,12 +108,10 @@
   border-bottom: none !important;
   &:-moz-lwtheme {
     &::before{
-       content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    content: "";
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
     mask-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 10%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 65%, rgba(0, 0, 0, 0) 85%);
     background-image: var(--lwt-additional-images)!important;  
     background-repeat: var(--lwt-background-tiling);
@@ -128,6 +128,10 @@
   background-color: transparent !important;
 }
 
+#tab-notification-deck .notificationbox-stack{
+  background-color:transparent !important;
+  padding:8px !important;
+}
 
 /* fix sidebar opacity when auto collapse enabled **/
 :root[titlepreface="᠎"] {
@@ -220,7 +224,7 @@
   }
   /* Adjust navbar padding */
   &[tabsintitlebar] #nav-bar {
-    --uc-tab-top-margin: 1px;
+    --uc-tab-top-margin: 0px;
     padding-top: var(--uc-tab-top-margin, 0) !important;
     margin-top: 1px !important;
   }
