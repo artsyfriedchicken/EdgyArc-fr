@@ -83,6 +83,10 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ## My Settings for Adaptive Tab Bar Color
 ![ ](screenshots/ATBC-settings.png)
 
+## Known Bugs
+- Translucency / blur does not work on windows or linux.
+  - Padding and margin issues in win/linux
+- sidebar on right is janky/misaligned
 
 ## Screenshots
 
