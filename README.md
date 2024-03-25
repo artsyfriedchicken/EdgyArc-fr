@@ -87,6 +87,7 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 - Translucency / blur does not work on windows or linux.
   - Padding and margin issues in win/linux
 - sidebar on right is janky/misaligned
+- `macos` browser window loses window shadow when moved to a different space
 
 ## Screenshots
 
