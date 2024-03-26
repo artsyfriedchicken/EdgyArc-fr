@@ -19,13 +19,19 @@
     
 }
 
+@media (-moz-bool-pref: "uc.tweak.af.no-dimming") {
+#sidebar,
+#sidebar:hover {
+    --uc-accent-opacity:100% !important;
+}
+}
 #sidebar-box {
 
     background-color: var(--uc-window-bg) !important;
     -moz-default-appearance: default !important;
     opacity:1 !important;
     &:-moz-window-inactive {
-        opacity:0.6 !important;
+        opacity:0.85 !important;
     }
     @media not (-moz-bool-pref:"uc.tweak.af.translucent-arc") {
     #sidebar{

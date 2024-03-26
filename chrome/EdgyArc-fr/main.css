@@ -192,10 +192,11 @@
 
 
 /* Styles for the navigation bar */
-
+@media not (-moz-bool-pref:"uc.tweak.af.no-dimming") {
 /*dim nav bar on inactive windows*/
 :root:-moz-window-inactive #nav-bar-customization-target {
   opacity: 0.6 !important;
+}
 }
 /*add padding to toolbar items*/
 .panel-no-padding {

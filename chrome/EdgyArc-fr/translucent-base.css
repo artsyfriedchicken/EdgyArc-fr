@@ -135,8 +135,10 @@
         opacity: var(--uc-accent-opacity) !important;
     }
 
-    &:-moz-window-inactive #sidebar {
+    &:-moz-window-inactive #sidebar:not(:hover){
+ 
         opacity: 0.4 !important;
+    
     }
     #sidebar-header {
    padding-bottom:4px !important;
