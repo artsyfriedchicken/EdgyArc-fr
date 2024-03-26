@@ -53,7 +53,7 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 3. Clone or download the EdgyArc-fr repository to your local machine.
 4. Copy the contents of the `chrome` folder into your Firefox profile's `chrome` folder.
 5. Enable/Add the following settings in `about:config` to enable features in EdgeFrFox
-   Make sure to initialise all of these as Bools
+   Make sure to initialise all of these as Booleans
    - `uc.tweak.hide-tabs-bar` to `true`
    - `uc.tweak.hide-forward-button` to `true`
    - `uc.tweak.rounded-corners` to `true`
@@ -64,21 +64,34 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
    - `layout.css.color-mix.enabled`
    - `layout.css.light-dark.enabled`
    - `layout.css.has-selector.enabled`
-7. [optional] set up style variants
+7. Set up style variants
 8. Import `sidebery-settings.json` and `sidebery-styles.json` into Sidebery (`Sideberry Settings` > `Help` > `Import Addon Data`)
 
 ## Style variants
-### Disable Translucency 
-`uc.tweak.af.not-translucent` > `true` [Recommended for windows/linux]
-### Fully Hide collapsed sidebar (like in Arc)
-`uc.tweak.af.hidden-sidebar` > `true`
-### Minimal (arc-like) sidebar 
+### Translucent Effects (macOS only)
+#### Disable Translucency 
+`uc.tweak.af.not-translucent` > `true` [Recommended for windows/linux, or you know, if you just dont want translucent windows]
+
+### Sidebar
+#### Minimal (arc-like) sidebar 
 `uc.tweak.af.translucent-arc` > `true` **[Recommended]**
-### Show Sidebar Header
+
+#### Show Sidebar Header
 `uc.tweak.af.show-sidebar-header` > `true`
+
+#### Hidden Sidebar when collapsed (like in Arc)
+`uc.tweak.af.hidden-sidebar` > `true`
+
+#### Sidebar Stays Collapsed on hover
+`uc.tweak.af.sidebar-always-collapsed` > `true` > Stops sidebar from auto expanding when it is collapsed using ureschrome toggle
+
+#### Wider expanded sidebar
+`uc.tweak.af.sidebar-width-350` > wider 350px sidebar when autohide is enabled (the default width is 260px)
+
 ### Misc Variants
+
 - `uc.tweak.af.greyscale-webext-icons` > Turn all web extension icons greyscale when not hovered
-- `uc.tweak.af.sidebar-width-350` > wider 350px sidebar when autohide is enabled (the default width is 260px)
+
 
 ## My Settings for Adaptive Tab Bar Color
 ![ ](screenshots/ATBC-settings.png)
