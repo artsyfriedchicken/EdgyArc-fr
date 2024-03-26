@@ -15,17 +15,24 @@
 /*move badge to the bottom of toolbar buttons*/
 #navigator-toolbox #nav-bar-customization-target .toolbarbutton-badge {
   margin-top: 8px !important;
+  margin-bottom:-8px !important;
 border-radius:10px!important;}
 
 
 /*stick stop-reload button into right corner of addressbar like in safari*/
 /* if stop-reload-button is on the IMMEDIATE RIGHT of the addressbar, stick it into the addressbar*/
-#urlbar-container:has(+ #stop-reload-button) #urlbar {
-    padding-right: 28px;
+#urlbar-container:has(+ #stop-reload-button) {
+  #urlbar {
+    /*padding-right: 28px; */
   }
+  #page-action-buttons {
+    margin-right:28px !important;
+  }
+}
   
   #urlbar-container+#stop-reload-button {
     background-color: transparent !important;
+      --toolbarbutton-border-radius: 5px !important;
     --toolbarbutton-inner-padding: 5px !important;
     --uc-toolbarbutton-inner-inline-padding: 6px !important;
     --toolbarbutton-outer-padding: 2px;
