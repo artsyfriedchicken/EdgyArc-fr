@@ -91,7 +91,7 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ### Misc Variants
 
 - `uc.tweak.af.greyscale-webext-icons` > Turn all web extension icons greyscale when not hovered
-
+- `uc.tweak.af.no-dimming` > Turn off sidebar dimming when translucency is disabled
 
 ## My Settings for Adaptive Tab Bar Color
 ![ ](screenshots/ATBC-settings.png)
