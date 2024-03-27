@@ -35,9 +35,16 @@
     opacity: var(--uc-accent-opacity) !important;
 }
 
+@media (-moz-platform: macos) {
 :root[windowtype="navigator:browser"]#main-window {
     background-color: transparent !important;
     border-radius: 10px !important;
+}
+}
+@media (-moz-platform: windows) {
+:root[windowtype="navigator:browser"]#main-window {
+    background-color: var(--lwt-accent-color) !important;
+}
 }
 
 /*remove transparency in fullscreen */
