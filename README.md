@@ -121,6 +121,19 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 ![ ](screenshots/08.png)
 
 ## Changelog
+- v1.0.0-b8
+  - Fixed
+    - findbar background colour when using firefox color/adaptive tab bar color addons
+    - tab notification deck translucency `macOS`
+    - toolbar height
+    - padding in urlbar+reload button combo
+    - Positioned window controls `Windows 10/11`
+    - private window indicator `Windows 10/11`
+  - Tweaks
+    - uc.tweak.af.no-dimming makes sidebar have 100% opacity.
+    Prequisite : translucency must be disabled using uc.tweak.af.not-translucent #14
+    - tweaked margins and paddings `Windows 10/11`
+
 - v1.0.0-b7
   - Cleaned up code
   - Fixed sidebery css bug - dragging tabs would indicate incorrect drop location
