@@ -19,23 +19,35 @@
     
 }
 
-@media (-moz-bool-pref: "uc.tweak.af.no-dimming") {
-#sidebar,
-#sidebar:hover {
-    --uc-accent-opacity:100% !important;
-}
-}
+
 #sidebar-box {
 
     background-color: var(--uc-window-bg) !important;
     -moz-default-appearance: default !important;
     opacity:1 !important;
-    &:-moz-window-inactive {
-        opacity:0.85 !important;
-    }
     @media not (-moz-bool-pref:"uc.tweak.af.translucent-arc") {
     #sidebar{
         filter:brightness(90%) contrast(110%) !important;
     }
+}
+}
+@media not (-moz-bool-pref: "uc.tweak.af.no-dimming") {
+    #sidebar-box {
+        &:-moz-window-inactive {
+        opacity:0.6 !important;
+    } 
+    }
+}
+
+@media (-moz-bool-pref: "uc.tweak.af.no-dimming") {
+#sidebar,
+#sidebar:hover, 
+#siderbar-box {
+    --uc-accent-opacity:100% !important;
+    opacity:100% !important;
+&:-moz-window-inactive {
+        opacity:100% !important;
+        --uc-accent-opacity:100% !important;
+    }    
 }
 }
