@@ -102,6 +102,7 @@
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
   background-color: color-mix(in srgb, var(--lwt-accent-color) 60%, light-dark(rgb(240, 240, 240), rgb(50, 50, 50))) !important;
 }
+@media not (-moz-platform: windows) {
 /*draw a feathered 1px border around the window*/
 :root[windowtype="navigator:browser"]#main-window {
   position: relative;
@@ -120,7 +121,7 @@
 :root[inFullscreen]#main-window::before {
   opacity: 0 !important;
 }
-
+}
 
 /*fade toolbar background image for lwthemes - goes really great with Firefox Color setups!*/
 #navigator-toolbox {
