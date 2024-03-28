@@ -1,19 +1,14 @@
-@media (-moz-bool-pref: "uc.tweak.rounded-corners") {
-
-    /* Variables used for rounded corners */
-    :root[titlepreface="᠎"] {
-        --uc-tweak-rounded-corners-padding: 10px !important;
-        --uc-tweak-rounded-corners-radius: 10px !important;
-    }
-}
-
-
 :root[titlepreface="᠎"] {
+    
+
     --uc-tweak-rounded-corners-padding: 12px !important;
     --uc-tweak-rounded-corners-radius: 8px !important;
-
+    
+    @media  (-moz-bool-pref:"uc.tweak.af.thin-navbar") {
+          --uc-tweak-rounded-corners-padding: 10px !important;  
+    }
     #sidebar-box {
-        --uc-sidebar-width: 10px !important;
+        --uc-sidebar-width: var(--uc-tweak-rounded-corners-padding) !important;
         margin: 0px 0 0 0 !important;
         padding: 0 0 0 0 !important;
         box-shadow: none !important;
