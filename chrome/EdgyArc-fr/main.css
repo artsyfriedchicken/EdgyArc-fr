@@ -18,11 +18,13 @@
 @import url("translucent-arc.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
 @import url("not-translucent.css") (-moz-bool-pref: "uc.tweak.af.not-translucent");
 /**/
+@import url("thin-navbar.css") (-moz-bool-pref: "uc.tweak.af.thin-navbar");
 /**/
 /**/
 /*Other tweaks*/
 @import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
 @import url("icons.css");
+
 
 
 
@@ -434,9 +436,12 @@
 
     /* Remove the padding from the side of the navbar */
     & #nav-bar-customization-target> :is(toolbarbutton, toolbaritem):first-child {
-      padding-inline-start: 0 !important;
+      padding-inline-start: 0px !important;
     }
   }
+   .titlebar-buttonbox-container .titlebar-buttonbox {
+     top: -2px !important;
+}
 }
 
 
@@ -458,6 +463,6 @@
   margin: 6px 4px !important;
 }
   #urlbar, #urlbar[breakout][breakout-extend] {
-  z-index:999 !important;
+  z-index:600 !important;
 }
 }
