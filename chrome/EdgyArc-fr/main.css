@@ -419,6 +419,9 @@
   margin-top: -2px !important;
 }
 
+#urlbar, #urlbar[breakout][breakout-extend] {
+  z-index:600 !important;
+}
 
 
 
@@ -453,5 +456,8 @@
   height: 32px !important;
   border-radius: 6px !important;
   margin: 6px 4px !important;
+}
+  #urlbar, #urlbar[breakout][breakout-extend] {
+  z-index:999 !important;
 }
 }

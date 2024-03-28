@@ -41,8 +41,12 @@
 
 @media (-moz-bool-pref: "uc.tweak.af.no-dimming") {
 #sidebar,
+#sidebar:not(:hover), 
 #sidebar:hover, 
-#siderbar-box {
+#siderbar-box,
+#sidebar-box:not(:hover),
+#sidebar-box:hover
+ {
     --uc-accent-opacity:100% !important;
     opacity:100% !important;
 &:-moz-window-inactive {
