@@ -37,7 +37,7 @@ border-radius:10px!important;}
     --uc-toolbarbutton-inner-inline-padding: 6px !important;
     --toolbarbutton-outer-padding: 2px;
       --toolbarbutton-hover-background: var(--urlbar-box-hover-bgcolor) !important;
-    margin-left: -38px;
+margin-left: calc(-16px - 2 * (var(--toolbarbutton-inner-padding) + var(--uc-toolbarbutton-inner-inline-padding)));
     margin-right: cacl(var(--toolbarbutton-inner-padding)*2);
     z-index:9999 !important;
   }
@@ -66,6 +66,7 @@ border-radius:10px!important;}
   #urlbar:hover #page-action-buttons {
     display: flex !important;
     opacity:0.8 !important;
+        transition: width 300ms ease-in-out !important;
     
   }
   
@@ -74,6 +75,7 @@ border-radius:10px!important;}
     display:none !important;
     opacity:0 !important;
     width:0.1px !important;
+    transition: width 300ms ease-in-out !important;
   
   }
   
