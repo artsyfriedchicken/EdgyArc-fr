@@ -1,0 +1,84 @@
+/*Thin Navbar mod*/
+
+:root[windowtype="navigator:browser"] {
+  
+#nav-bar {
+  font-size:1em !important;
+        --toolbarbutton-border-radius: 4px !important;
+    --toolbarbutton-inner-padding: 4px !important;
+    --uc-toolbarbutton-inner-inline-padding: 8px !important;
+    --toolbarbutton-outer-padding: 2px;
+  
+  height:30px !important;
+  max-height:30px !important;
+  #nav-bar-customization-target { 
+
+  }
+  }
+  
+  #urlbar {
+--urlbar-toolbar-height: 28px !important;
+    --urlbar-height: 30px !important;
+    --urlbar-min-height: 25px !important;
+    
+    margin-top:1px !important;
+   #identity-box{
+      padding-top:0 !important;
+      margin-top:-1px !important;
+    }
+    #tracking-protection-icon-container {
+      margin-top:1px !important;
+    }
+  }
+  #urlbar-background {
+    &:not([breakout-extend][focused]){ 
+           background-color:light-dark(white, black) !important; 
+      opacity:0 !important;
+      border:0 !important;
+      border-radius:0 !important;
+      margin:0px !important;
+      top:0px !important; 
+    }   
+  
+}
+  
+  #urlbar[breakout][breakout-extend] #urlbar-background {
+  opacity: 1 !important;
+  margin-top: -1px !important;
+    border-radius:4px !important;
+    border-top:none !important;
+}
+
+.urlbar-input-box {
+  margin-top: -2px !important;
+}
+
+
+/* macOS specific positioning */
+@media (-moz-platform: macos) {
+   .titlebar-buttonbox-container .titlebar-buttonbox {
+     top: -7px !important;
+}
+}
+
+
+/*Windows specific positioning*/
+
+@media (-moz-platform: windows) {
+  .titlebar-buttonbox-container {
+    z-index:999 !important;
+  }
+.titlebar-button.titlebar-restore, 
+  .titlebar-button.titlebar-close, 
+  .titlebar-button.titlebar-min,
+  .titlebar-button.titlebar-max,
+  .titlebar-button.titlebar-button,
+  .titlebar-button {
+  padding: 0 15px !important;
+  height: 24px !important;
+  border-radius: 6px !important;
+  margin: 3px 4px !important;
+}
+}
+
+
