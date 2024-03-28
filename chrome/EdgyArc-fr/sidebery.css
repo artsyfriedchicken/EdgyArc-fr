@@ -110,9 +110,14 @@ border:1px solid light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)) !important;
 #root.root .PinnedTabsBar {
     & .Tab {
 --tabs-color-layer-opacity: 0.4;
-&:hover{ --tabs-color-layer-opacity: 0.8}
+&:hover{ --tabs-color-layer-opacity: 0.8;
+}
+.body {
+ background-color: light-dark(rgba(200,200,200,0.35),rgba(200,200,200,0.1)) !important;
+}
     }
 }
+
 
 #root.root .PinnedTabsBar .Tab .fav, #root.root .PinnedTabsBar .Tab .fav-icon {
 width:22px !important;
@@ -394,8 +399,11 @@ when two tab in bottom row
         overflow: hidden;
         white-space: nowrap;
     }
+
 #root.root {
 padding:3px 0px 0px 0 !important;
+.close {
+display:none !important;}
 }
 
     #root.root .PinnedTabsBar .Tab {
