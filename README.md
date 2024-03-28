@@ -72,6 +72,10 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 #### Disable Translucency 
 `uc.tweak.af.not-translucent` > `true` [Recommended for windows/linux, or you know, if you just dont want translucent windows]
 
+### UI Tweaks
+#### Thin Nav bar 
+`uc.tweak.af.thin-navbar` > `true`
+
 ### Sidebar
 #### Minimal (arc-like) sidebar 
 `uc.tweak.af.translucent-arc` > `true` **[Recommended]**
@@ -120,7 +124,18 @@ EdgyArc-fr is designed to enhance your Firefox user interface by combining the s
 
 ![ ](screenshots/08.png)
 
+![](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/77255d3f-0f9b-430b-aca3-85ce92bb79b3)
+![](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/e4fc4cf9-fdcb-4fcd-8b5b-b23910996632)
+
+
+
 ## Changelog
+- v1.0.0-b9
+  - New
+    - Added Thin navbar variant `uc.tweak.af.thin-navbar`
+  - Fixed
+    - Sidebery CSS (default background for pinned tabs)
+    - Titlebar Controls positioning 
 - v1.0.0-b8
   - Fixed
     - findbar background colour when using firefox color/adaptive tab bar color addons
