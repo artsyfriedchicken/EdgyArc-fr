@@ -24,10 +24,9 @@
 /*Other tweaks*/
 @import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
 @import url("icons.css");
+@import url("minimal-ui.css") (-moz-bool-pref: "uc.tweak.af.minimal-ui");
 
-
-
-
+/*variables*/
 
 :root {
   --urlbar-icon-border-radius: 5px !important;
@@ -39,24 +38,19 @@
   --tabs-navbar-shadow-size: 0px !important;
   /**/
   --uc-titlebar-drag-space: 8px !important;
-
-}
-
-:root {
-  transition: background-color 300ms ease-in !important;
-}
-
-
+  /**/
+  --uc-sidebar-shadow:0px 0px 0px 1px light-dark(rgba(0, 0, 0, 0.40), rgba(200, 200, 200, 0.40)),
+  0px 0px 18px 4px light-dark(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.40));
 /* Make corners more rounded */
-@media (-moz-bool-pref: "uc.tweak.rounded-corners") {
-
-  /* Variables used for rounded corners */
-  :root {
+  @media (-moz-bool-pref: "uc.tweak.rounded-corners") { 
     --uc-tweak-rounded-corners-padding: 8px !important;
     --uc-tweak-rounded-corners-radius: 7px !important;
   }
 }
 
+:root {
+  transition: background-color 300ms ease-in !important;
+}
 
 /* indicator for private browsing mode with tabs hidden */
 
@@ -83,35 +77,25 @@
 /*make space in nav bar for the private window label*/
   #nav-bar {
     padding-right: 70px !important;
-  }
-/*create private window badge*/
-  #nav-bar::after {
-    right: 8px;
-    border-radius: 4px;
+    &::after { /*priv win label*/
+      right: 8px;
+      border-radius: 4px;
+    }
   }
 }
 @media (-moz-platform: windows) {
   #nav-bar {
     padding-left: 70px !important;
-  }
-  
-/*create private window badge*/
-  #nav-bar::after {
-    left: 8px;
-    border-radius: 4px;
+    &::after { /*priv win label*/
+      left: 8px;
+      border-radius: 4px;
+    }
   }
 }
 }
 
-
-
-
-:root[windowtype="navigator:browser"],
-:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-  background-color: color-mix(in srgb, var(--lwt-accent-color) 60%, light-dark(rgb(240, 240, 240), rgb(50, 50, 50))) !important;
-}
 @media not (-moz-platform: windows) {
-/*draw a feathered 1px border around the window*/
+/*draw a feathered 1px border around the window frame*/
 :root[windowtype="navigator:browser"]#main-window {
   position: relative;
   &::before {
@@ -131,11 +115,12 @@
 }
 }
 
+
 /*fade toolbar background image for lwthemes - goes really great with Firefox Color setups!*/
 #navigator-toolbox {
   border-bottom: none !important;
-
   &:-moz-lwtheme {
+    background-image:none !important; /*remove the background image from the actual toolbox*/
     &::before {
       content: "";
       position: absolute;
@@ -146,11 +131,8 @@
       background-repeat: var(--lwt-background-tiling);
       background-position: var(--lwt-background-alignment);
     }
-    background-image:none !important; /*remove the background image from the actual toolbox*/
   }
 }
-
-
 
 /*remove tab panel bg*/
 #tabbrowser-tabpanels {
@@ -166,16 +148,14 @@
 :root[titlepreface="᠎"] {
   #sidebar-box {
     opacity: 0.75 !important;
-  }
-
-  #sidebar-box:hover {
-    opacity: 1 !important;
+    &:hover {
+      opacity: 1 !important;
+    }
   }
 
   /*Add shadow to auto-expanded sidebar on hover*/
   #sidebar-box:hover>#sidebar {
-    box-shadow: 0px 0px 0px 1px light-dark(rgba(0, 0, 0, 0.40), rgba(200, 200, 200, 0.40)),
-      0px 0px 18px 4px light-dark(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.40)) !important;
+    box-shadow: var(--uc-sidebar-shadow) !important;
     z-index: 3 !important;
   }
 }
@@ -227,24 +207,30 @@
 /* Styles for the navigation bar */
 
 /*dim nav bar on inactive windows*/
+@media not (-moz-bool-pref:"uc.tweak.af.no-dimming") {
 :root:-moz-window-inactive #nav-bar-customization-target {
   opacity: 0.6 !important;
+}
 }
 
 /*add padding to toolbar items*/
 .panel-no-padding {
   padding: 2px !important;
 }
-
 /* Opacity for toolbar buttons */
 #navigator-toolbox {
-
   .toolbarbutton-1,
   .toolbarbutton-1 .toolbarbutton-icon {
     opacity: 0.8;
     transition: opacity 300ms linear !important;
   }
 }
+
+/* collapse sidebar header by default */
+#sidebar-header {
+  visibility: collapse;
+}
+
 
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
 :root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
@@ -270,12 +256,7 @@
   }
 }
 
-/* Styles for sidebar header */
-#sidebar-header {
-  visibility: collapse;
-}
-
-/*modded sidebar header background for vertical tabs*/
+/*use --uc-window-bg as sidebar header background for vertical tabs*/
 @media (-moz-bool-pref: "uc.tweak.af.show-sidebar-header") {
 
   :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
@@ -293,7 +274,6 @@
         visibility: collapse !important;
       }
     }
-
     /*force sidebar header visibility when sidebar is expanded*/
     &:not([titlepreface="᠎"]) {
       #sidebar-header {
@@ -412,17 +392,16 @@
 }
 
 
-#urlbar[breakout][breakout-extend] #urlbar-background {
+#urlbar[breakout][breakout-extend] {
+  z-index:600 !important;
+  #urlbar-background {
   opacity: 1 !important;
   margin-top: 4px !important;
+}
 }
 
 .urlbar-input-box {
   margin-top: -2px !important;
-}
-
-#urlbar, #urlbar[breakout][breakout-extend] {
-  z-index:600 !important;
 }
 
 
@@ -443,8 +422,6 @@
      top: -2px !important;
 }
 }
-
-
 /*Windows specific positioning*/
 
 @media (-moz-platform: windows) {
