@@ -1,395 +1,304 @@
 #root.root {
-    --notification-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
---tabs-margin: 6px !important;
-    --search-border-radius: 6px;
-    --search-font-size: 0.9rem;
-    --search-icon-width: 40px;
-    --ctx-menu-shadow: 0 0 0 1px light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)), 
-0 0 5px 5px light-dark(rgba(0,0,0,0.2), rgba(0,0,0,0.3))!important;
-    --ctx-menu-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
-    --ctx-menu-min-width: 160px;
-    --popup-shadow: 0 0 5px 5px light-dark(rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+    /*======edits from here=========*/
+    /*variables*/
+    /*edgyarc variables*/
+    --af-color-tab-border-radius: 6px 0px 0px 6px;
+    --af-hidden-popup-bg:color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
+    --af-fade-tab-text:linear-gradient(90deg, var(--tabs-normal-fg) 93%, #f1f1f100 99%);
+    --af-total-pinned-width: calc(100vw - 6px);
+    --af-searchbar-bg-color: light-dark(rgba(200, 200, 200, 0.3), rgba(80, 80, 80, 0.4));
 
-    --tabs-indent: 18px;
+    /*general*/
+    --general-margin: 6px;
+    --active-el-bg: rgb(180, 180, 180, 30%);
+    --general-border-radius: 6px !important;
+
+    /*tabs*/
+    --tabs-margin: var(--general-margin);
+    --tabs-indent: 14px;
     --tabs-inner-gap: 6px;
     --tabs-pinned-height: 38px;
     --tabs-pinned-width: 42px;
-    --general-margin: 8px;
+    --tabs-color-layer-opacity: 0.4;
+    --tabs-activated-color-layer-opacity: 0.5;
+    --tabs-discarded-favicon-opacity: 0.6;
+    --tabs-discarded-title-opacity: 0.7;
     --tabs-height: 32px;
+    --tabs-lvl-opacity: 0.3;
+    .Tab:hover {
+        --tabs-color-layer-opacity: 0.5;
+        --tabs-discarded-title-opacity: 1;
+    }
+    --tabs-audio-btn-width: 25px;
+    --tabs-normal-fg: light-dark(rgba(0, 0, 0, 1), rgba(255, 255, 255, 1));
+    /*active tab*/
+    --tabs-activated-bg: light-dark(rgb(200, 200, 200, 0.6),
+        rgb(255, 255, 255, 0.3)) !important;
+    --tabs-activated-fg: light-dark(black, white) !important;
+    --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.4));
+    /**/
+    --tabs-close-btn-margin: 4px;
+    /*search*/
+    --search-border-radius: 6px;
+    --search-font-size: 0.9rem;
+    --search-icon-width: 40px;
+    /*history*/
     --history-item-padding-left: 6px;
     --history-item-margin: 5px;
     --history-item-border-radius: 8px;
-    --tabs-close-btn-margin: 3px;
-    --nav-btn-margin: 3px 4px;
-    --nav-btn-len-margin: -1px;
-    --ntb-padding: 0px !important;
-    --ntb-btn-height: 28px;
-    --tabs-lvl-opacity: 0.3;
-    --tweak-general-padding: 4px;
-    --active-el-bg: light-dark(rgb(100, 100, 100, 30%),
-            rgb(180, 180, 180, 30%));
-    --tabs-audio-btn-width: 16px;
-    --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.7));
-    --tabs-normal-fg: light-dark(rgba(0, 0, 0, 1),
-            rgba(255, 255, 255, 1));
-    --tabs-activated-bg: light-dark(rgb(200, 200, 200, 0.6),
-            rgb(255, 255, 255, 0.9)) !important;
-    --tabs-activated-fg: light-dark(black, black) !important;
+    /*popups*/
+    --notification-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(0, 0, 0)));
+    --ctx-menu-shadow: 0 0 0 1px light-dark(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.6)),
+    0 0 5px 5px light-dark(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)) !important;
+    --ctx-menu-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
+    --ctx-menu-min-width: 160px;
+    --popup-shadow: 0 0 5px 5px light-dark(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
     --ctx-menu-fg: light-dark(black, white);
---ctx-menu-icon-opt-height: 30px;
---ctx-menu-text-opt-inner-gap: 6px;
---ctx-menu-padding: 4px;
+    --ctx-menu-icon-opt-height: 30px;
+    --ctx-menu-text-opt-inner-gap: 6px;
+    --ctx-menu-padding: 4px;
+    /*misc*/
+    --nav-btn-len-margin: -1px;
+    --ntb-padding:6px 0px !important;
+    
 
-transition:width none;
-}
+    /*==== css properties ====*/
 
+    /* Padding adjustments */
+    padding: 4px 0 0 0 !important;
 
+    /* ==== Hidden panels ==== */
+    .NavigationBar {
+        .hidden-panels-popup-layer {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            margin-top: -40px !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 999 !important;
+            transform: scaleY(-1);
+            --toolbar-bg: var(--af-hidden-popup-bg) !important;
+        }
 
-/* Padding adjustments */
-#root.root {
-padding:6px 0 !important;
-margin:0px !important;
-}
+        #hidden_panels_btn.nav-item .icon {
+            transform: scaleY(-1);
+        }
 
+        .hidden-panels-popup-content {
+            transform: scaleY(-1);
+            padding: 4px 4px 4px 4px !important;
+        }
 
-/* Hidden panels */
+        .hidden-panels-popup {
+            border: 1px solid light-dark(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.6)) !important;
+            .nav-item {
+                margin: 3px !important;
+                .len {
+                    background-color: transparent !important;
+                }
+            }
+        }
 
-#hidden_panels_btn.nav-item .icon {
-transform: scaleY(-1);
-}
-.hidden-panels-popup-layer {
-position: fixed !important;
-top:0 !important;
-left: 0 !important;
-margin-top:-40px !important;
-width: 100vw !important;
-height: 100vh !important;
-z-index: 999 !important;
-transform: scaleY(-1);
---toolbar-bg:color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20))) !important;
+        /*make hidden panel text not mirror the panel colour*/
+        &:has(.hidden-panels-popup) * {
+            border-radius: var(--general-border-radius) !important;
+            color: light-dark(black, white) !important;
+        }
 
+        .popup-container,
+        .hidden-panels-popup-layer:before {
+            background-color: transparent;
+        }
 
-}
-.NavigationBar .hidden-panels-popup-content {
-transform: scaleY(-1);
-padding:4px 4px 4px 4px !important;
-
-
-}
-.hidden-panels-popup .nav-item .len {
-background-color:transparent !important;
-}
-.hidden-panels-popup .nav-item {
-margin:3px !important;
-}
-
-.NavigationBar:has(.hidden-panels-popup) *{border-radius:6px !important; color:light-dark(black, white) !important;}
-
-#root .popup-container {background-color: transparent;}
-
-#root .hidden-panels-popup-layer:before {
-background-color:transparent;}
-
-
-.hidden-panels-popup {
-border:1px solid light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)) !important;
-}
-
-
-
-/* Main box */
-#root.root .main-box {
-    transition: opacity 100ms ease;
-    padding: 0;
-    opacity: 1;
-
-}
-
-/* Pinned Tabs */
-
-#root.root .PinnedTabsBar {
-    & .Tab {
---tabs-color-layer-opacity: 0.4;
-&:hover{ --tabs-color-layer-opacity: 0.8;
-}
-.body {
- background-color: light-dark(rgba(200,200,200,0.35),rgba(200,200,200,0.1)) !important;
-}
-    }
-}
-
-
-#root.root .PinnedTabsBar .Tab .fav, #root.root .PinnedTabsBar .Tab .fav-icon {
-width:22px !important;
-height:22px !important;
-
-}
-
-/* Tabs */
-.scrollable .Tab {
-/**/
-}
-/*tab containers*/
-.Tab[data-pin="false"] {
-&[data-active="true"] .ctx {
-width: 3px !important;
-  height: 100% !important;
-  top: auto !important;
-  border-radius: 0 4px 4px 0 !important;
-}
-&[data-active="false"] .ctx, &:hover .ctx {
-height: 50%;
-width: 3px;
-top:auto;
-border-radius:20px;
-}
-.ctx {
-transition:height 300ms ease, width 300ms ease, top 300ms ease;}
-}
-
-.scrollable .Tab:first-child {
-/*    margin-top: 10px !important; */
-}
-
-.Tab[data-discarded="true"] .t-box {
-    opacity: 0.7 !important;
-}
-
-.Tab:hover[data-discarded="true"] .t-box {
-    opacity: 1 !important;
-}
-
-/* Tab colors */
-.scrollable .Tab .color-layer {
-    width: 32px !important;
-    --tabs-color-layer-opacity: 0.5;
-}
-
-.scrollable .Tab[data-discarded="true"] .color-layer {
-    width: 34px !important;
-    --tabs-color-layer-opacity: 0.2 !important;
-}
-
-.scrollable .Tab[data-active="true"] .color-layer,
-.scrollable .Tab:hover .color-layer {
-    border-radius: 4px 0px 0px 4px !important;
-    --tabs-color-layer-opacity:0.8 !important;
-}
-.scrollable .Tab[data-active="true"] .color-layer {
---tabs-color-layer-opacity:1 !important;}
-.scrollable {
-    & .t-box {
-        padding: 0 3px !important;
     }
 
-    & .Tab[data-colorized="true"] .t-box {
+    /* ==== Pinned Tabs ==== */
+    .PinnedTabsBar {
+        & .Tab {
+            --tabs-color-layer-opacity: 0.6;
+
+            /*pinned tabs have larger favicons*/
+            .fav,
+            .fav-icon {
+                width: 22px !important;
+                height: 22px !important;
+            }
+
+            /*add a slight bg colour*/
+            .body {
+                background-color: light-dark(rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.1)) !important;
+            }
+        }
+    }
+    /* ==== Tabs ==== */
+    /*tab container indicator*/
+    .Tab[data-pin="false"] {
+        &[data-active="true"] .ctx {
+            width: 4px !important;
+            height: 100% !important;
+            top: auto !important;
+            opacity: 0.8;
+            border-radius: 0 6px 6px 0 !important;
+        }
+        &[data-active="false"] .ctx,
+        &:hover .ctx {
+            height: 70%;
+            width: 4px;
+            top: auto;
+            border-radius: 20px;
+        }
+        .title {
+            background: var(--af-fade-tab-text);
+            background-clip: text;
+            color: transparent;
+        }
+        .ctx {
+            transition: height 200ms ease, width 200ms ease, top 200ms ease;
+        }
+    }
+
+    /* Tab colors */
+    .scrollable .Tab {
+        /*make colour layer span the width of the favicon, instead of the whole tab*/
+        &[data-discarded] .color-layer,
+        .color-layer {
+            width: 32px !important;
+        }
+
+        &[data-active] .color-layer {
+            border-radius: var(--af-color-tab-border-radius) !important;
+        }
+        /*adjust padding to accomodate coloured tabs*/
+        .t-box {
+            padding: 0 6px !important;
+        }
+    }
+    /* Grouped tabs */
+    .Tab {
+        .exp,
+        .exp-icon,
+        .exp:hover {
+            opacity: 1 !important;
+        }
+        .child-count {
+            opacity: 1 !important;
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6) !important;
+            font-weight: 900 !important;
+        }
+        &[data-folded="true"] .fav {
+            opacity: 1 !important;
+        }
+    }
+
+    /* Search Bar */
+    #search_bar {
+        order: 2;
+        padding-right: 6px;
+        --toolbar-bg: var(--af-searchbar-bg-color) !important;
+    }
+    /* Navigation box */
+    .top-horizontal-box {
+        display: flex;
+        order: 3 !important;
+
+        & .main-items {
+            justify-content: center;
+            align-items: center;
+            overflow: hidden !important;
+            transition: height 100ms ease-in-out 0ms, width 100ms ease-in-out 0ms;
+        }
+
+        #nav_bar {
+            background-color: transparent !important;
+        }
+    }
+
+    .left-vertical-box #nav_bar {
+        background-color: transparent !important;
         padding: 0 6px !important;
     }
+    /*=== resize pinned tab widths ===*/
+    .PinnedTabsBar {
+        margin: 0 0 0 0 !important;
+        --general-padding: 0 0 0 0 !important;
+        --general-margin: 0 0 0 0 !important;
 
-}
-
-
-/* Grouped tabs */
-.Tab .exp-icon {
-    opacity: 1 !important;
-}
-
-#root.root .Tab .child-count {
-    opacity: 1 !important;
-text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5) !important;
-font-weight:800 !important;
-}
-
-#root.root .Tab[data-folded="true"] .fav {
-opacity: 1 !important;
-}
-#root.root .Tab[data-colorized="true"] .fav .img {
-        width:50px  !important;
+        .tab-wrapper {
+            --calc-pinned-tab-width: calc((var(--af-total-pinned-width) - (var(--tabs-margin) * var(--pinned-tabs-col))) / var(--pinned-tabs-col));
+            --tabs-pinned-width: var(--calc-pinned-tab-width);
+        }
     }
 
-#root.root:not(:hover) .Tab .audio-icon {
-    height: 12px !important;
-}
-
-/* New Tab button */
-.new-tab-btns {
-    padding: 0 10px !important;
-margin:5px auto 0 auto !important;
-max-width:100vw;
-}
-
-/* Search Bar */
-#root.root #search_bar {
-    order: 2;
-    padding-left: 0px;
-    padding-right: 6px;
-}
-
-
-/* Navigation box */
-
-@media (min-width: 150px) and (max-width: 239px) {
-#root.root{
---nav-btn-width:30px !important;}
-}
-#root.root .top-horizontal-box {
-    display: flex;
-    order: 3 !important;
-    margin: 0 auto -2px auto !important;
-    padding-top: 10px;
-    max-height: 140px;
-    padding-bottom: 8px !important;
-    overflow: hidden !important;
-    & .main-items {
-        justify-content: center;
-        align-items: center;
-        overflow: hidden !important;
-    }
-}
-
-.top-horizontal-box #nav_bar {
-    background-color: transparent !important;
-}
-
-#root.root .top-horizontal-box {
-    opacity: 1;
-}
-
-.left-vertical-box #nav_bar {
-    background-color: transparent !important;
-    padding: 12px 6px;
-}
-
-/* Misc */
-.TabsPanel .bottom-space {
-    background: transparent !important;
-}
-
-#root.root .top-horizontal-box .main-items {
-    transition: height 100ms ease-in-out 0ms, width 100ms ease-in-out 0ms;
-    overflow: hidden !important;
-}
-
-#root.root .top-horizontal-box .nav-item[data-class="space"] {
-    display: block !important;
-    min-width: 100% !important;
-    height: 2px !important;
-}
-
-
-
-/*resize pinned tab widths*/
-#root.root {
-    --total-pinned-width: calc(100vw - 6px);
-
-  
-    
-
-    
-
-    & .PinnedTabsBar {
-
-margin:0 0px 0 0px !important;
---general-padding:0 0 0 0 !important;
---general-margin:0 0 0 0 !important;
-& .tab-wrapper {
-    --calc-pinned-tab-width: calc((var(--total-pinned-width) - (var(--tabs-margin) * var(--pinned-tabs-col))) / var(--pinned-tabs-col));
-    --tabs-pinned-width: var(--calc-pinned-tab-width);
-}
-    }
-/*--------on collapsed sidebar*/
+    /*--------on collapsed sidebar*/
     @media (min-width: 40px) and (max-width:149px) {
-.PinnedTabsBar {
-
-
-}
-.PinnedTabsBar .tab-wrapper {
-        --pinned-tabs-col: 2;
---tabs-pinned-width:11px !important; }
-
+        .PinnedTabsBar .tab-wrapper {
+            --pinned-tabs-col: 2;
+            --tabs-pinned-width: 11px !important;
+        }
     }
-/*------------on narrow sidebar*/
+    /*------------on narrow sidebar*/
     @media (min-width: 150px) and (max-width: 239px) {
         --pinned-tabs-col: 3;
-/* 
-when one tab in bottom row 
-*/
-.PinnedTabsBar .tab-wrapper:nth-child(3n+1):last-child {
---pinned-tabs-col: 1 !important;
 
-}
-/* 
-when two tab in bottom row 
-*/
-.PinnedTabsBar .tab-wrapper:nth-child(3n+2):nth-last-child(1),
-.PinnedTabsBar .tab-wrapper:nth-child(3n+1):nth-last-child(2) {
---pinned-tabs-col: 2 !important;
+        .PinnedTabsBar .tab-wrapper {
 
-}
+            /* when one tab in bottom row */
+            &:nth-child(3n+1):last-child {
+                --pinned-tabs-col: 1 !important;
+            }
 
+            /* when two tab in bottom row */
+            &:nth-child(3n+2):nth-last-child(1),
+            &:nth-child(3n+1):nth-last-child(2) {
+                --pinned-tabs-col: 2 !important;
+
+            }
+        }
     }
-/*--------------on regular sidebar*/
+
+    /*--------------on regular sidebar*/
     @media (min-width: 240px) and (max-width: 280px) {
-        
         --pinned-tabs-col: 4;
-/* 
-when one tab in bottom row 
-*/
-.PinnedTabsBar .tab-wrapper:nth-child(4n-3):last-child {
---pinned-tabs-col: 1 !important;
+        .PinnedTabsBar .tab-wrapper {
 
-}
-/* 
-when two tab in bottom row 
-*/
-.PinnedTabsBar .tab-wrapper:nth-child(3n+3):last-child,
-.PinnedTabsBar .tab-wrapper:nth-child(4n-3):nth-last-child(2) {
---pinned-tabs-col: 2 !important;
+            /* when one tab in bottom row */
+            &:nth-child(4n-3):last-child {
+                --pinned-tabs-col: 1 !important;
+            }
 
-}
-/*when 3 tab in bottom row*/
-.PinnedTabsBar .tab-wrapper:nth-child(3):last-child,
-.PinnedTabsBar .tab-wrapper:nth-child(2):nth-last-child(2),
-.PinnedTabsBar .tab-wrapper:nth-child(1):nth-last-child(3),
- .PinnedTabsBar .tab-wrapper:nth-child(7n):last-child,
- .PinnedTabsBar .tab-wrapper:nth-child(6n):nth-last-child(2),
- .PinnedTabsBar .tab-wrapper:nth-child(5n):nth-last-child(3){
---pinned-tabs-col: 3 !important;
+            /* when two tab in bottom row */
+            &:nth-child(3n+3):last-child,
+            &:nth-child(4n-3):nth-last-child(2) {
+                --pinned-tabs-col: 2 !important;
 
-}
+            }
 
+            /*when 3 tab in bottom row*/
+            &:nth-child(3):last-child,
+            &:nth-child(2):nth-last-child(2),
+            &:nth-child(1):nth-last-child(3),
+            &:nth-child(7n):last-child,
+            &:nth-child(6n):nth-last-child(2),
+            &:nth-child(5n):nth-last-child(3) {
+                --pinned-tabs-col: 3 !important;
+            }
+        }
     }
 
     @media (min-width: 280px) {
         --pinned-tabs-col: 5;
-
-
+    }
+    /*tabs transitions*/
+    .PinnedTabsBar,
+    .Tab,
+    .top-horizontal-box .main-items {
+        transition: height 0ms linear 0ms, width 0ms linear 0ms !important;
     }
 
+    /*----------- Collapsed sidebar stuff from here ----------------------------*/
 
-}
-
-
-
-    #root.root .PinnedTabsBar,
-    #root.root .PinnedTabsBar .Tab,
-    #root.root .top-horizontal-box .main-items {
-        transition: height 0ms linear 0ms, width 0ms linear 0ms !important; 
-    }
-
-
-
-
-
-
-
-
-/*----------- Collapsed sidebar stuff from here ----------------------------*/
-
-
-
-@media (max-width: 160px) {
-    #root.root {
+    @media (max-width: 160px) {
         --tabs-pinned-height: 12px;
         --tabs-pinned-width: 12px;
         --tabs-indent: 0;
@@ -398,103 +307,75 @@ when two tab in bottom row
         max-width: 280px;
         overflow: hidden;
         white-space: nowrap;
-    }
+        padding: 3px 0 0 0 !important;
 
-#root.root {
-padding:3px 0px 0px 0 !important;
-.close {
-display:none !important;}
-}
-
-    #root.root .PinnedTabsBar .Tab {
-        margin-right: 3px !important;
-    }
-#root.root .scrollable, #root.root .PinnedTabsBar {
-margin-left:3px !important;
-}
-
-#root.root .Tab .audio {
-    margin-left: -11px;
-    margin-top: -7px;
-}
-    .scrollable .Tab[data-colorized="true"] .color-layer {
-        opacity: 0.3;
-        transition: opacity 100ms linear !important;
-    }
-
-    #root.root .PinnedTabsBar,
-    #root.root .PinnedTabsBar .Tab {
-        background-color: transparent !important;
-    }
-
-.PinnedTabsBar {
-width:48px !important;
-padding-left:5px !important;
-.tab-wrapper {
-    flex-basis: 40%;
-
-}}
-
-#root.root .PinnedTabsBar .Tab .fav, 
-#root.root .PinnedTabsBar .Tab .fav-icon {
-width:14px !important;
-height:14px !important;
-}
-    .PinnedTabsBar .Tab {
-        opacity: 0.7 !important;
-margin-top:2px !important;
-margin-bottom:4px !important;
-        &[data-active="true"] {
-            opacity: 1 !important;
-            max-width: 32px !important;
-            max-height: 32px !important;
+        /*Hide items */
+        .scrollable .left-vertical-box,
+        #search_bar,
+        .new-tab-btns,
+        .Tab .t-box,
+        .PinnedTabsBar .color-layer,
+        .top-horizontal-box .nav-item:not([data-class="panel"]),
+        .nav-item[data-active="false"],
+        .close {
+            display: none !important;
         }
+
+        .PinnedTabsBar .Tab {
+            margin-right: 3px !important;
+        }
+
+        /*center tabs*/
+        .scrollable,
+        .PinnedTabsBar {
+            margin-left: 3px !important;
+        }
+
+        .scrollable .Tab {
+            &[data-active] {
+                width: 32px !important;
+            }
+        }
+
+        .PinnedTabsBar {
+            width: 48px !important;
+            padding-left: 6px !important;
+            max-height: 500px;
+            &,
+            .Tab {
+                background-color: transparent !important;
+                margin-top: 3px !important;
+                margin-bottom: 3px !important;
+                &[data-active] {
+                    opacity: 1 !important;
+                }
+                .fav,
+                .fav-icon {
+                    width: 16px !important;
+                    height: 16px !important;
+                }
+            }
+            .tab-wrapper {
+                flex-basis: 40%;
+            }
+        }
+
+        .nav-item[data-active] {
+            width: 32px !important;
+            height: 32px !important;
+            margin-bottom: 3px !important;
+            margin-left: 2px !important;
+            border: 1px solid light-dark(rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.2)) !important;
+            opacity: 1 !important;
+            filter: contrast(140%) !important;
+        }
+        /**/
     }
-
-    #root.root .PinnedTabsBar {
-        max-height: 500px;
+    .PinnedTabsBar,
+    .PinnedTabsBar .Tab,
+    .top-horizontal-box .main-items {
+        transition: height 0ms linear 0ms, width 0ms linear 0ms !important;
     }
-
-/* Tab colors */
-.scrollable .Tab, .scrollable .Tab .color-layer .color-layer {
-    width: 32px !important;
-    --tabs-color-layer-opacity: 0.5;
-}
-
-.scrollable .Tab[data-discarded="true"] .color-layer {
-    width: 32px !important;
-    --tabs-color-layer-opacity: 0.2 !important;
-}
-
-.scrollable .Tab[data-active="true"] .color-layer,
-.scrollable .Tab:hover .color-layer {
-    border-radius: 4px 4px 4px 4px !important;
-    --tabs-color-layer-opacity:0.8 !important;
-}
-
-
-    .left-vertical-box,
-    #root.root #search_bar,
-    #root.root .new-tab-btns,
-    .Tab .t-box,
-    .PinnedTabsBar .color-layer,
-    #root.root .top-horizontal-box .nav-item:not([data-class="panel"]),
-    #root.root .nav-item[data-active="false"] {
-        display: none !important;
-    }
-    #root.root .nav-item[data-active="true"]{
-width:32px !important;
-height:32px !important;
-margin-bottom:3px !important;
-margin-left:2px !important;
-border:1px solid light-dark(rgba(0,0,0,0.4), rgba(255,255,255,0.2)) !important;
-opacity:1 !important;
-filter:contrast(130%) !important;
-}
-
-    #root.root .PinnedTabsBar,
-    #root.root .PinnedTabsBar .Tab,
-    #root.root .top-horizontal-box .main-items {
-        transition: height 0ms linear 0ms, width 0ms linear 0ms !important; 
-    }
+    /**/
+    /*!!!!no edits beyond this point!!!!*/
 }
