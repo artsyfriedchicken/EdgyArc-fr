@@ -332,9 +332,7 @@
         }
 
         .scrollable .Tab {
-            & [data-active="true"] {
-                width: 32px !important;
-            }
+            width: 32px !important; 
         }
 
         .PinnedTabsBar {
