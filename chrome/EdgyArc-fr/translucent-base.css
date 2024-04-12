@@ -15,7 +15,6 @@
 }
 
 /*make shit transparent*/
-
 :root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
     --lwt-accent-color: light-dark(rgb(255, 255, 255), rgb(30, 30, 30)) !important; /* jank AF - set theme accent colour to sidebery defaults*/
     & #navigator-toolbox {
@@ -216,10 +215,13 @@
 }
 
 /*draw 1px border around browser content for clarity - anything inside this is not part of the browser ui*/
-#appcontent .browserStack {
+
+:root:not([inDOMFullscreen="true"]){
+    #appcontent .browserStack {
     overflow: hidden !important;
     border: var(--uc-appcontent-border) !important;
-}
+}}
+
 
 /*customise urlbar background*/
 #urlbar-background,

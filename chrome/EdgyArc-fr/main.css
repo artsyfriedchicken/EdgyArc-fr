@@ -17,6 +17,9 @@
 /**/
 @import url("translucent-arc.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
 @import url("not-translucent.css") (-moz-bool-pref: "uc.tweak.af.not-translucent");
+/*disable translucent crap for linux and windows by default*/
+@import url("not-translucent.css") (-moz-platform: windows);
+@import url("not-translucent.css") (-moz-platform: linux);
 /**/
 @import url("thin-navbar.css") (-moz-bool-pref: "uc.tweak.af.thin-navbar");
 /**/
@@ -49,7 +52,7 @@
 }
 
 :root {
-  transition: background-color 300ms ease-in !important;
+  transition: background-color 800ms ease-in-out !important;
 }
 
 /* indicator for private browsing mode with tabs hidden */
@@ -96,7 +99,7 @@
 
 @media not (-moz-platform: windows) {
 /*draw a feathered 1px border around the window frame*/
-:root[windowtype="navigator:browser"]#main-window {
+:root[windowtype="navigator:browser"]:not([inDOMFullscreen="true"])#main-window {
   position: relative;
   &::before {
     content: '';
@@ -110,8 +113,15 @@
   }
 }
 /*remove 1px window border in fullscreen*/
-:root[inFullscreen]#main-window::before {
+:root[inFullscreen="true"],
+:root[sizemode="fullscreen"],
+:root[inDOMFullscreen="true"]
+{
+  #main-window::before {
   opacity: 0 !important;
+  box-shadow:none !important;
+  border:0px !important;
+}
 }
 }
 
