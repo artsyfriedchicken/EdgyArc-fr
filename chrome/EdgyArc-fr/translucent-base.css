@@ -199,8 +199,8 @@
         background-color: var(--uc-window-bg) !important;
         z-index: 0;
     }
-
-    #sidebar-box:hover>#sidebar {
+@media not (-moz-bool-pref:"uc.tweak.af.no-dimming") {
+        #sidebar-box:hover>#sidebar {
         /*brightness fix - dont @ me, if you know you know*/
         @media (prefers-color-scheme:dark) {
             filter: brightness(0.7) !important;
@@ -211,6 +211,7 @@
         }
 
         background-color:var(--uc-window-bg-color) !important;
+    }
     }
 }
 
