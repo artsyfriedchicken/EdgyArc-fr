@@ -35,7 +35,7 @@
         :root:not([titlepreface="᠎"]):not(:-moz-lwtheme) {
         --uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
         @media (prefers-color-scheme:light) {
-            --uc-accent-opacity: 70% !important; /*USER CHANGABLE VALUE*/
+            --uc-accent-opacity: 65% !important; /*USER CHANGABLE VALUE*/
         }
     }
         
@@ -57,7 +57,6 @@ padding: 0px !important;
 :root :has(#sidebar-box:not([hidden]))
 {
 & #appcontent .browserStack {
-overflow: hidden !important;
 margin-left: 0 !important;
 }
 
