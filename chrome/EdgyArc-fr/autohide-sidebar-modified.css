@@ -7,6 +7,14 @@ See the above repository for updates as well as full license text. */
   Feel free to use, adapt, and elevate as needed. No support is provided, and your creativity is the limit.
   Kindly respect the original license by MrOtherGuy.
 */
+@media (-moz-bool-pref:"af.edgyarc.sidebar-always-collapsed") {
+  :root, :root[titlepreface="᠎"] { 
+    #sidebar-box {
+  --uc-sidebar-hover-width: 48px !important;
+  }
+  }
+  
+}
 
 /* Apply styles only when toggled using the userchrome toggle addon */
 :root[titlepreface="᠎"] {

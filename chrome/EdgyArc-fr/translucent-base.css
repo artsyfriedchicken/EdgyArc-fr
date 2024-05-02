@@ -1,241 +1,31 @@
-/*Implement translucent ui */
-:root {
-    --uc-appcontent-border: 1px solid light-dark(rgba(0, 0, 0, 0.2), rgba(220, 220, 220, 0.2));
-}
-/*create colour accent variable --uc-window-bg */
-:root[windowtype="navigator:browser"],
-:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-    --uc-accent-opacity: 60%;
-    background-color: transparent !important;
-    --uc-window-bg-color: var(--lwt-accent-color);
-    --uc-window-bg: color-mix(in srgb, var(--uc-window-bg-color) var(--uc-accent-opacity), transparent);
-    @media (prefers-color-scheme:light) {
-        --uc-accent-opacity: 60%;
-    }
+@media (-moz-bool-pref: "af.edgyarc.macos-translucent")
+{
+  :root {
+  /*translucent stuff*/
+  #navigator-toolbox, #browser {
+  background-color:transparent !important;
 }
 
-/*make shit transparent*/
-:root[windowtype="navigator:browser"]:not(:-moz-lwtheme) {
-    --lwt-accent-color: light-dark(rgb(255, 255, 255), rgb(30, 30, 30)) !important; /* jank AF - set theme accent colour to sidebery defaults*/
-    & #navigator-toolbox {
-        --toolbar-bg: transparent !important;
-        --toolbar-bgcolor: transparent !important;
-    }
-}
+   &, #navigator-toolbox  {
+  background-color:transparent !important;
+     appearance: -moz-window-titlebar !important;} 
 
-:root #TabsToolbar-customization-target{
-    --tab-selected-bgcolor: light-dark(rgba(255,255,255,0.5),rgba(180,180,180,0.4)) !important;
+
+  &[windowtype="navigator:browser"] {
+    background-color:transparent !important;
+  }
+}
+  
+/*add translucency to library window WIP*/
+  #placesList, #placeContent {
+background-color: transparent !important;
+appearance: -moz-window-titlebar !important;
+}
+  
+  #placesContentTitle, #placesContentTags, #placesContentUrl,  #placesContentDate,  #placesContentVisitCount,  #placesContentDateAdded,  #placesContentLastModified, #downloadsListBox{
+    background-color:transparent !important;
     
+  }
+  
 }
-
-#personal-bookmarks {
-    opacity: var(--uc-accent-opacity) !important;
-}
-
-@media (-moz-platform: macos) {
-:root[windowtype="navigator:browser"]#main-window {
-    background-color: transparent !important;
-    border-radius: 10px !important;
-}
-}
-@media (-moz-platform: windows) {
-:root[windowtype="navigator:browser"]#main-window {
-    background-color: var(--lwt-accent-color) !important;
-}
-}
-
-/*remove transparency in fullscreen */
-:root[sizemode="fullscreen"] {
-    #navigator-toolbox,
-    #browser,
-    #appcontent {
-        background-color: var(--uc-window-bg-color) !important;    
-    }
-}
-
-/*apply blur by making window into menupopup - macos only - may not work in the future lol*/
-:root #TabsToolbar,
-:root #titlebar,
-:root #tabbrowser-tabs,
-:root #nav-bar,
-:root #PersonalToolbar,
-:root #tab-notification-deck,
-:root:not(:-moz-window-inactive):not([inFullscreen]) #browser {
-    -moz-default-appearance: menupopup !important;
-    appearance: auto !important;
-    background-color: transparent !important;
-}
-
-/*tint stuff with colour accent --uc-window-bg */
-
-:root[sizemode="normal"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox,
-:root[sizemode="maximized"]:not([inFullscreen]):not(:-moz-window-inactive) #navigator-toolbox, 
-#appcontent {
-    background-color: var(--uc-window-bg) !important;
-}
-
-/*remove findbar bg*/
-.browserContainer > findbar {
-    &:-moz-lwtheme{
-    background-image:none !important;
-    background-color:none !important;
-}
-}
-
-/*inactive windows colour*/
-#browser:-moz-window-inactive,
-#navigator-toolbox:-moz-window-inactive,
-#navigator-toolbox:not(:-moz-lwtheme) {
-    &:-moz-window-inactive {
-        background-color: var(--uc-window-bg-color) !important;
-    }
-}
-
-/*sidebar crapppp*/
-#sidebar-box {
-    border-radius: 0px !important;
-    box-shadow: none !important;
-    z-index: 3;
-    background-color: transparent !important;
-
-    /*use a pseudo element to mimic backround colour for when expand on hover is enabled*/
-    &::before {
-        background-color: var(--uc-window-bg) !important;
-        opacity: 1 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 0;
-        bottom: -8px;
-        left: -8px;
-        pointer-events: none;
-    }
-}
-
-/*z-index crap to make sure everything shows up right*/
-#sidebar {
-    z-index: 3 !important;
-}
-
-#sidebar-splitter {
-    z-index: 21;
-}
-
-/*custom opacities when sidebery is expanded*/
-:root:not([titlepreface="᠎"]) {
-
-    #sidebar,
-    #sidebar-box:hover>#sidebar {
-        opacity: var(--uc-accent-opacity) !important;
-    }
-
-    &:-moz-window-inactive #sidebar:not(:hover){
- @media not (-moz-bool-pref:"uc.tweak.af.no-dimming" ) {
-        opacity: 0.4 !important; 
-    }
-    
-    }
-    #sidebar-header {
-   padding-bottom:4px !important;
-    }
- 
-        @media not (-moz-bool-pref: "uc.tweak.af.translucent-arc")
-    {
-        #sidebar{
-            border:1px solid light-dark(rgba(0,0,0,0.35),rgba(180,180,180,0.4)) !important;
-            box-shadow:0 1px 2px 1px rgba(0,0,0,0.2) !important;
-        }
-        
-        @media (-moz-bool-pref: "uc.tweak.af.show-sidebar-header"){
-        #sidebar{
-            /*TODO - figure out a better way of implementing this*/
-            padding-top:39px !important;
-            margin-top:-40px !important;
-        }  
-        }
-        #sidebar-header {
-            border-radius:8px 8px 0px 0px !important;
-            margin-top:2px !important;
-            background:transparent !important;
-
-        }
-        #sidebar-switcher-target {
-            margin-top:5px !important;
-            z-index:600 !important;}
-    }
-}
-
-/*custom properties for when sidebery is set to auto collapse*/
-:root[titlepreface="᠎"] {
-
-    #sidebar-box {
-        border-radius: 0px !important;
-        box-shadow: none !important;
-        z-index: 3;
-    }
-
-    #sidebar {
-        z-index: 3 !important;
-        /*reenforcing this*/
-    }
-
-    #sidebar-box:not(:hover),
-    #sidebar-box:hover {
-        opacity: 1 !important;
-    }
-
-    #sidebar-box:not(:hover)>#sidebar {
-        opacity: var(--uc-accent-opacity) !important;
-    }
-
-    /*using the pseudo element to cover empty spacke behind expanded sidebar*/
-    #sidebar-box::before {
-        background-color: var(--uc-window-bg) !important;
-        z-index: 0;
-    }
-@media not (-moz-bool-pref:"uc.tweak.af.no-dimming") {
-        #sidebar-box:hover>#sidebar {
-        /*brightness fix - dont @ me, if you know you know*/
-        @media (prefers-color-scheme:dark) {
-            filter: brightness(0.7) !important;
-        }
-
-        @media (prefers-color-scheme:light) {
-            filter: brightness(0.95) !important;
-        }
-
-        background-color:var(--uc-window-bg-color) !important;
-    }
-    }
-}
-
-/*draw 1px border around browser content for clarity - anything inside this is not part of the browser ui*/
-
-:root:not([inDOMFullscreen="true"]){
-    #appcontent .browserStack {
-    overflow: hidden !important;
-    border: var(--uc-appcontent-border) !important;
-}}
-
-
-/*customise urlbar background*/
-#urlbar-background,
-#searchbar {
-    border: 1px solid light-dark(rgba(200, 200, 200, 0.9), rgba(80, 80, 80, 1)) !important;
-    opacity: 0.6 !important;
-    min-height: 28px !important;
-    padding-top: 4px;
-    background-color: color-mix(in srgb, var(--uc-window-bg-color) 20%, light-dark(white, rgba(0, 0, 0, 0.5))) !important;
-}
-
-#urlbar[breakout][breakout-extend] #urlbar-background {
-    opacity: 1 !important;
-    background-color: var(--uc-window-bg-color) !important;
-    /*todo - add blurring behind expanded urlbar-background - idfk how to*/
-}
+/*end translucent stuff*/

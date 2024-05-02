@@ -10,28 +10,35 @@
 
   Remember to respect the original authors' work and adhere to their licenses.
 */
+
 /* Import external styles */
 @import url("autohide-sidebar-modified.css");
+
 @import url("translucent-base.css");
-/**/
-/**/
-@import url("translucent-arc.css") (-moz-bool-pref: "uc.tweak.af.translucent-arc");
-@import url("not-translucent.css") (-moz-bool-pref: "uc.tweak.af.not-translucent");
-/*disable translucent crap for linux and windows by default*/
-@import url("not-translucent.css") (-moz-platform: windows);
-@import url("not-translucent.css") (-moz-platform: linux);
-/**/
-@import url("thin-navbar.css") (-moz-bool-pref: "uc.tweak.af.thin-navbar");
+@import url("translucent-arc.css");
+@import url("urlbar-tweaks.css");
 /**/
 /**/
 /*Other tweaks*/
 @import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
 @import url("icons.css");
-@import url("minimal-ui.css") (-moz-bool-pref: "uc.tweak.af.minimal-ui");
 
 /*variables*/
+@media (-moz-bool-pref: "uc.tweak.floating-tabs") {
+
+  :root:not([lwtheme]),
+  :root[privatebrowsingmode="temporary"]:where([style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])) {
+    --lwt-accent-color: light-dark(#ececec, #282828) !important;
+  }
+}
 
 :root {
+  --af-minimal-opacity: 0.7 ;
+  --af-normal-opacity: 0.1 !important;
+  --af-bg-transition: background-color 0ms linear !important;
+  --af-content-border: 1px solid light-dark(rgba(0, 0, 0, 0.2), rgba(220, 220, 220, 0.2));
+  --af-content-shadow: 0 0 1px 1px light-dark(rgba(0,0,0,0.1), rgba(0, 0, 0, 0.1));
+  /**/
   --urlbar-icon-border-radius: 5px !important;
   /**/
   --toolbarbutton-border-radius: 8px !important;
@@ -39,20 +46,218 @@
   --uc-toolbarbutton-inner-inline-padding: 8px !important;
   --toolbarbutton-outer-padding: 2px !important;
   --tabs-navbar-shadow-size: 0px !important;
+  --tab-selected-bgcolor:light-dark(rgba(255,255,255,0.6),rgba(180,180,180,0.4)) !important;
   /**/
   --uc-titlebar-drag-space: 8px !important;
   /**/
-  --uc-sidebar-shadow:0px 0px 0px 1px light-dark(rgba(0, 0, 0, 0.40), rgba(200, 200, 200, 0.40)),
-  0px 0px 18px 4px light-dark(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.40));
-/* Make corners more rounded */
-  @media (-moz-bool-pref: "uc.tweak.rounded-corners") { 
+  --uc-sidebar-shadow: 0px 0px 0px 1px light-dark(rgba(0, 0, 0, 0.40), rgba(200, 200, 200, 0.40)),
+    0px 0px 18px 4px light-dark(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.40));
+
+  /* Make corners more rounded */
+  @media (-moz-bool-pref: "uc.tweak.rounded-corners") {
     --uc-tweak-rounded-corners-padding: 8px !important;
     --uc-tweak-rounded-corners-radius: 7px !important;
   }
+  /*full opacity when translucency is disabled*/
+  @media not (-moz-bool-pref:"af.edgyarc.macos-translucent") {
+    --af-minimal-opacity: 1 !important;
+  }
 }
 
-:root {
-  transition: background-color 800ms ease-in-out !important;
+:root, #navigator-toolbox::before, .browserContainer::before, #sidebar-box  {
+  transition: var(--af-bg-transition) !important;
+}
+
+/* Fixes for Firefox to enable autohide */
+#sidebar-box {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/*make sure sidebar expand animation look and feel less jank*/
+#webextpanels-window {
+  background-color: transparent !important;
+}
+
+/* fix sidebar opacity when auto collapse enabled **/
+:root[titlepreface="᠎"] {
+  
+  #sidebar-header {
+    visibility: collapse !important;
+  }
+
+  #sidebar-box {
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+
+  /*Add shadow to auto-expanded sidebar on hover*/
+  #sidebar-box:hover>#sidebar {
+    box-shadow: var(--uc-sidebar-shadow) !important;
+    z-index: 3 !important;
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+
+  }
+}
+
+/* Styles for .sidebar-splitter */
+.sidebar-splitter {
+  border-color: rgba(0, 0, 0, 0) !important;
+  &:hover {
+    border-radius: 20px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background-color: var(--urlbar-box-active-bgcolor) !important;
+    transition: background-color 200ms ease-in-out;
+  }
+}
+
+/*sidebar header*/
+
+#sidebar-header {
+   & * {
+    font-size:0.94em !important; }
+   @media (-moz-bool-pref:"af.edgyarc.bottom-sidebar-header"){  
+      order:4 !important;
+          @media not (-moz-bool-pref:"af.edgyarc.edge-sidebar") {
+      #sidebar-switcher-target {
+         margin-bottom:10px !important;
+      }
+     }
+     @media  (-moz-bool-pref:"af.edgyarc.edge-sidebar") {
+
+     }
+   }
+  @media not (-moz-bool-pref:"af.edgyarc.show-sidebar-header") {
+    visibility: collapse !important; /*hide sidebar by default*/
+  }
+
+  /*remove sidebar elements*/
+  & #sidebar-close {
+    display: none !important;
+  }
+
+  #sidebar-throbber,
+  #sidebar-spacer {
+    display: none !important;
+  }
+}
+
+/*Start basic sidebar*/
+@media (-moz-bool-pref:"af.edgyarc.edge-sidebar") { 
+
+  #sidebar-box {
+    border: var(--af-content-border) !important;
+    box-shadow: var(--af-content-shadow) !important;
+
+    padding:0px !important;
+
+    &,
+    #sidebar {
+
+      border-radius: 6px !important;
+      
+    }
+    
+    @media (-moz-bool-pref:"af.edgyarc.show-sidebar-header") {
+      #sidebar {
+        border-radius:0 0 6px 6px !important;
+      }
+    }
+
+    #sidebar-header {
+      border-radius:6px 6px 0 0 !important;
+    }
+
+    @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {
+
+      opacity: 0.8 !important;
+    }
+  }
+
+  /*add tint overlay to window*/
+  #main-window::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-color: var(--lwt-accent-color) !important;
+    filter:saturate(400%) !important;
+    opacity: var(--af-normal-opacity) !important;
+    transition: var(--af-bg-transition) !important;
+  }
+
+}
+
+/*end basic sidebar*/
+
+/*appcontent border*/
+:root:not([inDOMFullscreen="true"]) {
+  #appcontent .browserStack {
+    overflow: hidden !important;
+    border: var(--af-content-border) !important;
+    box-shadow: var(--af-content-shadow) !important;
+  }
+}
+
+#sidebar-header {
+  background-color: var(--lwt-accent-color) !important;
+}
+
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
+:root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
+  /* Height of navbar, used for determining height and position of window controls */
+  --uc-navbar-height: 38px;
+
+  /* Hide tabs when vertical tab extensions are present */
+  & #TabsToolbar {
+    visibility: collapse !important;
+  }
+
+  /* Fix issue with missing window controls. */
+  &[tabsintitlebar] #titlebar {
+    will-change: auto !important;
+  }
+
+  /* Adjust navbar padding */
+  &[tabsintitlebar] #nav-bar {
+    --uc-tab-top-margin: 0px;
+    padding-top: var(--uc-tab-top-margin, 0) !important;
+    margin-top: 1px !important;
+  }
+}
+
+/*sidebar header rounded container*/
+#sidebar-switcher-target {
+  padding: 5px !important;
+  margin: auto 2px !important;
+  opacity: 0.8 !important;
+
+  &:hover {
+    border: var(--af-content-border) !important;
+  }
+}
+
+/* macOS specific positioning */
+@media (-moz-platform: macos) {
+
+  /* Offset navbar contents to make space for the window controls */
+  &[tabsintitlebar] #nav-bar:not([inFullscreen]) {
+    padding-left: calc(0px + var(--uc-titlebar-drag-space)) !important;
+
+    /* Remove the padding from the side of the navbar */
+    & #nav-bar-customization-target> :is(toolbarbutton, toolbaritem):first-child {
+      padding-inline-start: 0px !important;
+    }
+  }
+
+  .titlebar-buttonbox-container .titlebar-buttonbox {
+    top: -2px !important;
+  }
 }
 
 /* indicator for private browsing mode with tabs hidden */
@@ -62,7 +267,6 @@
   #private-browsing-indicator-with-label {
     display: none !important;
   }
-
   #nav-bar::after {
     content: var(--uc-string-private);
     display: flex;
@@ -97,49 +301,22 @@
 }
 }
 
-@media not (-moz-platform: windows) {
-/*draw a feathered 1px border around the window frame*/
-:root[windowtype="navigator:browser"]:not([inDOMFullscreen="true"])#main-window {
-  position: relative;
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    box-shadow: inset 0 0 0.4px 1px light-dark(rgba(255, 255, 255, 0.9), rgba(100, 100, 100, 0.9)) !important;
-    border-radius: 10px !important;
-    z-index: 20;
-    pointer-events: none;
-  }
-}
-/*remove 1px window border in fullscreen*/
-:root[inFullscreen="true"],
-:root[sizemode="fullscreen"],
-:root[inDOMFullscreen="true"]
-{
-  #main-window::before {
-  opacity: 0 !important;
-  box-shadow:none !important;
-  border:0px !important;
-}
-}
-}
-
-
 /*fade toolbar background image for lwthemes - goes really great with Firefox Color setups!*/
 #navigator-toolbox {
   border-bottom: none !important;
   &:-moz-lwtheme {
     background-image:none !important; /*remove the background image from the actual toolbox*/
-    &::before {
+    &::after {
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
+      z-index:2 !important;
       pointer-events: none;
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.1) 65%, rgba(0, 0, 0, 0) 85%);
       background-image: var(--lwt-additional-images) !important;
       background-repeat: var(--lwt-background-tiling);
       background-position: var(--lwt-background-alignment);
+      opacity:1 !important;
     }
   }
 }
@@ -154,73 +331,9 @@
   padding: 8px !important;
 }
 
-/* fix sidebar opacity when auto collapse enabled **/
-:root[titlepreface="᠎"] {
-  #sidebar-box {
-    opacity: 0.75 !important;
-    &:hover {
-      opacity: 1 !important;
-    }
-  }
-
-  /*Add shadow to auto-expanded sidebar on hover*/
-  #sidebar-box:hover>#sidebar {
-    box-shadow: var(--uc-sidebar-shadow) !important;
-    z-index: 3 !important;
-  }
-}
-
 /*make sure sidebar expand animation look and feel less jank*/
 #webextpanels-window {
   background-color: transparent !important;
-}
-
-/* Fixes for Firefox to enable autohide */
-#sidebar-box {
-  overflow: visible !important;
-  position: relative !important;
-}
-
-/* Common styles for #sidebar and #sidebar-box */
-#sidebar,
-#sidebar-box {
-  border-radius: var(--uc-tweak-rounded-corners-radius);
-}
-
-/* Styles specific to #sidebar */
-#sidebar {
-  margin: 0 !important;
-  padding-top: 0 !important;
-  opacity: 1 !important;
-  padding-bottom: 0 !important;
-}
-
-#sidebar-box {
-  background-color: transparent;
-}
-
-/* Styles for .sidebar-splitter */
-.sidebar-splitter {
-  border-color: rgba(0, 0, 0, 0) !important;
-}
-
-.sidebar-splitter:hover {
-  border-radius: 20px;
-  margin-top: 80px;
-  margin-bottom: 80px;
-  border: 3px dotted #fff;
-  background-color: var(--urlbar-box-active-bgcolor) !important;
-  transition: background-color 200ms ease-in-out;
-}
-
-
-/* Styles for the navigation bar */
-
-/*dim nav bar on inactive windows*/
-@media not (-moz-bool-pref:"uc.tweak.af.no-dimming") {
-:root:-moz-window-inactive #nav-bar-customization-target {
-  opacity: 0.6 !important;
-}
 }
 
 /*add padding to toolbar items*/
@@ -235,186 +348,6 @@
     transition: opacity 300ms linear !important;
   }
 }
-
-/* collapse sidebar header by default */
-#sidebar-header {
-  visibility: collapse;
-}
-
-
-:root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
-:root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
-:root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
-  /* Height of navbar, used for determining height and position of window controls */
-  --uc-navbar-height: 38px;
-
-  /* Hide tabs when vertical tab extensions are present */
-  & #TabsToolbar {
-    visibility: collapse !important;
-  }
-
-  /* Fix issue with missing window controls. */
-  &[tabsintitlebar] #titlebar {
-    will-change: auto !important;
-  }
-
-  /* Adjust navbar padding */
-  &[tabsintitlebar] #nav-bar {
-    --uc-tab-top-margin: 0px;
-    padding-top: var(--uc-tab-top-margin, 0) !important;
-    margin-top: 1px !important;
-  }
-}
-
-/*use --uc-window-bg as sidebar header background for vertical tabs*/
-@media (-moz-bool-pref: "uc.tweak.af.show-sidebar-header") {
-
-  :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
-  :root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
-  :root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
-    #sidebar-header {
-      background-color: var(--uc-window-bg) !important;
-    }
-  }
-
-  /*hide sidebar header when sidebar is auto collapsed*/
-  :root {
-    &[titlepreface="᠎"] {
-      #sidebar-header {
-        visibility: collapse !important;
-      }
-    }
-    /*force sidebar header visibility when sidebar is expanded*/
-    &:not([titlepreface="᠎"]) {
-      #sidebar-header {
-        visibility: visible !important;
-      }
-    }
-  }
-
-  #sidebar-header {
-    @media (-moz-bool-pref: "uc.tweak.af.sidebar-header-bottom") {
-      order: 3 !important;
-    }
-
-    /*set sidebar header to bottom of sibebar*/
-    overflow: hidden;
-    color: var(--chrome-color, inherit) !important;
-    padding-inline: 0 !important;
-    opacity:1 !important;
-    padding:0 4px !important;
-    border-bottom:0px !important;
-
-    /*remove sidebar elements*/
-    & #sidebar-close {
-      display: none !important;
-    }
-
-    #sidebar-throbber,
-    #sidebar-spacer {
-      display: none !important;
-    }
-  }
-}
-
-#sidebar-title {
-  padding-inline: 10px !important;
-  padding-top: 0px !important;
-  font-size: 0.88em;
-}
-
-/*sidebar header rounded container*/
-#sidebar-switcher-target {
-  padding: 5px !important;
-  margin: auto 2px !important;
-  opacity: 0.5 !important;
-
-  &:hover {
-    border: 1px solid light-dark(rgba(30, 30, 30, 0.5), rgba(180, 180, 180, 0.5)) !important;
-  }
-}
-
-
-/*urlbar stuff*/
-
-/*----urlbar buttons height fix------*/
-/* Site information and Permissions buttons. */
-#identity-icon-box,
-#identity-permission-box,
-.notification-anchor-icon,
-#tracking-protection-icon-container {
-  max-height: 24px !important;
-  height: 24px !important;
-  margin-top: 2px !important;
-  margin-left: -2px;
-}
-
-/*page actions*/
-.urlbar-page-action {
-  height: 24px !important;
-  max-height: 24px !important;
-  margin-top: -1px !important;
-
-  & .urlbar-icon {
-    height: 15px !important;
-    width: 15px !important;
-    padding: 0px !important;
-    margin: -2px 0 0 0 !important;
-
-  }
-}
-
-/* Zoom level and tab container indicators. */
-#userContext-icons,
-#urlbar-zoom-button {
-  --uc-urlbar-icon-inline-padding: 8px !important;
-  max-height: 20px !important;
-  height: 20px !important;
-  padding: 8px !important;
-  margin-inline: 3px !important;
-  padding: 4px 4px 4px 6px !important;
-  margin-inline: 3px !important;
-  font-size: .8em;
-  border-radius: var(--urlbar-icon-border-radius);
-  background-color: var(--urlbar-box-bgcolor);
-  margin-block: calc((var(--urlbar-min-height) - 20px) / 2 - 1px
-      /* border */
-      - var(--urlbar-container-padding));
-}
-
-#urlbar-zoom-button {
-  order: 98;
-}
-
-#userContext-icons {
-  order: 99;
-
-  & #userContext-indicator {
-    transform: scale(0.75) !important;
-  }
-}
-
-#identity-box,
-#tracking-protection-icon-container,
-#page-action-buttons {
-  opacity: 0.8 !important;
-  transition: opacity 300ms ease-in-out;
-}
-
-
-#urlbar[breakout][breakout-extend] {
-  z-index:600 !important;
-  #urlbar-background {
-  opacity: 1 !important;
-  margin-top: 4px !important;
-}
-}
-
-.urlbar-input-box {
-  margin-top: -2px !important;
-}
-
-
 
 /* macOS specific positioning */
 @media (-moz-platform: macos) {
@@ -453,3 +386,5 @@
   z-index:600 !important;
 }
 }
+
+.browserContainer > findbar, .browserContainer > .devtools-toolbox-bottom-iframe{z-index:2 !important;}
