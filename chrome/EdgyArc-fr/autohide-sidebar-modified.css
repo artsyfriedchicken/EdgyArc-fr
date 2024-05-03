@@ -13,7 +13,15 @@ See the above repository for updates as well as full license text. */
   --uc-sidebar-hover-width: 48px !important;
   }
   }
+}
+
+@media (-moz-bool-pref:"af.edgyarc.autohide-sidebar") {
+      :root[titlepreface="᠎"] { 
+    #sidebar-box {
+  --uc-sidebar-width: 8px !important;
+  }
   
+  }
 }
 
 /* Apply styles only when toggled using the userchrome toggle addon */
