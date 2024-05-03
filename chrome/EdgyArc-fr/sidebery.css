@@ -56,7 +56,12 @@
         --ntb-btn-height: 32px !important;
         --tabs-border-radius: 4px !important;
         --general-border-radius: 4px !important;
-        --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.1689), rgba(255, 255, 255, 0.3)) !important;
+        
+        --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.1689), rgba(255, 255, 255, 0.14)) !important;
+        .PinnedTabsBar .Tab[data-pin="true"][data-colorized="true"] {
+             --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.6)) !important;
+        }
+        
         --tabs-activated-bg: light-dark(rgba(255, 255, 255, 0.8), rgba(100, 100, 100, 0.5)) !important;
 
         --separator-color: color-mix(in srgb, var(--frame-fg) 20%, transparent) !important;
@@ -78,8 +83,8 @@
        --tabs-color-layer-opacity: 0.4 !important;
        --tabs-activated-color-layer-opacity: 0.6 !important;
         @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {
-                   --tabs-color-layer-opacity: 0.6 !important;
-       --tabs-activated-color-layer-opacity: 0.8 !important;
+                   --tabs-color-layer-opacity: 0.5 !important;
+       --tabs-activated-color-layer-opacity: 0.6 !important;
         }
        --tabs-discarded-favicon-opacity: 0.6 !important;
        --tabs-discarded-title-opacity: 0.7 !important;
@@ -90,13 +95,13 @@
        /**/
        --tabs-close-btn-margin: 4px !important;
        /*search*/
-       --search-border-radius: 6px !important;
+       --search-border-radius: 4px !important;
        --search-font-size: 0.9rem !important;
        --search-icon-width: 40px !important;
        /*history*/
        --history-item-padding-left: 6px !important;
        --history-item-margin: 5px !important;
-       --history-item-border-radius: 8px !important;
+       --history-item-border-radius: 4px !important;
        /*popups*/
        --notification-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(250, 250, 250), rgb(0, 0, 0))) !important;
        --ctx-menu-shadow: 0 0 0 1px light-dark(rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.6)),
@@ -187,7 +192,7 @@
         /* ==== Pinned Tabs ==== */
         .PinnedTabsBar {
             & .Tab {
-                --tabs-color-layer-opacity: 0.6;
+               
 
                 /*pinned tabs have larger favicons*/
                 .fav,
@@ -199,6 +204,11 @@
                 /*add a slight bg colour*/
                 .body {
                     background-color: light-dark(rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.1)) !important;
+                }
+                &[data-active='true'] {
+                    .body {
+                            background-color: light-dark(rgba(250, 250, 250, 0.3), rgba(200, 200, 200, 0.3)) !important;
+                    }
                 }
             }
         }
@@ -221,7 +231,7 @@
                 height: 100% !important;
                 top: auto !important;
                 opacity: 0.8;
-                border-radius: 0 6px 6px 0 !important;
+                border-radius: 0 4px 4px 0 !important;
             }
 
             &[data-active="false"] .ctx,
@@ -261,7 +271,7 @@
 
                     .color-layer {
                         @media not (max-width: 160px) {
-                            border-radius: 6px 0 0 6px !important;
+                            border-radius: 4px 0 0 4px !important;
                         }
                     }
                 }
