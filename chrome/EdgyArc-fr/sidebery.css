@@ -54,8 +54,8 @@
         --tabs-font: 0.9500em system-ui !important;
         --tabs-close-btn-margin: 8px !important;
         --ntb-btn-height: 32px !important;
-        --tabs-border-radius: 6px !important;
-        --general-border-radius: 6px !important;
+        --tabs-border-radius: 4px !important;
+        --general-border-radius: 4px !important;
         --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.1689), rgba(255, 255, 255, 0.3)) !important;
         --tabs-activated-bg: light-dark(rgba(255, 255, 255, 0.8), rgba(100, 100, 100, 0.5)) !important;
 

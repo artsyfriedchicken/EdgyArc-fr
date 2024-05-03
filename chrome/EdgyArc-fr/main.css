@@ -74,11 +74,6 @@
   position: relative !important;
 }
 
-/*make sure sidebar expand animation look and feel less jank*/
-#webextpanels-window {
-  background-color: transparent !important;
-}
-
 /* fix sidebar opacity when auto collapse enabled **/
 :root[titlepreface="᠎"] {
   
@@ -188,6 +183,18 @@
     filter:saturate(400%) !important;
     opacity: var(--af-normal-opacity) !important;
     transition: var(--af-bg-transition) !important;
+  }
+  
+  @media not (-moz-bool-pref:"af.edgyarc.macos-translucent") {
+  #main-window::after, #browser::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    pointer-events: none;
+    background-color: light-dark(black, #aaa) !important;
+    opacity:0.06
+  }
   }
 
 }
@@ -388,3 +395,19 @@
 }
 
 .browserContainer > findbar, .browserContainer > .devtools-toolbox-bottom-iframe{z-index:2 !important;}
+
+
+.infobar {
+  background-color:light-dark(rgba(255,255,255,1),rgba(30,30,30,0.6))!important;
+  &::before {
+    opacity:0.6 !important;
+  }
+}
+
+#tab-notification-deck .notificationbox-stack {padding:0px !important;}
+
+/*make sure sidebar expand animation look and feel less jank*/
+#webextpanels-window {
+  background-color: transparent !important;
+}
+
