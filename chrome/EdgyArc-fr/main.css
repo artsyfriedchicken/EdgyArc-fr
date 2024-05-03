@@ -404,6 +404,10 @@
   }
 }
 
+#commonDialogWindow {
+  background-color:var(--arrowpanel-background) !important;
+}
+
 #tab-notification-deck .notificationbox-stack {padding:0px !important;}
 
 /*make sure sidebar expand animation look and feel less jank*/
