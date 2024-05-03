@@ -10,8 +10,13 @@
 
 #urlbar:not([breakout][breakout-extend]) {    
     #urlbar-background {
-        background-color:color-mix(in srgb, light-dark(#fff, var(--lwt-accent-color)) 70%, light-dark(rgba(255,255,255,0.5),rgba(35,35,35,0.5)))
-             !important;
+        background-color:color-mix(in srgb, light-dark(#fff, var(--lwt-accent-color)) 70%, light-dark(rgba(255,255,255,0.5),rgba(35,35,35,0.5))) !important;
+        @media not (-moz-bool-pref:"af.edgyarc.edge-sidebar") {
+        background-color:color-mix(in srgb, light-dark(#fff, var(--lwt-accent-color)) 50%, light-dark(rgba(255,255,255,0.5),rgba(10,10,10,0.8))) !important;
+        }
+        @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {
+        background-color: light-dark(rgba(255,255,255,0.7), rgba(0,0,0,0.18)) !important;
+        }
     }
     }
 

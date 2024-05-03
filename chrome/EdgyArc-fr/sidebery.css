@@ -57,12 +57,12 @@
         --tabs-border-radius: 4px !important;
         --general-border-radius: 4px !important;
         
-        --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.1689), rgba(255, 255, 255, 0.14)) !important;
+        --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 0.1689), rgba(255, 255, 255, 0.14)), 0 0 1px 0px light-dark(rgba(0,0,0,0.07), rgba(0,0,0,0.6)) !important;
         .PinnedTabsBar .Tab[data-pin="true"][data-colorized="true"] {
              --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.6)) !important;
         }
         
-        --tabs-activated-bg: light-dark(rgba(255, 255, 255, 0.8), rgba(100, 100, 100, 0.5)) !important;
+        --tabs-activated-bg: light-dark(rgba(255, 255, 255, 0.9), rgba(100, 100, 100, 0.5)) !important;
 
         --separator-color: color-mix(in srgb, var(--frame-fg) 20%, transparent) !important;
         --nav-btn-active-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.086), inset 0 1px 3px 0 rgb(0 0 0 / 0.086) !important;
