@@ -31,9 +31,20 @@
      }
    }
      }
-     #appcontent .browserStack {
+  /* :root:not([customizing]):has(#sidebar-box:not([hidden])) {} */
+  :root:has(#sidebar-box:not([hidden])){
+  #appcontent .browserStack {
      margin-left:0px !important;
-   }
+    }
+  }
+    :root:has(#sidebar-box[hidden]){
+  #appcontent .browserStack {
+     margin-left:8px !important;
+    }
+  }
+
+    
+  
      #navigator-toolbox, .browserContainer {
      &::before {
         content: '';
@@ -46,5 +57,6 @@
        opacity:var(--af-minimal-opacity) !important;
      }
    }
+
    
    }

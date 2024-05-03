@@ -242,10 +242,12 @@
                 border-radius: 20px !important;
             }
 
-            .title {
-                background: light-dark(black, white) !important;
-                background-clip: text !important;
-                color: transparent !important;
+            .title { 
+               background: linear-gradient(90deg, light-dark(black, white) 92%, #f1f1f100 99%) !important;
+	           background-clip: text !important;
+	           color: transparent !important;
+                
+                
             }
 
             .ctx {

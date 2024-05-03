@@ -1,12 +1,21 @@
 /*urlbar stuff*/
 @media (-moz-bool-pref:"af.edgyarc.centered-url") {
-#urlbar:not([breakout][breakout-extend]) #urlbar-input {
+#urlbar:not([breakout][breakout-extend]) {
+    #urlbar-input {
     text-align:center !important;
+    }
+   
+    }
 }
-    #urlbar:not(:hover) {
 
-    } 
-}
+#urlbar:not([breakout][breakout-extend]) {    
+    #urlbar-background {
+        background-color:color-mix(in srgb, light-dark(#fff, var(--lwt-accent-color)) 70%, light-dark(rgba(255,255,255,0.5),rgba(35,35,35,0.5)))
+             !important;
+    }
+    }
+
+
 /*----urlbar buttons height fix------*/
 /* Site information and Permissions buttons. */
 #identity-icon-box,
