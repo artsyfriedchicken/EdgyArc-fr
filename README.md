@@ -1,35 +1,37 @@
-
 # EdgyArc-fr
 
 Because Arc and Edge look pretty af but FOSS FTW
 
-![EdgyArc-fr, default dark theme with adaptive colour addon enabled](screenshots/01.png)
+![Screen Shot 2024-05-04 at 11 44 39 PM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/6f0879fa-f08b-4e36-91dd-29e321f81193)
 
 ## Prerequisites
 
-To use EdgyArc-fr to its fullest potential, ensure you have the following prerequisites:
+**The following is only valid from v1.0.0.b.10 onwards!**
 
-- [EdgeFrFox UserChrome Theme](https://github.com/bmFtZQ/edge-frfox/) 
 - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) 
-- Recommended Addons:
-  - [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) 
-  - [Adaptive Tab Bar Color](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/) 
+- [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) 
+- Optional Addons:
+    - [Adaptive Tab Bar Color](https://addons.mozilla.org/en-GB/firefox/addon/adaptive-tab-bar-colour/) 
+    `[OR]`
+    - [Firefox Color](https://addons.mozilla.org/en-US/firefox/addon/firefox-color/)
 
 
-## Whats Included
-
-- Auto-collapse sidebar
-- Auto-hide sidebar 
-- Toggle sidebar show/collapse using [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) 
+## Features
+- Based on [Edge-frfox](https://github.com/bmFtZQ/edge-frfox)
+- Sidebar Modifications
+	- Auto-collapse sidebar into just icons
+	- Auto-hide sidebar
+	- Toggle sidebar show/collapse *(using [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/))*
 - `macOS only` Translucent windows
 - Custom Sidebery theme
+- Auto-hide native top tabs when Sidebery or TST is active
   
 
 ## Usage
 ### Step 1 - Prerequisites
 
 <details>
-  <summary> Install recommended addons </summary>
+  <summary> 🔵 Install recommended addons </summary>
 
 
 - [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
@@ -39,113 +41,124 @@ To use EdgyArc-fr to its fullest potential, ensure you have the following prereq
 </details>
 
 <details>
-  <summary> Install and Configure Base theme </summary>
+  <summary> 🔵 Install and Configure Base theme </summary>
   
-- Clone or download the [EdgeFrFox UserChrome Theme](https://github.com/bmFtZQ/edge-frfox/) repository to your local machine.
+  - Clone or download the repository to your local machine.
   - Copy the contents of the `chrome` folder into your Firefox profile's `chrome` folder.
-- Enable/Add the following settings in `about:config` to enable features in EdgeFrFox
-    Make sure to initialise all of these as Booleans
+  - Enable/Add the following settings in `about:config` to enable some base features
 
-  `uc.tweak.hide-tabs-bar` to `true`
+    **Make sure to initialise all of these as Booleans**
 
-  `uc.tweak.hide-forward-button` to `true`
-
-  `uc.tweak.rounded-corners` to `true`
-
-  `uc.tweak.floating-tabs` to `true`
+    `uc.tweak.hide-tabs-bar` to `true`
   
-    Please make sure you also have the following perquisites set to `true` 
+    `uc.tweak.hide-forward-button` to `true`
+  
+    `uc.tweak.rounded-corners` to `true`
+  
+    `uc.tweak.floating-tabs` to `true`
+  
+ - Please make sure you also have the following perquisites set to `true` 
 
-   `toolkit.legacyUserProfileCustomizations.stylesheets`
+     `toolkit.legacyUserProfileCustomizations.stylesheets`
+  
+     `svg.context-properties.content.enabled`
+  
+     `layout.css.color-mix.enabled`
+  
+     `layout.css.light-dark.enabled`
+  
+     `layout.css.has-selector.enabled`
 
-    `svg.context-properties.content.enabled`
+     `widget.macos.titlebar-blend-mode.behind-window` [Required for translucent macos in FF126+]
 
-  `layout.css.color-mix.enabled`
-
-    `layout.css.light-dark.enabled`
-
-    `layout.css.has-selector.enabled`
   
   </details>
-### Step 2 - Install and Configure EdgyArc 
-#### Install
-Copy the contents of `chrome` folder in this repository to your Firefox profile's `chrome` folder.
-
-#### Configure
-Before you start using the theme as-is, you might want to have a look at all the style variants built into EdgyArc-fr
-
-<details>
-  <summary>View all Style Variants</summary>
   
-#### Translucent Effects `macOS Only`
-Transparency is enabled by default unless you have Reduce Transparency enabled in Accessability under System Settings
-- Disable transparency using 
-`uc.tweak.af.not-translucent` > `true` 
+### Step 2 Configure EdgyArc 
 
-#### UI Tweaks
-- Thin Nav bar 
-`uc.tweak.af.thin-navbar` > `true`
-- Turn all web extension icons greyscale when not hovered
-  `uc.tweak.af.greyscale-webext-icons` > `true`
-- Turn off sidebar dimming when translucency is disabled
-  `uc.tweak.af.no-dimming` > `true`
+Before you start using the theme as-is, you might want to have a look at all the style variants built into EdgyArc-fr
+ 
+ 
+| Feature Description | Screenshot |
+|--|--|
+| **Translucent Effects** `macos Only` <br> `af.edgyarc.macos-translucent` | <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/dd122094-0545-4145-9733-ef9776b40a6b"> |
+|**🔵 UI Tweaks** | |
+|**Thin Navigation Bar** <br> `af.edgyarc.thin-navbar`| ![Screen Shot 2024-05-04 at 11 52 25 PM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/0b030f04-c10d-48a2-8462-b61c52e4f8de) |
+|**Greyscale webextensions icons** <br> `uc.tweak.af.greyscale-webext-icons`| <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/7e3c4b3d-43ae-4a5e-bdbb-f067105ee346"> |
+|**Centered URL** <br>`af.edgyarc.centered-url`| <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/aa9a89cb-320f-434c-b66d-8b474bfbdc0a"> |
+|**🔵 Sidebar Tweaks**<br> ⚠️ Note: Requires [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) to <br>make use of auto-collapse/auto-hide||
+|**Enable Sidebery Theme** <br> `af.sidebery.edgyarc-theme` | <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/504574e5-609b-4192-b061-fc29caea7c48"> |
+| **Minimal Sidebery when Collapsed**<br> `af.sidebery.minimal-collapsed`| <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/84ccb725-3ca9-4332-82a7-b9dc17909d5b"> |
+|**Edge-like Sidebar** <br> `af.edgyarc.edge-sidebar`| <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/7216bcd1-ac58-4264-ba83-61db7f342db0"> |
+|**Show Sidebar Header** <br> `af.edgyarc.show-sidebar-header`|<video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/e72e9f59-e49d-4f79-ad9b-fc12b3f56bcc">|
+|**Auto-Hide Sidebar**<br> `af.edgyarc.autohide-sidebar`<br> __*Note: Requires [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/)  to work*__|<video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/cfa7a899-6bb1-4058-be12-9e95a10cd981">|
+|**Sidebar Always Collapsed** <br> `af.edgyarc.sidebar-always-collapsed` <br> __*Note: Requires [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/)  to work*__| <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/06c9c876-43d4-490f-a766-0d2b6f4de2f8">|
+|**Wider Expanded Sidebar on Hover** <br> `uc.tweak.af.sidebar-width-350`||
 
-#### Sidebar Tweaks
-- Minimal (arc-like) sidebar 
-`uc.tweak.af.translucent-arc` > `true` **[Recommended]**
-- Show Sidebar Header
-`uc.tweak.af.show-sidebar-header` > `true`
-- Hidden Sidebar when collapsed (like in Arc)
-`uc.tweak.af.hidden-sidebar` > `true`
-- Sidebar Stays Collapsed on hover
-`uc.tweak.af.sidebar-always-collapsed` > `true` > Stops sidebar from auto expanding when it is collapsed using ureschrome toggle
-- Wider expanded sidebar
-`uc.tweak.af.sidebar-width-350` > wider 350px sidebar when autohide is enabled (the default width is 260px)
 
-</details>
 
 
 ### Step 3 - Import Sidebery configs
 Import the following into sidebery  (`Sideberry Settings` > `Help` > `Import Addon Data`)
-- `sidebery-styles.json` Contains the custom theme for Sidebery
-Alternatively, you can copy the contents of `sidebery.css` into the custom styles tab in sidebery's settings.
 - `sidebery-settings.json` Contains settings for the addon that **will** overwrite your own settings. you dont *have* to use this if you dont want to. 
-**IF** you are not using `sidebery-settings.json` please make sure you have the sidebery navigation bar set to horizontal. (`Sidebery Settings` > `Navigation Bar` > `Layout` > `Horizontal` )
+**IF** you are not using `sidebery-settings.json` please make sure you have the following settings configured in Sidebery Settings
 
+ - General 
+	 - Use Native Scroll Bars
+		 - Use thin Scroll Bars
+ - Context Menu
+	 - Render Icons
+ - Navigation Bar
+	 - Layout : `Horizontal`
+	 - Show Navigation Bar in one line: `Off`
+ - Tabs
+	 - Tab Colorization
+		 - Colorize tabs: `Off`
+		 - Colorize Branches: `On`
+ - Appearance
+	 - Theme: `Proton`
+	 - Density: `Relaxed`
+	 - Color Scheme: `Firefox`
+ 
 ### Step 4 - Set up Adaptive Tab Bar Color settings
-![ ](screenshots/ATBC-settings.png)
+![Screen Shot 2024-05-04 at 11 18 47 PM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/2edfd163-5dc7-45fb-b8d4-53c83e278683)
+
 
 ## Known Bugs
 - `windows` Translucency / blur does not work on windows
-- `windows` Margin issues in Windows 10
 - `linux` Translucency / blur does not work out of the box
 - `windows` `linux` `macos` Sidebar on right is misaligned
-- `macos` browser window loses window shadow when moved to a different space
 
 ## Screenshots
 
-![ ](screenshots/01.png)
+![Screen Shot 2024-05-05 at 12 22 49 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/0f006a8a-a5d9-48a8-8a9e-7726a2fd0248)
 
-![ ](screenshots/02.png)
+![Screen Shot 2024-05-05 at 12 24 52 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/2597a88e-1d85-498c-9181-831296bdbf6d)
 
-![ ](screenshots/03.png)
+![Screen Shot 2024-05-05 at 12 41 02 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/d9f67cb2-8020-4a67-b7a6-c42157d28d28)
 
-![ ](screenshots/04.png)
+![Screen Shot 2024-05-05 at 12 40 44 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/df0b4223-6c5e-45ee-b193-b1e6979f0a68)
 
-![ ](screenshots/05.png)
+![Screen Shot 2024-05-05 at 12 39 48 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/f038c4a9-96cc-42b2-a583-91ab79c409f3)
 
-![ ](screenshots/06.png)
+![Screen Shot 2024-05-05 at 12 40 04 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/24fe7ec9-ed08-4c90-9271-44dfa3f3a53e)
 
-![ ](screenshots/07.png)
+![Screen Shot 2024-05-05 at 12 43 55 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/2c0b280b-3b17-4b16-839a-cb240eb63396)
 
-![ ](screenshots/08.png)
+![Screen Shot 2024-05-05 at 12 43 55 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/68f76e78-0af4-492d-8af1-a049e310eb25)
 
-![](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/77255d3f-0f9b-430b-aca3-85ce92bb79b3)
-![](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/e4fc4cf9-fdcb-4fcd-8b5b-b23910996632)
+
+![Screen Shot 2024-05-05 at 12 42 38 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/6e487a81-7390-4fa7-b9f4-41ea5d36f0b5)
+
+![Screen Shot 2024-05-05 at 12 43 02 AM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/8c37f4d8-5a2d-4b95-a847-5ac3810abaeb)
 
 
 
 ## Changelog
+- v1.0.0-b10
+	- Support for FF126 [for FF125 and lower, please continue using v1.0.0-b9]
+	- Rewrote a large chunk of the code
+	- Included copy of [Edge-frfox](https://github.com/bmFtZQ/edge-frfox) (v 24.4.18) for fewer version compatibility issues
 - v1.0.0-b9
   - New
     - Added Thin navbar variant `uc.tweak.af.thin-navbar`
@@ -209,4 +222,3 @@ If you encounter any issues or have suggestions for improvement, please [open an
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0).
-
