@@ -20,7 +20,6 @@
 /**/
 /**/
 /*Other tweaks*/
-@import url("hidden-sidebar.css") (-moz-bool-pref: "uc.tweak.af.hidden-sidebar");
 @import url("icons.css");
 
 /*variables*/
