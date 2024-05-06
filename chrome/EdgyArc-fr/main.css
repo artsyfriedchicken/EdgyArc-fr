@@ -418,3 +418,6 @@
   background-color:light-dark(rgba(255,255,255,0.8),rgba(20,20,20,0.6)) !important;
 }
 
+.dialogFrame {
+  background-color: var(--arrowpanel-background) !important;
+}
