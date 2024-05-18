@@ -82,8 +82,10 @@ Before you start using the theme as-is, you might want to have a look at all the
 | Feature Description | Screenshot |
 |--|--|
 | **Translucent Effects** `macos Only` <br> `af.edgyarc.macos-translucent` | <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/dd122094-0545-4145-9733-ef9776b40a6b"> |
+|**More Translucent** <br> ⚠️ Decreased text contrast/visibility <br> `af.edgyarc.macos-more-translucent`||
 |**🔵 UI Tweaks** | |
 |**Thin Navigation Bar** <br> `af.edgyarc.thin-navbar`| ![Screen Shot 2024-05-04 at 11 52 25 PM](https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/0b030f04-c10d-48a2-8462-b61c52e4f8de) |
+|**Minimal Navigation Bar**<br> `af.edgyarc.minimal-navbar`|<video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/1e56cc7c-1b54-4602-b825-b68000f6f92c">|
 |**Greyscale webextensions icons** <br> `uc.tweak.af.greyscale-webext-icons`| <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/7e3c4b3d-43ae-4a5e-bdbb-f067105ee346"> |
 |**Centered URL** <br>`af.edgyarc.centered-url`| <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/aa9a89cb-320f-434c-b66d-8b474bfbdc0a"> |
 |**🔵 Sidebar Tweaks**<br> ⚠️ Note: Requires [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/) to <br>make use of auto-collapse/auto-hide||
@@ -94,6 +96,9 @@ Before you start using the theme as-is, you might want to have a look at all the
 |**Auto-Hide Sidebar**<br> `af.edgyarc.autohide-sidebar`<br> __*Note: Requires [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/)  to work*__|<video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/cfa7a899-6bb1-4058-be12-9e95a10cd981">|
 |**Sidebar Always Collapsed** <br> `af.edgyarc.sidebar-always-collapsed` <br> __*Note: Requires [UserChrome Toggle](https://addons.mozilla.org/firefox/addon/userchrome-toggle/)  to work*__| <video src="https://github.com/artsyfriedchicken/EdgyArc-fr/assets/100123017/06c9c876-43d4-490f-a766-0d2b6f4de2f8">|
 |**Wider Expanded Sidebar on Hover** <br> `uc.tweak.af.sidebar-width-350`||
+|**Sidebery Horizontal Navbar <br> on Top Tab List** <br> `af.sidebery.nav-on-top`||
+|**Disable Dynamic Width Pinned Tabs**<br>`af.sidebery.static-pinned-tab-width`||
+
 
 
 
@@ -110,7 +115,7 @@ Import the following into sidebery  (`Sideberry Settings` > `Help` > `Import Add
 	 - Render Icons
  - Navigation Bar
 	 - Layout : `Horizontal`
-	 - Show Navigation Bar in one line: `Off`
+	 - Show Navigation Bar in one line: `Off` [OR `On` is you want a smaller more compact nav bar(beta11 and up)]
  - Tabs
 	 - Tab Colorization
 		 - Colorize tabs: `Off`
