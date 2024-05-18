@@ -15,7 +15,7 @@
         background-color:color-mix(in srgb, light-dark(#fff, var(--lwt-accent-color)) 50%, light-dark(rgba(255,255,255,0.5),rgba(10,10,10,0.8))) !important;
         }
         @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {
-        background-color: light-dark(rgba(255,255,255,0.7), rgba(0,0,0,0.18)) !important;
+        background-color: light-dark(rgba(255,255,255,0.7), rgba(,0,0,0.24)) !important;
         }
     }
     }
@@ -136,11 +136,29 @@
 
 
 
-/*thin navbar mod*/
+/*minimal navbar mod*/
 
 @media (-moz-bool-pref:"af.edgyarc.minimal-navbar") {
-    :root[windowtype="navigator:browser"] #nav-bar.browser-toolbar{
-        
+    :root[windowtype="navigator:browser"]:not([customizing]) #nav-bar.browser-toolbar{
+        @media (-moz-bool-pref:"af.edgyarc.thin-navbar"){
+            &:hover {
+            #urlbar:not([breakout-extend][focused]) {
+            #urlbar-background {
+                border-radius:0 !important;
+                background-color:light-dark(rgba(255,255,255,0.5),rgba(0,0,0,0.12)) !important;
+               
+                &::before {
+                    opacity:0 !important;
+                }
+              
+            }
+               
+            #urlbar-input {
+                cursor: default !important;
+            }
+            }
+            
+        }}    
     &:not(:hover) 
 {
           #identity-icon-box,
@@ -153,11 +171,17 @@
           #fxa-toolbar-menu-button,  
           .webextension-browser-action,  
           #stop-reload-button,  
-    #urlbar-background,
+    #downloads-button,
+    #urlbar:not([breakout-extend][focused]) #urlbar-background,
           .toolbarbutton-icon
           {opacity:0 !important;
-          transition: opacity 200ms linear !important;
+              width:0.1px !important;
+          transition: opacity 0ms linear, width 0ms 0ms linear !important;
           }
+    @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {
+   #urlbar-input {
+        opacity:0.7 !important;
+    }}
         } }
 }
 

@@ -34,6 +34,10 @@
 :root {
   --af-minimal-opacity: 0.68 ;
   --af-normal-opacity: 0.1 !important;
+  @media (-moz-bool-pref:"af.edgyarc.macos-more-translucent") {
+      --af-minimal-opacity: 0.55 !important;
+  --af-normal-opacity: 0.05 !important;
+  }
   --af-bg-transition: background-color 0ms linear !important;
   --af-content-border: 1px solid light-dark(rgba(0, 0, 0, 0.2), rgba(220, 220, 220, 0.2));
   --af-content-shadow: 0 0 1px 1px light-dark(rgba(0,0,0,0.1), rgba(0, 0, 0, 0.1));
@@ -100,12 +104,13 @@
   border-color: rgba(0, 0, 0, 0) !important;
   &:hover {
     border-radius: 20px;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     background-color: var(--urlbar-box-active-bgcolor) !important;
     transition: background-color 200ms ease-in-out;
   }
 }
+
 
 /*sidebar header*/
 
@@ -126,7 +131,10 @@
   @media not (-moz-bool-pref:"af.edgyarc.show-sidebar-header") {
     visibility: collapse !important; /*hide sidebar by default*/
   }
-
+  
+  #sidebar-switcher-target{
+    border-radius:5px !important;
+  }
   /*remove sidebar elements*/
   & #sidebar-close {
     display: none !important;
@@ -144,31 +152,32 @@
   #sidebar-box {
     border: var(--af-content-border) !important;
     box-shadow: var(--af-content-shadow) !important;
-
+    border-radius: 6px !important;
     padding:0px !important;
-
-    &,
-    #sidebar {
-
-      border-radius: 6px !important;
-      
+    @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {opacity: 0.8 !important;}
+  }
+     @media not (-moz-bool-pref:"af.edgyarc.show-sidebar-header")   {    
+       #sidebar {
+      border-radius: 6px 6px 6px 6px !important; 
+    }
+    }
+      @media (-moz-bool-pref:"af.edgyarc.show-sidebar-header")   {   
+        :root:not([titlepreface="᠎"]) #sidebar {
+      border-radius: 0px 0px 6px 6px !important; 
+    }   
+         :root[titlepreface="᠎"] #sidebar {
+      border-radius: 6px 6px 6px 6px !important; 
+    }   
     }
     
-    @media (-moz-bool-pref:"af.edgyarc.show-sidebar-header") {
-      #sidebar {
-        border-radius:0 0 6px 6px !important;
-      }
-    }
-
+  
+    
     #sidebar-header {
       border-radius:6px 6px 0 0 !important;
     }
 
-    @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {
 
-      opacity: 0.8 !important;
-    }
-  }
+  
 
   /*add tint overlay to window*/
   #main-window::before {
