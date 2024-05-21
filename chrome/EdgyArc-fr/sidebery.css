@@ -211,6 +211,14 @@
         }
 
         /* ==== Tabs ==== */
+        /*tab scrollbox shadows*/
+        &[data-frame-color-scheme="light"] {
+                .top-shadow[data-show="true"], .bottom-shadow[data-show="true"] {
+            opacity:0.57 !important;
+        }
+            
+        }
+    
         /*tab container indicator*/
         .Tab[data-audible="true"] {
             .body {
@@ -330,14 +338,26 @@
       @media (-moz-bool-pref:"af.sidebery.nav-on-top") {
           margin-bottom:10px !important;
       }
+      @media (-moz-bool-pref:"af.sidebery.top-new-tab-btn") {
+          margin-bottom:0px !important;
+            
+          .new-tab-btn {
+              margin-bottom:5px !important;
+          }
+      }
     /* Add separator before new tab button. */
-    &::before {
+  
+       &::before {
       width: calc(100% - var(--tabs-margin)*2) !important;
       inset-inline: auto !important;
       top: 0 !important;
-      border-top: 1px solid var(--separator-color) !important;
+      @media not (-moz-bool-pref:"af.sidebery.top-new-tab-btn") { 
+          border-top: 1px solid var(--separator-color) !important; }
+           
       box-shadow: none !important;
     }
+      
+
 
     /* Make sure the separator is hidden when there are only pinned tabs. */
     &[data-new-tab-bar-position="after_tabs"]:first-child {
@@ -375,6 +395,9 @@
         color: var(--frame-fg) !important;
       }
     }
+            @media (-moz-bool-pref:"af.sidebery.top-new-tab-btn") {
+          order:  -5 !important;
+      }
   }
 
         
@@ -394,18 +417,25 @@
                 padding:0px !important;
                 margin:0px !important;
                 transition: height 100ms ease-in-out 0ms, width 100ms ease-in-out 0ms;
+                
+                @media not (-moz-bool-pref:"af.sidebery.always-panel-show-tab-count")
+                {.nav-item:not(:hover):not([data-active="true"]) .len {
+                    opacity:0 !important;
+                    transition:opacity 200ms linear !important;
+                }}
             }
 
             #nav_bar {
                 background-color: transparent !important;
+                
             }
             
             #nav_bar[data-layout="inline"] {
         --nav-btn-width:26px !important;
         --nav-btn-height:26px !important;
-        --nav-btn-len-margin: -4px !important;
+        --nav-btn-len-margin: 0px  !important;
                 .len {
-                    font-size:0.2rem !important;
+                   
                 }   
         
     }
