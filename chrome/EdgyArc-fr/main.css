@@ -33,7 +33,7 @@
 
 :root {
   --af-minimal-opacity: 0.68 ;
-  --af-normal-opacity: 0.1 !important;
+  --af-normal-opacity: 0.15 !important;
   @media (-moz-bool-pref:"af.edgyarc.macos-more-translucent") {
       --af-minimal-opacity: 0.55 !important;
   --af-normal-opacity: 0.05 !important;
@@ -154,7 +154,13 @@
     box-shadow: var(--af-content-shadow) !important;
     border-radius: 6px !important;
     padding:0px !important;
-    @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {opacity: 0.8 !important;}
+    @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {
+     
+      opacity: 0.6 !important;
+       @media (-moz-bool-pref:"af.edgyarc.macos-more-translucent" ) {
+         opacity:0.5 !important;
+      }
+    }
   }
      @media not (-moz-bool-pref:"af.edgyarc.show-sidebar-header")   {    
        #sidebar {
