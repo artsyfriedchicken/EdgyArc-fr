@@ -32,10 +32,10 @@
 }
 
 :root {
-  --af-minimal-opacity: 0.68 ;
+  --af-minimal-opacity: 0.53 ;
   --af-normal-opacity: 0.15 !important;
   @media (-moz-bool-pref:"af.edgyarc.macos-more-translucent") {
-      --af-minimal-opacity: 0.55 !important;
+      --af-minimal-opacity: 0.45 !important;
   --af-normal-opacity: 0.05 !important;
   }
   --af-bg-transition: background-color 0ms linear !important;
