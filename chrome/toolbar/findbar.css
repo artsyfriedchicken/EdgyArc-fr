@@ -56,7 +56,7 @@ findbar .close-icon {
 @media (-moz-bool-pref: "uc.tweak.rounded-corners") {
   findbar {
     border: none !important;
-    margin-bottom: var(--uc-tweak-rounded-corners-padding, 0px) !important;
+    margin-top: calc(-1 * var(--uc-tweak-rounded-corners-padding, 0px)) !important;
     background-color: transparent !important;
     padding-inline: var(--uc-tweak-rounded-corners-padding, 0px) !important;
 

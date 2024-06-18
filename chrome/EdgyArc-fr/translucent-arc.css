@@ -1,64 +1,61 @@
 /*start minimal sidebar*/
 
-@media not (-moz-bool-pref:"af.edgyarc.edge-sidebar"){
-  
-  
+@media not (-moz-bool-pref: 'af.edgyarc.edge-sidebar') {
+  #sidebar-box {
+    background-color: transparent !important;
+    opacity: var(--af-minimal-opacity) !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    &,
+    #sidebar {
+      border-radius: 0 0 0 0 !important;
+    }
+  }
+  :root[titlepreface='᠎'] {
     #sidebar-box {
-        background-color:transparent !important; 
-        opacity:var(--af-minimal-opacity) !important;
-     margin:0px !important;
-     padding:0px !important;
-      &, #sidebar {
-          border-radius:0 0 0 0 !important;
+      padding-left: 1px !important;
+      &:hover > #sidebar {
+        margin-left: var(--uc-tweak-rounded-corners-padding) !important;
+        margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
       }
-   }
-   :root[titlepreface="᠎"] {  
-      #sidebar-box {
-        padding-left:1px !important;
-      &:hover>#sidebar {
-   margin-left:var(--uc-tweak-rounded-corners-padding) !important;
-        margin-bottom:var(--uc-tweak-rounded-corners-padding) !important;
-     }
       &:hover::before {
         content: '';
-       display: block;
-       position: absolute;
-       top: 0; right: 0; bottom: 0; left: 0;
-       z-index: 0;
-       pointer-events: none;
-       background-color:var(--lwt-accent-color) !important;
-       opacity:var(--af-minimal-opacity) !important;
-     }
-   }
-     }
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-color: var(--lwt-accent-color) !important;
+        opacity: var(--af-minimal-opacity) !important;
+      }
+    }
+  }
   /* :root:not([customizing]):has(#sidebar-box:not([hidden])) {} */
-  :root:has(#sidebar-box:not([hidden])){
-  #appcontent .browserStack {
-     margin-left:0px !important;
-    }
-  }
-    :root:has(#sidebar-box[hidden]){
-  #appcontent .browserStack {
-     margin-left:8px !important;
+  :root:has(#sidebar-box:not([hidden])) {
+    /* This cancels left padding and margin on all immediate descendants (content, findbar, bottom-docked devtools) */
+    #appcontent .browserContainer > * {
+      padding-left: 0 !important;
+      margin-left: 0 !important;
     }
   }
 
-
-    
-  
-     #navigator-toolbox, .browserContainer {
-     &::before {
-        content: '';
-       display: block;
-       position: absolute;
-       top: 0; right: 0; bottom: 0; left: 0;
-       z-index: 0;
-       pointer-events: none;
-       background-color:var(--lwt-accent-color) !important;
-       opacity:var(--af-minimal-opacity) !important;
-     }
-   }
-
-
-  
-   }
+  #navigator-toolbox,
+  .browserContainer {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-color: var(--lwt-accent-color) !important;
+      opacity: var(--af-minimal-opacity) !important;
+    }
+  }
+}
