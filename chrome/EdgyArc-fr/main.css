@@ -219,8 +219,12 @@
 :root:not([inDOMFullscreen="true"]) {
   #appcontent .browserStack {
     overflow: hidden !important;
-    border: var(--af-content-border) !important;
-    box-shadow: var(--af-content-shadow) !important;
+  }
+  @media not (-moz-bool-pref:"af.edgyarc.no-content-border") {
+    #appcontent .browserStack {
+      border: var(--af-content-border) !important;
+      box-shadow: var(--af-content-shadow) !important;
+    }
   }
 }
 
