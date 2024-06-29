@@ -1,5 +1,5 @@
 /* Edge-Frfox */
-@import url("content/common.css") (-moz-bool-pref: 'af.edgyarc.edge-styles');
-@import url("content/newtab.css") (-moz-bool-pref: 'af.edgyarc.edge-styles');
+@import url("content/common.css") (-moz-bool-pref: "af.edgyarc.edge-styles");
+@import url("content/newtab.css") (-moz-bool-pref: "af.edgyarc.edge-styles");
 @import url("tweaks/sidebery.css") (-moz-bool-pref: "uc.tweak.theme.sidebery");
 @import url("EdgyArc-fr/sidebery.css") (-moz-bool-pref: "af.sidebery.edgyarc-theme");
