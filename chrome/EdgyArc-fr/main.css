@@ -150,12 +150,14 @@
 @media (-moz-bool-pref:"af.edgyarc.edge-sidebar") { 
 
   #sidebar-box {
-    border: var(--af-content-border) !important;
-    box-shadow: var(--af-content-shadow) !important;
+    box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
     border-radius: 6px !important;
     padding:0px !important;
+    @media not (-moz-bool-pref:"af.edgyarc.no-content-border") {
+      border: var(--af-content-border) !important;
+      box-shadow: var(--af-content-shadow) !important;
+    }
     @media (-moz-bool-pref:"af.edgyarc.macos-translucent") {
-     
       opacity: 0.6 !important;
        @media (-moz-bool-pref:"af.edgyarc.macos-more-translucent" ) {
          opacity:0.5 !important;
@@ -219,8 +221,12 @@
 :root:not([inDOMFullscreen="true"]) {
   #appcontent .browserStack {
     overflow: hidden !important;
-    border: var(--af-content-border) !important;
-    box-shadow: var(--af-content-shadow) !important;
+  }
+  @media not (-moz-bool-pref:"af.edgyarc.no-content-border") {
+    #appcontent .browserStack {
+      border: var(--af-content-border) !important;
+      box-shadow: var(--af-content-shadow) !important;
+    }
   }
 }
 

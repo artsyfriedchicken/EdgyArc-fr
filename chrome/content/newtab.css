@@ -333,7 +333,7 @@ url-prefix("about:home") {
   url(about:privatebrowsing) {
     body {
       /* Specify both jpg and png file extensions, but jpg images will always
-       * have a higher priority. */
+      * have a higher priority. */
       --bg-0: url(../background-0.jpg), url(../background-0.png);
       --bg-1: url(../background-1.jpg), url(../background-1.png);
       --newtab-element-hover-color: rgb(239 239 239 / .3) !important;
